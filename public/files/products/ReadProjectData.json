@@ -1,0 +1,13 @@
+{
+    "product_name": "Read Project Data",
+    "product_code": "READ_PROJECT_DATA",
+    "purpose": ["Project Data From the url and copies the values to project properties"],
+    "description": [{"Type": "Text", "Content": ["Project Data is entered in url for record and access to the clients and contractors involved in the project. Detailer has to read the url file and enter the values in project properties. If any data is changed, it needs to be updated. This application make the process simple. By entering  the url link and project number. Data gets copied to project properties."]}],
+    "package_content": ["TSEP package (Objects.Inp file included)"],
+    "steps": [],
+    "pd_benefits": ["Copies the data from url to project properties", "Avoid duplicate work."],
+    "pc_benefits": ["One Time Purchase", "Free Update", "Available for unlimited Version", "One licence Per User"],
+    "download_process": ["Once You purchase the tool, a link will be sent to your mail to download.", "Download the package."],
+    "installation_process": ["Close Tekla Software", "Double click on the installation Package", "System will show installed Tekla Versions on your system", "Choose the version(s) to be installed.", "Close the Application. (Do not Delete the File)", "It will be queued for the installation when Tekla is open next time.", "Open The Tekla Software.", "Application will be installed before opening the software.", "Search for Read Project Data under Application and Components.", "Run the Tool.", "Let the Application automate the manual process."],
+    "status": "ACTIVE"
+}

@@ -1,0 +1,500 @@
+Sno,Product Name,Delete,Product Code,Product Prefix,Product ID,Description,Status,Created At
+1,Add Form Face Symbols for Panels in GA Drawing,YES,ADD_FROM_FACE_SYMBOL_FOR_PANELS_IN_GA_DRAWING,,,"Adding form face symbol in Marking Plan of Panel GA Drawing is critical for erection.It is quite simple with the application as it automates the process. Select the view and run the application. Since, filter is inbuilt, Panel will only be considered. If the form face changes in the model. It will be updated automatically in the drawing sheet.",Active,13/11/2023 3:41:18 PM
+2,Add Phase Number,,ADD_PHASE_NUMBER,IBIM,IBIM-1110,"Purpose : Add phase number to part and assembly prefix and start number with several options<div><br></div><div>Description : It adds phase number to part and assembly prefix. Start number has several formats for user to choose. F<span style=""color: var(--bs-body-color); font-size: var(--bs-body-font-size); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);"">or example, When you choose format 1001, application will assign 1001 to phase 1 and 2001 to phase 2 and so on. </span></div><div>Custom option is added to assign start number of user preference. You can find option to delete too. <span style=""color: var(--bs-body-color); font-size: var(--bs-body-font-size); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);"">Run this application to assign phase number before numbering. You can also see the advantage of proper numbering with this tool. </span></div><div>If the plate belongs to different phases, you will find phase 1 will get 1p1 and phase 2 will get 2p1. Easy to manage. </div>",Active,12/08/2023 5:20:23 AM
+3,All Tools,,ALL_TOOLS,IBIM,IBIM-1132,Purpose<div><br></div><div>Description</div>,Active,16/10/2023 3:56:17 PM
+4,Base Plate With Cage,,BASE_PLATE_WITH_CAGE,IBIM,IBIM-1047,"<div><div><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:
+Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-fareast-theme-font:minor-fareast;color:#404040;mso-font-kerning:
+12.0pt;language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-color:
+#404040;mso-style-textfill-fill-alpha:100.0%"">Purpose : </span></div>
+
+<div><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:
+Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:+mn-cs;mso-ascii-theme-font:
+minor-latin;mso-fareast-theme-font:minor-fareast;mso-bidi-theme-font:minor-bidi;
+color:#222222;mso-font-kerning:12.0pt;language:en-US;mso-style-textfill-type:
+solid;mso-style-textfill-fill-color:#222222;mso-style-textfill-fill-alpha:100.0%"">Creates
+base plate with grout and cage around Anchor Rods. </span></div>
+
+<div></div>
+
+<div><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:
+Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-fareast-theme-font:minor-fareast;color:#404040;mso-font-kerning:
+12.0pt;language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-color:
+#404040;mso-style-textfill-fill-alpha:100.0%"">Description: </span></div>
+
+<div><span style=""font-size:12.0pt;font-family:Calibri;
+mso-ascii-font-family:Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:
++mn-cs;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-bidi-theme-font:minor-bidi;color:#222222;mso-font-kerning:12.0pt;
+language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-color:
+#222222;mso-style-textfill-fill-alpha:100.0%"">This application creates a base
+plate connection with option to change base plate or anchor rods. It has
+additional option to put a cage around anchor rods and make it as an assembly.
+Options to change the rotation of anchor rod bend at the end.  </span></div></div>",Active,29/08/2022 10:15:17 AM
+5,Beam Plate To Contour Plate,,BEAM_PLATE_TO_CONTOUR_PLATE,IBIM,IBIM-1043,"<div><div><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:
+Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-fareast-theme-font:minor-fareast;color:#404040;mso-font-kerning:
+12.0pt;language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-color:
+#404040;mso-style-textfill-fill-alpha:100.0%"">Purpose : Converts Beam Plate To
+Contour Plate and associate all the objects(Bolt, weld and cuts) to newly
+converted contour plate. </span></div>
+
+<div></div>
+
+<div><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:
+Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-fareast-theme-font:minor-fareast;color:#404040;mso-font-kerning:
+12.0pt;language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-color:
+#404040;mso-style-textfill-fill-alpha:100.0%"">Description: </span></div>
+
+<div><span style=""font-size:12.0pt;font-family:Calibri;
+mso-ascii-font-family:Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:
+Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+color:#404040;mso-font-kerning:12.0pt;language:en-US;mso-style-textfill-type:
+solid;mso-style-textfill-fill-color:#404040;mso-style-textfill-fill-alpha:100.0%"">This
+application converts selected Beam Plates to Contour plates. If it is a
+component, it will explode and associate the bolts, welds and cuts to a newly
+converted contour plate. Additional option to chamfer the corners while
+conversion and modify them later. </span></div></div>",Active,28/08/2022 9:45:54 PM
+6,Bolt Check and Bolt Parts,YES,BOLT_CHECK_AND_BOLT_PARTS,,,"Critical to bolt the parts in the model. Checking is time consuming and manual process. Sometimes, user might miss the parts to be bolted together. This will lead to drilling at the site and thereby delay in erection. With this tool, it can be identified at the initial stage itself. Option is also given to ignore the parts by adding any text in Bolt Comment.",Active,13/11/2023 3:41:18 PM
+7,Bolt Connection,,BOLT_CONNECTION,IBIM,IBIM-1160,"<div>Purpose : Creates bolt between primary and secondary parts.</div><div><br></div><div>Description : <span style=""color: rgb(13, 13, 13); font-family: Roboto, Noto, sans-serif; font-size: 15px; white-space-collapse: preserve; font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);"">This application creates bolt between primary and secondary members / plates. There is no hassle of selection first and second point. Offset distance can be set in both X and Y direction. Powerful and easy to use.</span></div>",Active,30/03/2024 5:40:54 PM
+8,Bolt Hole Generator,YES,BOLT_HOLE_GENERATOR,,,"Adding a bolt or hole to a part is quite common in project. Currently, it is a manual process. With this tool, user can create bolt/hole to parts and set the distance by qty, max, exact, equal.",Active,16/11/2023 11:02:35 AM
+9,Bolt Hole Generator by Two Points,,BOLT_HOLE_GENERATOR_BY_TWO_POINTS,IBIM,IBIM-1044,"<div><div><span class=""selectable-text copyable-text"">Purpose: </span></div><div><span class=""selectable-text copyable-text""> Easy to create bolt / hole by picking two points. </span></div><div><br></div><div><span class=""selectable-text copyable-text"">Description: </span></div><div><span class=""selectable-text copyable-text"">Adding a bolt or hole to a part is quite common in project. If you need top and bottom flanges and web, you have to do multiple times. Currently, it is a manual process. With this tool, user can create bolt/hole to parts and set the distance by qty, max, exact, equal and staggered with two clicks. </span></div><div><br></div></div>",Active,28/08/2022 10:00:28 PM
+10,Cap Plate With Stiffener,,CAP_PLATE_WITH_STIFFENER,IBIM,IBIM-1013,"<div><span class=""selectable-text copyable-text"">Purpose :</span></div><div><span class=""selectable-text copyable-text"">Creates cap plate with stiffener and option to add holes</span></div><div><span class=""selectable-text copyable-text"">Description: </span></div><div><span class=""selectable-text copyable-text"">This application creates a connection between post and beam. It adds bolt to the cap plate only and hole is created for beam separately. So the beam will not be a part of assembly when you assign bolt type as workshop.</span></div><div><br></div>",Active,24/04/2022 1:39:01 PM
+11,Check Dimension And Properties,,CHECK_DIMENSION_AND_PROPERTIES,IBIM,IBIM-1138,"<span style=""font-size:16px;""><span style=""font-size:14px;"">Purpose : Display dimension And properties<br>
+<br>
+Description : This application will help you check the dimensions of secondary parts in relation to primary. It can be used both in plan and elevation views. Options are given to display additional property of the members in the mode</span>l.</span><div><span style=""color: rgb(13, 13, 13); font-family: Roboto, Noto, sans-serif; font-size: 15px; white-space-collapse: preserve; font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);""></span></div>",Active,03/11/2023 5:09:30 AM
+12,Check Drawing Content,,CHECK_DRAWING_CONTENT,IBIM,IBIM-1085,"<div><span class=""selectable-text copyable-text""><b>Purpose :</b> </span><span style=""color: var(--bs-body-color); font-size: var(--bs-body-font-size); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);"">Checking missing part marks, bolt marks and weld marks in the drawing. </span></div><div><br></div><div><span class=""selectable-text copyable-text""><b>Description: </b><br><br></span></div><div>Checking the missing marks in the drawing is a tedious process. Opening each drawing and checking is tiresome and time consuming. With this application, you can check for the selected drawings. <span style=""color: var(--bs-body-color); font-size: var(--bs-body-font-size); text-align: var(--bs-body-text-align);"">It will check all the views and display the list if the mark is missing in all the views. </span><span style=""color: var(--bs-body-color); font-size: var(--bs-body-font-size); text-align: var(--bs-body-text-align);"">You have option to set conditions to ignore. For example, we do not show the weld size 6mm and below and hole size 22.0mm. </span></div><div><span style=""color: var(--bs-body-color); font-size: var(--bs-body-font-size); text-align: var(--bs-body-text-align);""><br></span></div><div>We can set rule to ignore the Criteria. After checking, it will give you the list of drawings in which marks are missing. You can directly open the drawing from the application. Selecting the cell will highlight the parts and add missing marks. </div><div><br></div>",Active,16/11/2022 10:00:43 AM
+13,Check Plate Profile,YES,CHECK_PLATE_PROFILE,,,"Flat Bar Profile is preferred in most of the connections where it is possible for fabrication.  . However, there might be a little variation, which can change the flat bar size to plate size. Identifying the plates manually is time consuming process. This application enables the user to identify by differentiating the flat bar and plate profile in a different color.",Active,13/11/2023 3:41:18 PM
+14,Checking Tools,,CHECKING_TOOLS,IBIM,IBIM-1007,"This tool checks the incorrect weld, bolt hole size and center distance",Active,11/04/2022 5:29:12 AM
+15,Cleat With Hole,YES,CLEAT_WITH_HOLE,IBIM,IBIM-1076,,Active,06/09/2022 6:00:27 PM
+16,Convert Beam Plate To Contour Plate,YES,CONVERT_BEAM_PLATE_TO_CONTOUR_PLATE,,,"This application converts selected Beam Plates to Contour plates. If it is a component, it will explode and associate the bolts, welds and cuts to a newly converted contour plate. Additional option to chamfer the corners while conversion and modify them later.",Active,06/02/2024 9:55:17 AM
+17,Convert Beam Plate To Contour Plate And Vice Versa,,CONVERT_BEAM_PLATE_TO_CONTOUR_PLATE_AND_VICE_VERSA,IBIM,IBIM-1098,"<div><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:
+Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-fareast-theme-font:minor-fareast;color:#404040;mso-font-kerning:
+12.0pt;language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-color:
+#404040;mso-style-textfill-fill-alpha:100.0%"">Purpose : Converts Beam Plate To
+Contour Plate and associate all the objects(Bolt, weld and cuts) </span><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:Calibri;
+mso-fareast-font-family:+mn-ea;mso-bidi-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-fareast-theme-font:minor-fareast;color:#404040;mso-font-kerning:
+12.0pt;language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-color:
+#404040;mso-style-textfill-fill-alpha:100.0%"">to a </span><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:Calibri;
+mso-fareast-font-family:+mn-ea;mso-bidi-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-fareast-theme-font:minor-fareast;color:#404040;mso-font-kerning:
+12.0pt;language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-color:
+#404040;mso-style-textfill-fill-alpha:100.0%"">newly converted </span><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:Calibri;
+mso-fareast-font-family:+mn-ea;mso-bidi-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-fareast-theme-font:minor-fareast;color:#404040;mso-font-kerning:
+12.0pt;language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-color:
+#404040;mso-style-textfill-fill-alpha:100.0%""> </span><span style=""font-size:12.0pt;
+font-family:Calibri;mso-ascii-font-family:Calibri;mso-fareast-font-family:+mn-ea;
+mso-bidi-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:
+minor-fareast;color:#404040;mso-font-kerning:12.0pt;language:en-US;mso-style-textfill-type:
+solid;mso-style-textfill-fill-color:#404040;mso-style-textfill-fill-alpha:100.0%"">plate. </span></div><div><span style=""font-size:12.0pt;
+font-family:Calibri;mso-ascii-font-family:Calibri;mso-fareast-font-family:+mn-ea;
+mso-bidi-font-family:Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:
+minor-fareast;color:#404040;mso-font-kerning:12.0pt;language:en-US;mso-style-textfill-type:
+solid;mso-style-textfill-fill-color:#404040;mso-style-textfill-fill-alpha:100.0%""><br></span></div>
+
+<div></div>
+
+<div><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:
+Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-fareast-theme-font:minor-fareast;color:#404040;mso-font-kerning:
+12.0pt;language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-color:
+#404040;mso-style-textfill-fill-alpha:100.0%"">Description: </span></div>
+
+<div><span style=""font-size:12.0pt;font-family:Calibri;
+mso-ascii-font-family:Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:
+Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+color:#404040;mso-font-kerning:12.0pt;language:en-US;mso-style-textfill-type:
+solid;mso-style-textfill-fill-color:#404040;mso-style-textfill-fill-alpha:100.0%"">This
+application converts selected Beam Plates to Contour plates and contour plates
+to beam plates. If it is a component, it will explode and associate the bolts,
+welds and cuts to a newly converted plate. Additional option to chamfer the
+corners while conversion and modify them later. </span></div>",Active,08/07/2023 9:57:13 AM
+18,Create Dimension,YES,CREATE_DIMENSION,IBIM,IBIM-1144,"Purpose : Create Dimensions quickly by selecting primary and secondary members. No more frustration of zooming and picking multiple positions<div><br></div><div>Description : This application creates dimensions to secondary members in relation to picked primary part. Developed mainly to speed up GA Drawing Dimension, but it can also be effectively used for assembly and single part drawings. Dimension in section and detail views is also possible with this tool. </div><div>You can also exclude any particular bolt from creating dimensions. Options to create dimension by default, set dimension to start point and pick point to locate dimension. </div>",Active,02/02/2024 12:25:55 PM
+19,Create Dimensions,YES,CREATE_DIMENSIONS,IBIM,IBIM-1145,"Purpose : Create Dimensions quickly by selecting primary and secondary members. No more frustration of zooming and picking multiple positions<div><br></div><div>Description : This application creates dimensions to secondary members in relation to picked primary part. Developed mainly to speed up GA Drawing Dimension, but it can also be effectively used for assembly and single part drawings. Dimension in section and detail views is also possible with this tool. </div><div>You can also exclude any particular bolt from creating dimensions. Options to create dimension by default, set dimension to start point and pick point to locate dimension. </div>",Active,02/02/2024 12:28:52 PM
+20,Custom Beam With Plate,,CUSTOM_BEAM_WITH_PLATE,IBIM,IBIM-1045,"<div><div><span class=""selectable-text copyable-text"">Purpose : </span></div><div><span class=""selectable-text copyable-text"">Creates Cleat with Hole on column and beam. </span></div><div><br></div><div><span class=""selectable-text copyable-text"">Description: </span></div><div><span class=""selectable-text copyable-text"">This application Creates cleat to post and beams to connect timber. Just pick primary part and pick a position. Option to place near or far or both sides on beam. For post, it will give an option to place on any side. No need to draw timber any more for cleat. </span></div><div><br></div></div>",Active,29/08/2022 10:04:57 AM
+21,dimension,YES,dimension_test,IBIM,IBIM-1148,TEST,Active,02/02/2024 12:53:42 PM
+22,dimension data test,YES,dimension_data,IBIM,IBIM-1149,Test,Active,02/02/2024 12:54:15 PM
+23,Dimension Product Test,YES,dimension_product_test,IBIM,IBIM-1146,Test product,Active,02/02/2024 12:48:31 PM
+24,Dimension Test product,YES,Dimension_Test_Product_01,IBIM,IBIM-1154,Testing application,Inactive,05/03/2024 6:45:46 PM
+25,dimension tools set A,YES,dimension_tools,IBIM,IBIM-1150,<div>Test data</div>,Active,02/02/2024 12:55:01 PM
+26,dimension upload test,YES,dimension_upload,IBIM,IBIM-1147,Test data,Active,02/02/2024 12:52:37 PM
+27,Dimension_test_product,YES,Test_product_101010,IBIM,IBIM-1156,Testing purpose,Inactive,05/03/2024 8:41:06 PM
+28,Dimentional tools three test,YES,Dimentional_tools_three,IBIM,IBIM-1157,Dimentional tools three,Inactive,22/03/2024 2:05:59 PM
+29,Double Angle,,DOUBLE_ANGLE,IBIM,IBIM-1105,"<div style=""color: rgb(73, 75, 81); font-size: 15px;"">Purpose. : Creates angle  to the length of the member at the top and bottom inner flange of the member. </div><div style=""color: rgb(73, 75, 81); font-size: 15px;""><br></div><div style=""color: rgb(73, 75, 81); font-size: 15px;"">Description : This application creates double angle  to the length of the member at the top and bottom of inner flange. This can also be used to ""C"" and ""I"" Section.   of channel.   You can adjust the offset from start and end and move horizontally.  </div><div style=""color: rgb(73, 75, 81); font-size: 15px;"">Option to set near, far, both, top and bottom flange. </div><div style=""color: rgb(73, 75, 81); font-size: 15px;""><br></div>",Active,20/07/2023 2:16:05 PM
+30,Drain Hole,YES,DRAIN_HOLE,,,"Adds drain hole at the intersection of primary member and end plate. Option to create a drain hole at an angle, flat and full with offset distance. Mainly used for Truss structure.",Active,13/11/2023 3:41:18 PM
+31,Drawing Dimensions,,DRAWING_DIMENSIONS,IBIM,IBIM-1153,"<div>Purpose
+: Create Dimensions quickly by selecting primary and secondary members. No more
+frustration of zooming and picking multiple positions</div>
+
+<div> </div>
+
+<div>Description
+: This application creates dimensions to secondary members in relation to
+picked primary part. Developed mainly to speed up GA Drawing Dimension, but it
+can also be effectively used for assembly and single part drawings. Dimension
+in section and detail views is also possible with this tool. </div>
+
+<div>You
+can also exclude any particular bolt from creating dimensions. Options to
+create dimension by default, set dimension to start point and pick point to
+locate dimension.</div>",Active,14/02/2024 9:35:03 AM
+32,Drawing Properties Update,,DRAWING_PROPERTIES_UPDATE,IBIM,IBIM-1048,"<div><div><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:
+Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-fareast-theme-font:minor-fareast;color:#404040;mso-font-kerning:
+12.0pt;language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-color:
+#404040;mso-style-textfill-fill-alpha:100.0%""><b>Purpose : </b>Update the properties
+of Dimension, Part and Bolt Mark in a single window. View Scale, Shortening and
+view names can also be updated. Saves time</span></div>
+
+<div><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:
+Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-fareast-theme-font:minor-fareast;color:#404040;mso-font-kerning:
+12.0pt;language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-color:
+#404040;mso-style-textfill-fill-alpha:100.0%""><b>Description: </b></span></div>
+
+<div><span style=""font-size:12.0pt;font-family:Calibri;
+mso-ascii-font-family:Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:
+Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+color:#404040;mso-font-kerning:12.0pt;language:en-US;mso-style-textfill-type:
+solid;mso-style-textfill-fill-color:#404040;mso-style-textfill-fill-alpha:100.0%"">This
+application allows you to select the properties of dimension, </span><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:Calibri;
+mso-fareast-font-family:+mn-ea;mso-bidi-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-fareast-theme-font:minor-fareast;color:#404040;mso-font-kerning:
+12.0pt;language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-color:
+#404040;mso-style-textfill-fill-alpha:100.0%"">partmark</span><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:Calibri;
+mso-fareast-font-family:+mn-ea;mso-bidi-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-fareast-theme-font:minor-fareast;color:#404040;mso-font-kerning:
+12.0pt;language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-color:
+#404040;mso-style-textfill-fill-alpha:100.0%"">, Bolt mark and text from the
+drop down list. Since it lists saved settings on your system, you can quickly
+modify the properties. Quick tool to update and easy to manage changes. </span></div></div>",Active,29/08/2022 10:37:15 AM
+33,Drawing View Names,,DRAWING_VIEW_NAMES,,,"Multiple views are created in each drawing sheet. Especially in GA Drawing, it is highly preferred to add the view names to drawing title for easy recognition of the drawing sheet. This application exactly reads all the view names and copies them to the Drawing Title1. It makes the detailer job much easier and saves time. This application can also be used for Shop and Precast drawings",Active,13/11/2023 3:41:18 PM
+34,Erection Sequence,,ERECTION_SEQUENCE,IBIM,IBIM-1052,,Active,29/08/2022 11:24:09 AM
+35,Ferrules At Bolt Location,,FERRULES_AT_BOLT_LOCATION,IBIM,IBIM-1053,"<div><div><span class=""selectable-text copyable-text"">Purpose : </span></div><div><span class=""selectable-text copyable-text"">Creates Ferrules at Bolt Group Location.</span></div><div><br></div><div><span class=""selectable-text copyable-text"">Description: </span></div><div><span class=""selectable-text copyable-text"">This tool will be quite dynamic to create ferrules at Bolt location. It places Ferrules exactly in alignment with bolt on the face of the panel. It will also add Ferrules as sub assembly. Near or Far Side is assigned based on the form face. Pick a single or multiple panels and Pick the bolt groupto add ferrules. Huge time saving for precast detailer.</span></div><div><br></div></div>",Active,29/08/2022 11:28:34 AM
+36,Ferrules At Ref Bolt,YES,FERRULES_AT_REF_BOLT,IBIM,IBIM-1034,This application creates ferrules at Ref Bolt,Active,25/07/2022 10:45:58 AM
+37,Ferrules At Reference Object Bolt,,FERRULES_AT_REFERENCE_OBJECT_BOLT,IBIM,IBIM-1111,"<div><span class=""selectable-text copyable-text"">Purpose : Creates Ferrules at Reference or IFC Bolt.</span></div><div><br></div><div><span class=""selectable-text copyable-text"">Description:</span></div><div><span class=""selectable-text copyable-text"">This tool will be quite dynamic to create ferrules at IFC / Reference Object Bolt location. It places Ferrules exactly in alignment with bolt on the face of the panel. It will also add Ferrules as sub assembly. Near or Far Side is assigned based on the form face. Pick a single or multiple panels and Pick the reference object bolt to add ferrules. Huge time saving for precast detailer.</span></div><div><br></div>",Active,22/08/2023 4:45:43 PM
+38,Ferrules on Panel Face,YES,FERRULES_ON_PANEL_FACE,IBIM,IBIM-1031,,Active,24/07/2022 12:24:10 PM
+39,Fire Tie,,FIRE_TIE,IBIM,IBIM-1159,"<span style=""font-size:14px;"">Purpose : Fire Tie Connection to Panel to Panel and Panel to Steel Column<br>
+<br>
+Description : This application creates fire tie between panel to panels and panel to panel corner by selecting primary and secondary panels. It will also add ferrules as sub-assembly to respective panels and assign near, far or both sides. There is no manual process of assigning position. <br>
+You can add between panel to panels or panel to steel column. Easy to add multiple fire ties. User-friendly and time saving tool as this component is not available in Tekla.</span><span style=""color: rgb(13, 13, 13); font-family: Roboto, Noto, sans-serif; font-size: 15px; white-space-collapse: preserve;""></span>",Active,30/03/2024 5:36:19 PM
+40,Frame With Base Plate,,FRAME_WITH_BASE_PLATE,IBIM,IBIM-1084,"<div><div><span class=""selectable-text copyable-text"">Purpose : </span></div><div><span class=""selectable-text copyable-text"">Creates Frame with Base plates. Have options to add weld or connection between Primary and Middle Beams.</span></div><div><br></div><div><span class=""selectable-text copyable-text"">Description: </span></div><div><span class=""selectable-text copyable-text"">This application is quite dynamic to create a frame with two clicks. It can be used for residential, warehouse and commercial projects. Have multiple options to change the base plate details and add stiffeners. Intermediate members can be welded or connected with Primary. Try this one for Door frame, Create girts and columns with connections, Portal frame for residential. </span></div><div><br></div></div>",Active,27/10/2022 6:15:17 PM
+41,GA Mark,YES,GA_MARK,,,"Adding a Drawing Title (e.g. MP01, MP02..) is a manual process. There will be mismatch if ga drawing is deleted and renumbered. With this tool, it will be an easy fix. Users can set the prefix of their choice.",Active,13/11/2023 3:41:18 PM
+42,GA Mark And View Name,,GA_MARK_AND_VIEW_NAME,IBIM,IBIM-1137,"<div><span class=""selectable-text copyable-text"">Purpose : Assigns GA Mark to Drawing Title and Read the view names in the drawing sheet and updates the Drawing Title. Can be used for GA, Shop and Precast Drawings.</span></div><div><span class=""selectable-text copyable-text"">Description:</span></div><div><span class=""selectable-text copyable-text"">Adding a Drawing Title (e.g. MP01, MP02..) is a manual process. There will be mismatch if ga drawing is deleted and renumbered. With this tool, it will be an easy fix. Users can set the prefix of their choice.</span></div><div><br></div><div><span class=""selectable-text copyable-text"">Multiple views are created in each drawing sheet. Especially in GA Drawing, it is highly preferred to add the view names to drawing title for easy recognition of the drawing sheet. This application exactly reads all the view names and copies them to the Drawing Title1. It makes the detailer job much easier and saves time. This application can also be used for Shop and Precast drawings.</span></div>",Active,31/10/2023 8:39:06 AM
+43,L Shape Base Plate,,L_SHAPE_BASE_PLATE,IBIM,IBIM-1108,"<div>Purpose : Creates Base Plate with Mousehole and Grout.</div><div><br></div><div>Description :</div><div>This application creates a base plate connection with Mousehole. Base plate can be a rectangular, square, or extended either side as well as L-shape base plates. It is dynamic with several options built in one plugin. Commonly used in Residential Projects.</div>",Active,28/07/2023 5:36:27 PM
+44,Lintel Plate,,LINTEL_PLATE,IBIM,IBIM-1100,"<div>Purpose. : Creates lintel plate at the bottom of the beam. </div><div><br></div><div>Description : This application creates lintel plate at the bottom of the beam irrespective of profile. It has options to change to top or bottom flange.</div><div>You can trim or extend the plate from the member. <span style=""color: var(--bs-body-color); font-size: var(--bs-body-font-size); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);"">Offset distance from the start and end point of the member. Easy to create. </span></div><div>Very useful application for creating a plate by selecting the member</div>",Active,19/07/2023 12:08:59 PM
+45,MainPart Galv Hole,,MAINPART_GALV_HOLE,IBIM,IBIM-1109,"Purpose : Create a hole or cut in primary member where the secondary members intersect<div><br></div><div>Description : This application create holes or cuts in primary part where the secondary members intersect with. <span style=""color: var(--bs-body-color); font-size: var(--bs-body-font-size); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);"">Process is simple as you need to pick primary member and do cross selection of secondary members. Once you </span><span style=""color: var(--bs-body-color); font-size: var(--bs-body-font-size); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);"">finish press the middle mouse. Option to change either hole or cut. Huge time saving tool at low price.  </span></div>",Active,06/08/2023 4:22:54 AM
+46,Member Position,,MEMBER_POSITION,IBIM,IBIM-1096,"<div><b>Purpose: </b>Changes the reference point of the member while keeping the position intact.</div><div><br></div><div><b>Description: </b></div><div><span style=""color: rgb(13, 13, 13); font-family: Roboto, Noto, sans-serif; font-size: 15px; white-space-collapse: preserve;"">This application changes the reference point of the member while keeping the member position intact. It gives an option to change to any position. It works for all profile types. You can also change the reference point of the member to the middle, if you are going to export to design software. 
+Very useful application mainly for objects converted into Tekla from IFC model.</span><br></div>",Active,17/03/2022 1:37:55 PM
+47,Model Color To Drawing,YES,MODEL_COLOR_TO_DRAWING,,,,Active,13/11/2023 3:41:18 PM
+48,Move Member,YES,MOVE_MEMBER,,,Adjust two members on the opposite side,Active,13/11/2023 3:41:18 PM
+49,Multiple Plates,,MULTIPLE_PLATES,IBIM,IBIM-1103,"<div style=""color: rgb(73, 75, 81); font-size: 15px;"">Purpose. : Creates multiple plates inside edge of flange from top to bottom</div><div style=""color: rgb(73, 75, 81); font-size: 15px;""><br></div><div style=""color: rgb(73, 75, 81); font-size: 15px;"">Description : This application creates multiple plates inside edge of flange from top to bottom. Option to set quantities, equal distance and maximum distance. You can adjust the distance from start and end point</div>",Active,20/07/2023 9:51:30 AM
+50,New testing product,YES,new test product,IBIM,IBIM-1158,testing data,Inactive,23/03/2024 7:13:10 PM
+51,Objects On Panel Face,,OBJECTS_ON_PANEL_FACE,IBIM,IBIM-1131,<div>Purpose : Creates Ferrules or other elements on Picked Face of the Panel</div><div><br></div><div>Description:</div><div>Objects on panel face. Just pick the face and two points to indicate the direction. It will automatically place the ferrules in correct orientation. In-built option for spacing and gauge distance. Automatically added as sub assembly and position near or far side.</div>,Active,13/10/2023 6:47:02 PM
+52,Panel Clip To Column,,PANEL_CLIP_TO_COLUMN,IBIM,IBIM-1073,"<div><div><div><span class=""selectable-text copyable-text"">Purpose : Applies Panel clip to connect Panel and column. Additional support to fill the gap between Column and Panel</span></div><div><br></div><div><span class=""selectable-text copyable-text"">Description: </span></div><div><span class=""selectable-text copyable-text"">This application Creates panel clip connection between column and panels. It can be a single or multiple panels. Options are given to choose near side, far side or both sides. Additional support can be a channel or RHS to fill the gap between column and Panels. Commonly used connections. </span></div><div><br></div></div></div>",Active,01/09/2022 2:21:41 PM
+53,Panel Sub Assembly Builder,,PANEL_SUB_ASSEMBLY_BUILDER,IBIM,IBIM-1054,"<div><div><span style=""font-size:12.0pt;font-family:Calibri;
+mso-ascii-font-family:Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:
+Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+color:#404040;mso-color-index:1;mso-font-kerning:12.0pt;language:en-US;
+mso-style-textfill-type:solid;mso-style-textfill-fill-themecolor:text1;
+mso-style-textfill-fill-color:#404040;mso-style-textfill-fill-alpha:100.0%;
+mso-style-textfill-fill-colortransforms:""lumm=75000 lumo=25000""""><b>Purpose:  </b></span></div>
+
+<div><span style=""font-size:12.0pt;font-family:Calibri;
+mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;mso-bidi-font-family:
+""Times New Roman"";mso-ascii-theme-font:minor-latin;color:#404040;mso-color-index:
+1;mso-font-kerning:12.0pt;language:en-US;mso-style-textfill-type:solid;
+mso-style-textfill-fill-themecolor:text1;mso-style-textfill-fill-color:#404040;
+mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+""lumm=75000 lumo=25000"""">Add sub assembly components to the panel... </span></div>
+
+<div><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:
+Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-fareast-theme-font:minor-fareast;color:#404040;mso-color-index:
+1;mso-font-kerning:12.0pt;language:en-US;mso-style-textfill-type:solid;
+mso-style-textfill-fill-themecolor:text1;mso-style-textfill-fill-color:#404040;
+mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+""lumm=75000 lumo=25000""""><b>Description:</b></span></div><div><span style=""color: rgb(64, 64, 64); font-family: Calibri; font-size: 12pt; font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);"">This
+application adds components or assemblies placed inside or touching the panel
+as sub assembly. Option is given to ignore certain parts. If any part that
+touches the panel is not to be added as a sub assembly, set the UDA “Is Loose
+Part To Yes”,  . This package also comes
+with the Objects.inp.</span></div>
+
+<div><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:
+Calibri;mso-fareast-font-family:Calibri;mso-bidi-font-family:""Times New Roman"";
+mso-ascii-theme-font:minor-latin;color:#404040;mso-color-index:1;mso-font-kerning:
+12.0pt;language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-themecolor:
+text1;mso-style-textfill-fill-color:#404040;mso-style-textfill-fill-alpha:100.0%;
+mso-style-textfill-fill-colortransforms:""lumm=75000 lumo=25000"""">Benefits :</span></div>
+
+<div style=""line-height: 110%; margin-top: 0pt; margin-bottom: 2pt; margin-left: 0.1in; text-indent: -0.1in; direction: ltr; unicode-bidi: embed;""><span style=""font-size:12.0pt""><span style=""mso-special-format:bullet;
+color:#E48312;mso-color-index:4;font-family:Symbol;font-size:100%"">·</span></span><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-bidi-font-family:""Times New Roman"";
+mso-ascii-theme-font:minor-latin;color:#404040;mso-color-index:1;mso-font-kerning:
+12.0pt;language:en-AU;mso-style-textfill-type:solid;mso-style-textfill-fill-themecolor:
+text1;mso-style-textfill-fill-color:#404040;mso-style-textfill-fill-alpha:100.0%;
+mso-style-textfill-fill-colortransforms:""lumm=75000 lumo=25000"""">Eliminates the
+manual process of adding the components as a sub assembly. </span></div>
+
+<div style=""line-height: 110%; margin-top: 0pt; margin-bottom: 8pt; margin-left: 0.1in; text-indent: -0.1in; direction: ltr; unicode-bidi: embed;""><span style=""font-size:12.0pt""><span style=""mso-special-format:bullet;
+color:#E48312;mso-color-index:4;font-family:Symbol;font-size:100%"">·</span></span><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-bidi-font-family:""Times New Roman"";
+mso-ascii-theme-font:minor-latin;color:#404040;mso-color-index:1;mso-font-kerning:
+12.0pt;language:en-AU;mso-style-textfill-type:solid;mso-style-textfill-fill-themecolor:
+text1;mso-style-textfill-fill-color:#404040;mso-style-textfill-fill-alpha:100.0%;
+mso-style-textfill-fill-colortransforms:""lumm=75000 lumo=25000"""">Relieves the
+detailer of  remembering if the
+components are added. </span></div>
+
+<div style=""line-height: 110%; margin-top: 0pt; margin-bottom: 8pt; margin-left: 0.1in; text-indent: -0.1in; direction: ltr; unicode-bidi: embed;""><span style=""font-size:12.0pt""><span style=""mso-special-format:bullet;
+color:#E48312;mso-color-index:4;font-family:Symbol;font-size:100%"">·</span></span><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-bidi-font-family:""Times New Roman"";
+mso-ascii-theme-font:minor-latin;color:#404040;mso-color-index:1;mso-font-kerning:
+12.0pt;language:en-AU;mso-style-textfill-type:solid;mso-style-textfill-fill-themecolor:
+text1;mso-style-textfill-fill-color:#404040;mso-style-textfill-fill-alpha:100.0%;
+mso-style-textfill-fill-colortransforms:""lumm=75000 lumo=25000"""">Huge Time
+saving.<br></span></div></div>",Active,29/08/2022 12:21:09 PM
+54,Panel Sub Assembly Checker,YES,PANEL_SUB_ASSEMBLY_CHECKER,,,Reads the form face of the panel and checks the near side and far side of components/ sub assemblies added to the panel. It will also change the position based on the form face. No manual interpretation,Active,13/11/2023 3:41:18 PM
+55,Panel Sub Assembly Position,,PANEL_SUB_ASSEMBLY_POSITION,IBIM,IBIM-1020,"<div><div><span style=""font-size:12.0pt;font-family:Calibri;
+mso-ascii-font-family:Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:
+Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+color:#404040;mso-color-index:1;mso-font-kerning:12.0pt;language:en-US;
+mso-style-textfill-type:solid;mso-style-textfill-fill-themecolor:text1;
+mso-style-textfill-fill-color:#404040;mso-style-textfill-fill-alpha:100.0%;
+mso-style-textfill-fill-colortransforms:""lumm=75000 lumo=25000"""">Purpose:  </span><span style=""font-size:12.0pt;
+font-family:Calibri;mso-ascii-font-family:Calibri;mso-fareast-font-family:Calibri;
+mso-bidi-font-family:""Times New Roman"";mso-ascii-theme-font:minor-latin;
+color:#404040;mso-color-index:1;mso-font-kerning:12.0pt;language:en-US;
+mso-style-textfill-type:solid;mso-style-textfill-fill-themecolor:text1;
+mso-style-textfill-fill-color:#404040;mso-style-textfill-fill-alpha:100.0%;
+mso-style-textfill-fill-colortransforms:""lumm=75000 lumo=25000"""">Fix the
+position of sub assembly components added to the panel based on the form face.
+Changes the near and far side and eliminates the manual process of checking the
+position. </span></div>
+
+<div><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:
+Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-fareast-theme-font:minor-fareast;color:#404040;mso-color-index:
+1;mso-font-kerning:12.0pt;language:en-US;mso-style-textfill-type:solid;
+mso-style-textfill-fill-themecolor:text1;mso-style-textfill-fill-color:#404040;
+mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
+""lumm=75000 lumo=25000"""">Description: </span></div>
+
+<div><span style=""font-size:12.0pt;font-family:Calibri;
+mso-ascii-font-family:Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:
+Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+color:#404040;mso-color-index:1;mso-font-kerning:12.0pt;language:en-US;
+mso-style-textfill-type:solid;mso-style-textfill-fill-themecolor:text1;
+mso-style-textfill-fill-color:#404040;mso-style-textfill-fill-alpha:100.0%;
+mso-style-textfill-fill-colortransforms:""lumm=75000 lumo=25000"""">Reads the form
+face of the panel and checks the near side and far side of components/ sub
+assemblies added to the panel. It will also change the position based on the
+form face. No manual interpretation </span></div>
+
+<div><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:
+Calibri;mso-fareast-font-family:Calibri;mso-bidi-font-family:""Times New Roman"";
+mso-ascii-theme-font:minor-latin;color:#404040;mso-color-index:1;mso-font-kerning:
+12.0pt;language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-themecolor:
+text1;mso-style-textfill-fill-color:#404040;mso-style-textfill-fill-alpha:100.0%;
+mso-style-textfill-fill-colortransforms:""lumm=75000 lumo=25000"""">Benefits :</span></div>
+
+<div style=""line-height: 110%; margin-top: 0pt; margin-bottom: 2pt; margin-left: 0.1in; text-indent: -0.1in; direction: ltr; unicode-bidi: embed;""><span style=""font-size:12.0pt""><span style=""mso-special-format:bullet;
+color:#E48312;mso-color-index:4;font-family:Symbol;font-size:100%"">·</span></span><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-bidi-font-family:""Times New Roman"";
+mso-ascii-theme-font:minor-latin;color:#404040;mso-color-index:1;mso-font-kerning:
+12.0pt;language:en-AU;mso-style-textfill-type:solid;mso-style-textfill-fill-themecolor:
+text1;mso-style-textfill-fill-color:#404040;mso-style-textfill-fill-alpha:100.0%;
+mso-style-textfill-fill-colortransforms:""lumm=75000 lumo=25000"""">Eliminates the
+process of checking the near and far side position of sub assembly components</span></div>
+
+<div style=""line-height: 110%; margin-top: 0pt; margin-bottom: 8pt; margin-left: 0.1in; text-indent: -0.1in; direction: ltr; unicode-bidi: embed;""><span style=""font-size:12.0pt""><span style=""mso-special-format:bullet;
+color:#E48312;mso-color-index:4;font-family:Symbol;font-size:100%"">·</span></span><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-bidi-font-family:""Times New Roman"";
+mso-ascii-theme-font:minor-latin;color:#404040;mso-color-index:1;mso-font-kerning:
+12.0pt;language:en-AU;mso-style-textfill-type:solid;mso-style-textfill-fill-themecolor:
+text1;mso-style-textfill-fill-color:#404040;mso-style-textfill-fill-alpha:100.0%;
+mso-style-textfill-fill-colortransforms:""lumm=75000 lumo=25000"""">Relieves the
+detailer of remembering the form face while applying the sub assembly
+components. </span></div>
+
+<div style=""line-height: 110%; margin-top: 0pt; margin-bottom: 8pt; margin-left: 0.1in; text-indent: -0.1in; direction: ltr; unicode-bidi: embed;""><span style=""font-size:12.0pt""><span style=""mso-special-format:bullet;
+color:#E48312;mso-color-index:4;font-family:Symbol;font-size:100%"">·</span></span><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:Calibri;
+mso-fareast-font-family:Calibri;mso-bidi-font-family:""Times New Roman"";
+mso-ascii-theme-font:minor-latin;color:#404040;mso-color-index:1;mso-font-kerning:
+12.0pt;language:en-AU;mso-style-textfill-type:solid;mso-style-textfill-fill-themecolor:
+text1;mso-style-textfill-fill-color:#404040;mso-style-textfill-fill-alpha:100.0%;
+mso-style-textfill-fill-colortransforms:""lumm=75000 lumo=25000"""">Huge Time
+saving</span></div></div>",Active,04/05/2022 2:23:31 PM
+56,Panel Support,,PANEL_SUPPORT,IBIM,IBIM-1060,"<div><div><span class=""selectable-text copyable-text"">Purpose : </span></div><div><span class=""selectable-text copyable-text"">Creates Angle / Channel with bolts, ferules to multiple panels. </span></div><div><br></div><div><span class=""selectable-text copyable-text"">Description :  </span></div><div><span class=""selectable-text copyable-text"">This connection is quite common while working in both precast and steel detailing together. It creates an angle to the multiple panels. User can choose Connection type </span></div><div><br></div><div><span class=""selectable-text copyable-text"">Cleat</span></div><div><span class=""selectable-text copyable-text"">Cleat With washer Plate</span></div><div><span class=""selectable-text copyable-text"">Bolt / Chemset</span></div><div><span class=""selectable-text copyable-text"">Clip Plate</span></div><div><br></div><div><span class=""selectable-text copyable-text"">Ferrules are added as sub assembly to the panel.</span></div><div><br></div><div><span class=""selectable-text copyable-text"">Option to change the distance by exact number, target spacing and equal spacing. You can also choose either continuous or by panel. Dynamic connection and huge time saver. </span></div><div><br></div></div>",Active,29/08/2022 3:18:04 PM
+57,Panel To Raker,,PANEL_TO_RAKER,IBIM,IBIM-1005,"<div><div><span class=""selectable-text copyable-text"">Purpose : Creates Connection between panels and an angle / Channel. with bolts, ferules to multiple panels. </span></div><div><br></div><div><span class=""selectable-text copyable-text"">Description :  This connection is quite common while working in both precast and steel detailing together. It creates Connection between panels and an angle / Channel. </span></div><div><span class=""selectable-text copyable-text"">User can choose Connection type </span></div><div><span class=""selectable-text copyable-text"">Cleat</span></div><div><span class=""selectable-text copyable-text"">Cleat With washer Plate</span></div><div><span class=""selectable-text copyable-text"">Bolt / Chemset</span></div><div><span class=""selectable-text copyable-text"">Clip Plate</span></div><div><br></div><div><span class=""selectable-text copyable-text"">Ferrules are added as sub assembly to the panel.</span></div><div><br></div><div><span class=""selectable-text copyable-text"">Option to change the distance by exact number, target spacing and equal spacing. You can also choose either continuous or by panel. Dynamic connection and huge time saver. </span></div><div><br></div></div>",Active,11/04/2022 5:27:53 AM
+58,Part Properties Check,,PART_PROPERTIES_CHECK,IBIM,IBIM-1078,"<div><div><span class=""selectable-text copyable-text""><b>Purpose :</b> Compares the excel sheet with the tekla model and updates the mismatching data</span></div><div><b><br></b></div><div><span class=""selectable-text copyable-text""><b>Description: </b></span></div><div><span class=""selectable-text copyable-text"">This application will check the main attributes of parts in the tekla model with the master excel sheet. It will filter the objects by names and compare excel sheet with Tekla attributes. It the data mismatches, it will automatically read from excel and update the Parts in the model. Very useful for quick checking and fixing the properties. </span></div><div><br></div></div>",Active,13/09/2022 11:38:15 AM
+59,Part Values To Drawing Fields,,PART_VALUES_TO_DRAWING_FIELDS,IBIM,IBIM-1054,"<div><span class=""selectable-text copyable-text""><b>Purpose  :</b> Copies Part Names in Single Part Drawings, Assembly names in Assembly Drawing and Precast Name in Cast Unit Drawing. Additional information (Profile, Length, Status, Weight, Material and Finish) can be copied to Drawing UDA’s.</span></div><div><span class=""selectable-text copyable-text""><b>Description:</b></span></div><div><span class=""selectable-text copyable-text""> Creating Drawing settings for each member name is a tedious and time-consuming process. The requirement is never ending due to uniqueness of the project requirement. This tool will help you eliminate the process of customizing drawing settings periodically. To make best use of the tool, Create drawing settings that suits the profile sizes. Select the drawings in the document manager and run the tool to update. Additional benefits are segregating the drawing by workshop or external and sorting out the list with different options.</span></div><div><span class=""selectable-text copyable-text""> Contact me to know other benefits of using this tool and for further information</span></div><div><br></div>",Active,
+60,Parts Representation In Drawing,,PARTS_REPRESENTATION_IN_DRAWING,IBIM,IBIM-1135,<div>Purpose : Applies the part color (Similar) in model to drawing.</div><div>Option to Apply the part color in model</div><div>Option to apply main part color to assembly. (Helps in checking the welded parts)</div><div>Option to apply single color to all the parts</div><div>Option to apply special settings.</div><div><br></div><div>Steps</div><div>Select the drawing in the document manager and run the tool.</div><div>Can run this tool to multiple drawings.</div><div><br></div><div>Benefits</div><div>Helps in checking when selected assembly option as it changes the color of all the parts welded to main part as a single color.</div><div>Easy to apply a single color (User Choice from the list) to all the parts</div>,Active,22/10/2023 4:30:13 AM
+61,Plate Galv Holes,,GALV_HOLES,IBIM,IBIM-1099,"<div><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:
+Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-fareast-theme-font:minor-fareast;color:#404040;mso-font-kerning:
+12.0pt;language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-color:
+#404040;mso-style-textfill-fill-alpha:100.0%"">Purpose : Create Galv Holes to all the selected plates welded to hollow sections. Actual One time price is ($189) Offer valid until 21st July</span></div><div><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:
+Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-fareast-theme-font:minor-fareast;color:#404040;mso-font-kerning:
+12.0pt;language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-color:
+#404040;mso-style-textfill-fill-alpha:100.0%""><br></span></div>
+
+<div></div>
+
+<div><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:
+Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-fareast-theme-font:minor-fareast;color:#404040;mso-font-kerning:
+12.0pt;language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-color:
+#404040;mso-style-textfill-fill-alpha:100.0%"">Description: </span></div>
+
+<div><span style=""font-size:12.0pt;font-family:Calibri;
+mso-ascii-font-family:Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:
+Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+color:#404040;mso-font-kerning:12.0pt;language:en-US;mso-style-textfill-type:
+solid;mso-style-textfill-fill-color:#404040;mso-style-textfill-fill-alpha:100.0%"">This
+application creates galvanization holes to all the selected plates welded to primary part. It automatically detects the primary part and creates holes inside the part.  It is different from the existing applications because you need to select multiple plates and run the application.</span></div><div><span style=""font-size:12.0pt;font-family:Calibri;
+mso-ascii-font-family:Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:
+Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+color:#404040;mso-font-kerning:12.0pt;language:en-US;mso-style-textfill-type:
+solid;mso-style-textfill-fill-color:#404040;mso-style-textfill-fill-alpha:100.0%"">In-built options to change single, double or four holes or cut. </span></div>",Active,08/07/2023 11:07:41 AM
+62,Precast Tools,,PRECAST_TOOLS,IBIM,IBIM-1134,THIS IS PRECAST TOOLS,Active,17/10/2023 11:32:36 AM
+63,Preset Splice,,PRESET_SPLICE,IBIM,IBIM-1141,"<div>Purpose : Preset with splice to connect two beams.</div><div><br></div><div>Description : <span style=""color: rgb(13, 13, 13); font-family: Roboto, Noto, sans-serif; font-size: 15px; white-space-collapse: preserve; font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);"">This application will create preset and splice connection. You can set preset either to beam or end plate. By default, it will create bolt on one plate and hole on another plate. When the preset value is 0, it will be a single bolt group for both the members. It adds stiffeners too.</span></div>",Active,27/11/2023 3:18:30 PM
+64,Purlin Cleat,YES,PURLIN_CLEAT,IBIM,IBIM-1063,,Active,29/08/2022 3:48:55 PM
+65,Purlin Cleat (Contour Plate With Chamfer At The Top),YES,PURLIN_CLEAT_CONTOUR_PLATE_WITH_CHAMFER_AT_THE_TOP,,,Chamfer at top of contour plate indicates that the non-chamfer portion of  plate e to be welded to the primary member. It ensures that the hole aligns with the purlin during erection. Saves time and cost.,Active,13/11/2023 3:41:18 PM
+66,Read Project Data,YES,READ_PROJECT_DATA,,,"Project Data is entered in url for record and access to the clients and contractors involved in the project. Detailer has to read the url file and enter the values in project properties. If any data is changed, it needs to be updated. This application make the process simple. By entering  the url link and project number. Data gets copied to project properties.",Active,13/11/2023 3:41:18 PM
+67,Residential Package,,Residential_Package,IBIM,IBIM-1083,,Active,27/10/2022 12:12:04 PM
+68,Rod Brace,,ROD_BRACE,IBIM,IBIM-1012,"<div><div><span style=""font-size:12.0pt;font-family:Calibri;
+mso-ascii-font-family:Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:
+Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+color:#404040;mso-font-kerning:12.0pt;language:en-US;mso-style-textfill-type:
+solid;mso-style-textfill-fill-color:#404040;mso-style-textfill-fill-alpha:100.0%"">Purpose
+: </span><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:
+Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:+mn-cs;mso-ascii-theme-font:
+minor-latin;mso-fareast-theme-font:minor-fareast;mso-bidi-theme-font:minor-bidi;
+color:#222222;mso-font-kerning:12.0pt;language:en-US;mso-style-textfill-type:
+solid;mso-style-textfill-fill-color:#222222;mso-style-textfill-fill-alpha:100.0%"">Creates
+Rod Brace connection between two rafters with option to change between angle or
+rod at the end.</span></div>
+
+<div></div>
+
+<div><span style=""font-size:12.0pt;font-family:Calibri;
+mso-ascii-font-family:Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:
+Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+color:#404040;mso-font-kerning:12.0pt;language:en-US;mso-style-textfill-type:
+solid;mso-style-textfill-fill-color:#404040;mso-style-textfill-fill-alpha:100.0%"">Description:
+</span></div>
+
+<div><span style=""font-size:12.0pt;font-family:Calibri;
+mso-ascii-font-family:Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:
++mn-cs;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-bidi-theme-font:minor-bidi;color:#222222;mso-font-kerning:12.0pt;
+language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-color:
+#222222;mso-style-textfill-fill-alpha:100.0%"">Rod Bracing is commonly used
+connections to connect two rafters. Creating this connection is quite
+time-consuming as we need to pick the right position and add connection. This
+application creates quickly and gives an option to change the position to top,
+middle or bottom. Fve different types of  connection are in-built to rod brace. Plate welded to Rod, Rod penetrating the angle, angle with Plate, System Component, Channel welded to bottom. You can also have separate connections to start and end. This can be used
+for profiles such as Hollow sections, Angles, Channels and UB/ UC Section.</span></div></div>",Active,24/04/2022 11:18:54 AM
+69,Seating Angle,,SEATING_ANGLE,IBIM,IBIM-1101,"<div style=""color: rgb(73, 75, 81); font-size: 15px;"">Purpose. : Creates Multiple seating angle  at the back of channel for support</div><div style=""color: rgb(73, 75, 81); font-size: 15px;""><br></div><div style=""color: rgb(73, 75, 81); font-size: 15px;"">Description : This application creates multiple seating angle at the back of channel. Option to set quantities, equal distance and maximum distance. You can adjust the offset from start and end. </div><div style=""color: rgb(73, 75, 81); font-size: 15px;""><br></div><div style=""color: rgb(73, 75, 81); font-size: 15px;"">It creates by selecting the member.</div>",Active,20/07/2023 9:36:35 AM
+70,Seating Plate,,SEATING_PLATE,IBIM,IBIM-1102,"<div style=""color: rgb(73, 75, 81); font-size: 15px;"">Purpose. : Creates multiple seating plate with holes at the bottom of beam. </div><div style=""color: rgb(73, 75, 81); font-size: 15px;""><br></div><div style=""color: rgb(73, 75, 81); font-size: 15px;"">Description : This application creates multiple seating plate with holes at the bottom of beam. Option to set quantities, equal distance and maximum distance. You can adjust the offset from start and end</div>",Active,20/07/2023 9:41:01 AM
+71,Seating Plate With Stub,,SEATING_PLATE_WITH_STUB,IBIM,IBIM-1064,"<div><div><span class=""selectable-text copyable-text"">Purpose : </span></div><div><span class=""selectable-text copyable-text"">Creates seating plate with stub and stiffeners. </span></div><div><span class=""selectable-text copyable-text""><br></span></div><div><span class=""selectable-text copyable-text"">Description: </span></div><div><span class=""selectable-text copyable-text"">This application creates a connection between primary and secondary member sitting on top of the primary. It comes with stub, stiffeners for both primary and secondary. It can be applied to PFC and I Section. Multiple options to manage the connections with out exploding. In case you need a plate to connect primary and secondary members, stub can be turned off. </span></div><div><br></div></div>",Active,29/08/2022 4:11:12 PM
+72,Set Of Support Cleats,,SET_OF_SUPPORT_CLEATS,IBIM,IBIM-1106,"<div>Purpose : Set of support cleats commonly used in residential projects.</div><div><br></div><div>Description  These set of tools are huge time saver if you are working on residential projects. You can create these tools with a selection of member and offers flexibility to change as you need. </div><div><ul><li><span style=""color: var(--bs-body-color); font-size: var(--bs-body-font-size); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);"">Lintel Plate</span></li><li><span style=""color: var(--bs-body-color); font-size: var(--bs-body-font-size); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);"">Seating Plate</span></li><li><span style=""color: var(--bs-body-color); font-size: var(--bs-body-font-size); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);"">Support Plate</span></li><li><span style=""color: var(--bs-body-color); font-size: var(--bs-body-font-size); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);"">Seating Angle</span></li><li><span style=""color: var(--bs-body-color); font-size: var(--bs-body-font-size); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);"">Support Angle</span></li><li><span style=""color: var(--bs-body-color); font-size: var(--bs-body-font-size); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);"">Double Angle </span></li></ul></div>",Active,20/07/2023 3:05:25 PM
+73,Steel Detailing Tools,,STEEL_DETAILING_TOOLS,IBIM,IBIM-1133,"Purposenl,jk,lklkjljkljkljklkjljl",Active,16/10/2023 6:02:12 PM
+74,Support_Angle,,SUPPORT_ANGLE,IBIM,IBIM-1104,"<div style=""color: rgb(73, 75, 81); font-size: 15px;"">Purpose. : Creates support angle  to the length of the member at the back  of channel. </div><div style=""color: rgb(73, 75, 81); font-size: 15px;""><br></div><div style=""color: rgb(73, 75, 81); font-size: 15px;"">Description : This application creates support angle  to the length of the member at the back  of channel.   You can adjust the offset from start and end and move vertically.  </div><div style=""color: rgb(73, 75, 81); font-size: 15px;""><br></div>",Active,20/07/2023 1:43:55 PM
+75,Tekla Excel Live Link,,TEKLA_EXCEL_LIVE_LINK,IBIM,IBIM-1086,"<div><div><span class=""selectable-text copyable-text"">Purpose : </span></div><div><span class=""selectable-text copyable-text"">Can be used for checking the properties and update directly from excel sheet</span></div><div><span class=""selectable-text copyable-text"">Description :</span></div><div><span class=""selectable-text copyable-text"">Checking is crucial part of the project and consumes considerable amount in the overall estimated time of project. Chances are high to miss a few elements, when we do it manually. With this application, you can extract data from Tekla into excel sheet. If you find any incorrect data, change in the excel sheet and run the in-built function in the application to update the objects in Tekla.</span></div><div><br></div></div>",Active,05/12/2022 10:17:34 AM
+76,Test Bolt check A,YES,TEST_BOLT_CHECK_A,TEST_BOLT_CHECK_A,TEST_BOLT_CHECK_A-1001,Test Bolt Check A,Active,16/12/2023 9:33:40 PM
+77,Test Check product A,YES,TEST_CHECK_PRODUCT_A,TEST_CHECK,TEST_CHECK-1001,,Active,13/11/2023 4:35:28 PM
+78,Test IBIM A,YES,TEST_IBIM_A,IBIM_A,IBIM_A-1001,IBIM A,Active,15/11/2023 7:50:20 PM
+79,Test Product Tools,YES,Test_Product_Tools,IBIM,IBIM-1142,<div>Testing purpose creating new product in the admin portal</div>,Active,18/12/2023 1:12:30 PM
+80,Test Smart TV,YES,Test Smart TV,IBIM,IBIM-1143,Testing purpose creation,Active,19/12/2023 10:55:24 AM
+81,Test_product,YES,product_test_0097,IBIM,IBIM-1155,Test,Inactive,05/03/2024 7:46:38 PM
+82,Timber Plate,,TIMBER_PLATE,IBIM,IBIM-1139,"<div><span class=""selectable-text copyable-text"">Purpose :</span></div><div><span class=""selectable-text copyable-text"">Creates Plate with Hole on column and beam to connect with timber.</span></div><div><br></div><div><span class=""selectable-text copyable-text"">Description:</span></div><div><span class=""selectable-text copyable-text"">This application Creates plate to post and beams to connect with timber. Just pick primary part and pick a position. Option to place near or far or both sides on beam. For post, it will give an option to place on any side. No need to draw timber any more for cleat.</span></div><div><br></div>",Active,03/11/2023 6:36:23 PM
+83,Tools construction test product,YES,Tools_contruction_01,IBIM,IBIM-1151,Testing purpose create product,Active,08/02/2024 10:26:52 PM
+84,Tools product TEST A,YES,Test product 005,IBIM,IBIM-1152,Testing purpose,Inactive,08/02/2024 10:30:06 PM
+85,Transmittal Pack,,TRANSMITTAL_PACK,IBIM,IBIM-1061,"<div><div><span class=""selectable-text copyable-text"">Purpose : </span></div><div><span class=""selectable-text copyable-text"">To create approval and construction package with two clicks to eliminate manual process. </span></div><div><span class=""selectable-text copyable-text"">Description: </span></div><div><span class=""selectable-text copyable-text"">This application is quite dynamic and has many options in-built to eliminate the process of manual selection. Select objects or use filter in-built in the application to run for a particular group of members.  It includes reports, shop drawings, marking plans, NC files, DSTV to DXF, Export to Dwg Drawing, IFC model and finally Transmittal Sheet. NC files are segregated to a separate folder by profile and material. User can choose their own settings to print the drawings, IFC, NC Files. Transmittal Sheet is developed with hyperlink. It retains the hyperlink and helps the client to open the drawings from the transmittal sheet directly. Options to combine reports in excel sheet. Once you configure package for approval and construction, save the settings. So, No more repetition of Configuration </span></div></div>",Active,29/08/2022 3:22:21 PM
+86,Truss,YES,TRUSS,IBIM,IBIM-1087,Create Truss between two points,Active,20/01/2023 9:51:52 AM
+87,Truss Component,,TRUSS_COMPONENT,IBIM,IBIM-1140,"<div><span class=""selectable-text copyable-text""><span style=""font-weight: bolder;"">Purpose :</span></span></div><div>Truss component with an option for single and double web. Galv Hole can be added to Top and bottom chord or web.  Tapered Truss can also be possible. </div><div><span class=""selectable-text copyable-text""><br></span></div><div><span class=""selectable-text copyable-text""><span style=""font-weight: bolder;"">Description:</span></span></div><span style=""font-size: 14px;"">The truss component has several options inbuilt to change within the application. Top and Bottom Chord, vertical and diagonal web properties can be changed independently. Distance can be adjusted to any particular web by inserting a node point to avoid clash with purlin cleat. Option to add cut or connections to the diagonal and vertical members between chords. Galvanization hole can be added to Top and bottom chord, if required. Once you save your settings, it is a matter of two clicks to create the truss. Very flexible and time saving component</span><span style=""font-size: 16px;"">.</span> <div><span style=""font-size: 16px;""><br></span></div>",Active,23/11/2023 10:55:14 AM
+88,Truss End Plate,,TRUSS_END_PLATE,IBIM,IBIM-1088,Creates End Plate between column and truss,Active,10/03/2023 6:13:54 PM
+89,Truss Fly Brace,,TRUSS_FLY_BRACE,IBIM,IBIM-1136,"<div><span class=""selectable-text copyable-text""><span style=""font-weight: bolder;"">Purpose :</span></span></div><div><span class=""selectable-text copyable-text"">Creates Fly Brace from bottom chord of truss to Purlin and purlin cleat to the top chord. It also adds chamfer to the Plates welded to both top and bottom chords.</span></div><div><span class=""selectable-text copyable-text""><span style=""font-weight: bolder;"">Description:</span></span></div><div><span class=""selectable-text copyable-text"">This application makes it easy for you to create fly brace that connects the bottom chord of truss and purlins. It also adds the purlin cleat with chamfer to the top chord. It also indicates that the non-chamfer portion of plate to be welded to the primary member to It ensure that the hole aligns with the purlin during erection. Saves time and cost.</span></div><div><span class=""selectable-text copyable-text"">It can be used for both Z section and C Section. Additional option for overlap if the purlins are Z sections.</span></div>",Active,26/10/2023 4:27:38 PM
+90,Truss Joining Plate,,TRUSS_JOINING_PLATE,IBIM,IBIM-1089,Connects Trusses,Active,22/03/2023 2:37:03 PM
+91,Tube Angle Gusset,,TUBE_ANGLE_GUSSET,IBIM,IBIM-1081,"<div><div><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:
+Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-fareast-theme-font:minor-fareast;color:#404040;mso-font-kerning:
+12.0pt;language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-color:
+#404040;mso-style-textfill-fill-alpha:100.0%""><b>Purpose :</b></span></div>
+
+<div><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:
+Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-fareast-theme-font:minor-fareast;color:#404040;mso-font-kerning:
+12.0pt;language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-color:
+#404040;mso-style-textfill-fill-alpha:100.0%"">Creates Tube Angle Gusset to different
+combination. (Hollow Section, Angle and Rod). </span></div>
+
+<div></div>
+
+<div><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:
+Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-fareast-theme-font:minor-fareast;color:#404040;mso-font-kerning:
+12.0pt;language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-color:
+#404040;mso-style-textfill-fill-alpha:100.0%""><b>Description: </b></span></div>
+
+<div><span style=""font-size:12.0pt;font-family:Calibri;
+mso-ascii-font-family:Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:
++mn-cs;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-bidi-theme-font:minor-bidi;color:#0D0D0D;mso-font-kerning:12.0pt;
+language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-color:
+#0D0D0D;mso-style-textfill-fill-alpha:100.0%"">This application creates a gusset
+connection to different combination of secondary profile types such as rod,
+hollow section and an angle. It has in built options to have connection plates
+on the top or at the bottom and chamfer the corners of the plates. Seal plate
+will be split if the tongue plate is extended. Multiple stiffeners can be added
+to strengthen the connection. </span></div></div><div><span style=""font-size:12.0pt;font-family:Calibri;
+mso-ascii-font-family:Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:
++mn-cs;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-bidi-theme-font:minor-bidi;color:#0D0D0D;mso-font-kerning:12.0pt;
+language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-color:
+#0D0D0D;mso-style-textfill-fill-alpha:100.0%""><br></span></div><div><span style=""font-size:12.0pt;font-family:Calibri;
+mso-ascii-font-family:Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:
++mn-cs;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-bidi-theme-font:minor-bidi;color:#0D0D0D;mso-font-kerning:12.0pt;
+language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-color:
+#0D0D0D;mso-style-textfill-fill-alpha:100.0%"">Watch the second part : </span><a href=""https://youtu.be/1eTAmEanAHY"" target=""_self"" style=""font-size: var(--bs-body-font-size); font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);"">Tube Angle Gusset with full depth stiffener. </a></div><div><span style=""font-size:12.0pt;font-family:Calibri;
+mso-ascii-font-family:Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:
++mn-cs;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+mso-bidi-theme-font:minor-bidi;color:#0D0D0D;mso-font-kerning:12.0pt;
+language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-color:
+#0D0D0D;mso-style-textfill-fill-alpha:100.0%""></span></div><div><br></div>",Active,26/09/2022 3:03:30 PM
+92,Unique Number,YES,UNIQUE_NUMBER,,,"Unique number to panels is commonly asked by the clients. To achieve that, we do it manually by opening the UDA of each panel and set the value. This application enables users to assign unique number to picked objects in the same order of sequence. Any change at the later stage can be done in User defined attribute",Active,13/11/2023 3:41:18 PM
+93,Unique Numbering,,UNIQUE_NUMBERING,IBIM,IBIM-1057,"<div><div><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:
+Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-fareast-theme-font:minor-fareast;color:#404040;mso-font-kerning:
+12.0pt;language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-color:
+#404040;mso-style-textfill-fill-alpha:100.0%"">Purpose :  Assign unique numbers to user defined
+attribute in the sequence order to picked panels.</span></div>
+
+<div><span style=""font-size:12.0pt;font-family:Calibri;mso-ascii-font-family:
+Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:Calibri;mso-ascii-theme-font:
+minor-latin;mso-fareast-theme-font:minor-fareast;color:#404040;mso-font-kerning:
+12.0pt;language:en-US;mso-style-textfill-type:solid;mso-style-textfill-fill-color:
+#404040;mso-style-textfill-fill-alpha:100.0%"">Description: </span></div>
+
+<div><span style=""font-size:12.0pt;font-family:Calibri;
+mso-ascii-font-family:Calibri;mso-fareast-font-family:+mn-ea;mso-bidi-font-family:
+Calibri;mso-ascii-theme-font:minor-latin;mso-fareast-theme-font:minor-fareast;
+color:#404040;mso-font-kerning:12.0pt;language:en-US;mso-style-textfill-type:
+solid;mso-style-textfill-fill-color:#404040;mso-style-textfill-fill-alpha:100.0%"">Unique
+number to panels is commonly asked by the clients. To achieve that, we do it
+manually by opening the UDA of each panel and set the value. This application
+enables users to assign unique number to picked objects in the same order of
+sequence. Any change at the later stage can be done in User defined attribute. Option to add number formats (01, 001, 0001) is also included. </span></div></div>",Active,29/08/2022 2:49:19 PM
+94,Upstand Plate,,UPSTAND_PLATE,IBIM,IBIM-1059,"<div><div><span class=""selectable-text copyable-text"">Purpose : Creates Cap and Upstand plate between post and beam</span></div><div><span class=""selectable-text copyable-text""><br></span></div><div><span class=""selectable-text copyable-text"">Description: </span></div><div><span class=""selectable-text copyable-text"">Upstand Plate connection is quite common in Residential Projects. It is created to connect the timber beam with post but can also be used for PFC section. In-built function to change the near side and far side and extend the plates to connect two secondary beams. Hole is created on  the upstand plate only if it is timber. For PFC, option is given to change the hole to bolt.</span></div><div><br></div></div>",Active,29/08/2022 3:15:39 PM
+95,Web Cut Custom Component,YES,WEB_CUT_CUSTOM_COMPONENT,,,Select all the web members to create a cut in the web for galvanization. Distance can be adjusted. Option to change the side ( Front / Back ) and Level(Top and Bottom).,Active,13/11/2023 3:41:18 PM
+96,Weld Check And Weld Parts,YES,WELD_CHECK_AND_WELD_PARTS,,,"Adding a bolt or hole to a part is quite common in project. Currently, it is a manual process. With this tool, user can create bolt/hole to parts and set the distance by qty, max, exact, equal.",Active,13/11/2023 3:41:18 PM

@@ -1,0 +1,13 @@
+{
+    "product_name": "Panel Sub Assembly Checker",
+    "product_code": "PANEL_SUB_ASSEMBLY_CHECKER",
+    "purpose": ["Fix the position of sub assembly components added to the panel based on the form face. Changes the near and far side and eliminates the manual process of checking the position."],
+    "description": [{"Type": "Text", "Content": ["Reads the form face of the panel and checks the near side and far side of components/ sub assemblies added to the panel. It will also change the position based on the form face. No manual interpretation"]}],
+    "package_content": ["TSEP package"],
+    "steps": [],
+    "pd_benefits": ["Eliminates the process of checking the near and far side position of sub assembly components.", "Relieves the detailer of remembering the form face while applying the sub assembly components.", "Huge Time saving"],
+    "pc_benefits": ["One Time Purchase", "Free Update", "Available for unlimited Version", "One licence Per User"],
+    "download_process": ["Once You purchase the tool, a link will be sent to your mail to download.", "Download the package."],
+    "installation_process": ["Close Tekla Software", "Double click on the installation Package", "System will show installed Tekla Versions on your system", "Choose the version(s) to be installed.", "Close the Application. (Do not Delete the File)", "It will be queued for the installation when Tekla is open next time.", "Open The Tekla Software.", "Application will be installed before opening the software.", "SSearch for Panel Sub Assembly Builder under Application and Components", " Run the Tool.", "Let the Application automate the manual process."],
+    "status": "ACTIVE"
+}

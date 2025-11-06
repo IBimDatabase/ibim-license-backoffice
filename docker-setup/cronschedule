@@ -1,0 +1,2 @@
+SHELL=/bin/bash
+* * * * * php /usr/share/nginx/ibim-license-management/artisan schedule:run >> /dev/null 2>&1

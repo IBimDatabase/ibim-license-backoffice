@@ -1,0 +1,13 @@
+{
+    "product_name": "Purlin Cleat (Contour Plate With Chamfer At The Top)",
+    "product_code": "PURLIN_CLEAT_CONTOUR_PLATE_WITH_CHAMFER_AT_THE_TOP",
+    "purpose": ["Creates purlin cleat with contour plate  and adds chamfer to the top side of plate"],
+    "description": [{"Type": "Text", "Content":["Chamfer at top of contour plate indicates that the non-chamfer portion of  plate e to be welded to the primary member. It ensures that the hole aligns with the purlin during erection. Saves time and cost."]}],
+    "package_content": ["TSEP package"],
+    "steps": [],
+    "pd_benefits": [],
+    "pc_benefits": ["One Time Purchase", "Free Update", "Available for unlimited Version", "One licence Per User"],
+    "download_process": ["Once You purchase the tool, a link will be sent to your mail to download.", "Download the package."],
+    "installation_process": ["Close Tekla Software", "Double click on the installation Package", "System will show installed Tekla Versions on your system", "Choose the version(s) to be installed.", "Close the Application. (Do not Delete the File)", "It will be queued for the installation when Tekla is open next time.", "Open The Tekla Software.", "Application will be installed before opening the software.", "Search for Purlin Cleat With Contour Plate under Application and Components.", "Run the Tool.", "Let the Application automate the manual process."],
+    "status": "ACTIVE"
+}

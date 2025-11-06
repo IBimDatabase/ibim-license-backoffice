@@ -1,0 +1,13 @@
+{
+    "product_name": "Part Values To Drawing Fields",
+    "product_code": "PART_VALUES_TO_DRAWING_FIELDS",
+    "purpose": ["Copies Part Names in Single Part Drawings, Assembly names in Assembly Drawing and Precast Name in Cast Unit Drawing. Additional information (Profile, Length, Status, Weight, Material and Finish) can be copied to Drawing UDA’s."],
+    "description": [{"Type": "Text", "Content": ["Creating Drawing settings for each member name is a tedious and time-consuming process. The requirement is never ending due to uniqueness of the project requirement. This tool will help you eliminate the process of customizing drawing settings periodically. To make best use of the tool, Create drawing settings that suits the profile sizes. Select the drawings in the document manager and run the tool to update. Additional benefits are segregating the drawing by workshop or external and sorting out the list with different options.", "Contact me to know other benefits of using this tool and for further information"]}],
+    "package_content": ["TSEP package"],
+    "steps": [],
+    "pd_benefits": [],
+    "pc_benefits": ["One Time Purchase", "Free Update", "Available for unlimited Version", "One licence Per User"],
+    "download_process": ["Once You purchase the tool, a link will be sent to your mail to download.", "Download the package."],
+    "installation_process": ["Close Tekla Software", "Double click on the installation Package", "System will show installed Tekla Versions on your system", "Choose the version(s) to be installed.", "Close the Application. (Do not Delete the File)", "It will be queued for the installation when Tekla is open next time.", "Open The Tekla Software.", "Application will be installed before opening the software.", "Search for Part Values To drawing Fields under Application and Components", "Run the Tool.", "Let the Application automate the manual process."],
+    "status": "ACTIVE"
+}

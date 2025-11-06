@@ -1,0 +1,13 @@
+{
+    "product_name": "Model Color To Drawing",
+    "product_code": "MODEL_COLOR_TO_DRAWING",
+    "purpose": ["Applies the part color (Similar) in model to drawing.", "Option to Apply the part color in model", "Option to apply main part color to assembly. (Helps in checking the welded parts)", "Option to apply single color to all the parts", "Option to apply special settings."],
+    "description": [{"Type": "Text", "Content": [""]}],
+    "package_content": ["TSEP package"],
+    "steps": ["Select the drawing in the document manager and run the tool.", "Can run this tool to multiple drawings."],
+    "pd_benefits": ["Helps in checking when selected assembly option as it changes the color of all the parts welded to main part as a single color.", "Easy to apply a single color (User Choice from the list) to all the parts"],
+    "pc_benefits": ["One Time Purchase", "Free Update", "Available for unlimited Version", "One licence Per User"],
+    "download_process": ["Once You purchase the tool, a link will be sent to your mail to download.", "Download the package."],
+    "installation_process": ["Close Tekla Software", "Double click on the installation Package", "System will show installed Tekla Versions on your system", "Choose the version(s) to be installed.", "Close the Application. (Do not Delete the File)", "It will be queued for the installation when Tekla is open next time.", "Open The Tekla Software.", "Application will be installed before opening the software.", "Search for Model Color To Drawing under Application and Components.", "Run the Tool.", "Let the Application automate the manual process."],
+    "status": "ACTIVE"
+}
