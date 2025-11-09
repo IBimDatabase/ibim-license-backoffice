@@ -61,7 +61,7 @@ class AuthController extends Controller
         {
             try {
                 $credentials = $request->only('user_name', 'password'); // use 'email', not 'user_name'
-                var_dump($credentials);exit;
+
                 if (auth()->attempt($credentials)) {
                     $user = auth()->user();
                     $token = $user->createToken('MyAppToken')->accessToken;
