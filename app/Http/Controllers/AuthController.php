@@ -14,7 +14,8 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function authenticate (Request $request) {
+    /*public function authenticate (Request $request) {
+        //var_dump(bcrypt('admin123'));exit;
         $validator = AuthValidator::loginValidator($request->all());
 
         if ($validator !== true)
@@ -54,7 +55,46 @@ class AuthController extends Controller
             $message = ['error' => 'Username or password is invalid'];
             return response()->json(["status" => false, "code" => 401, "message" => "Login Denied", "data" => $message], 401);
         }
-    }
+    }*/
+
+        public function authenticate(Request $request)
+        {
+            try {
+                $credentials = $request->only('user_name', 'password'); // use 'email', not 'user_name'
+
+                if (auth()->attempt($credentials)) {
+                    $user = auth()->user();
+                    $token = $user->createToken('MyAppToken')->accessToken;
+
+                    return response()->json([
+                        'status' => true,
+                        'code' => 200,
+                        'data' => [
+                            'token' => $token,
+                            'user' => $user
+                        ]
+                    ]);
+                } else {
+                    return response()->json([
+                        'status' => false,
+                        'code' => 401,
+                        'data' => [
+                            'error' => 'Invalid credentials'
+                        ]
+                    ]);
+                }
+
+            } catch (\Exception $e) {
+                return response()->json([
+                    'status' => false,
+                    'code' => 500,
+                    'data' => [
+                        'error' => $e->getMessage() // This will show the exact error
+                    ]
+                ]);
+            }
+        }
+
 
 
     public function changePassword (Request $request) {
