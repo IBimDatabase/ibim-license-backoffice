@@ -59,7 +59,7 @@ class AuthController extends Controller
 
         public function authenticate(Request $request)
         {
-            var_dump(bcrypt('admin123'));exit;
+            //var_dump(bcrypt('admin123'));exit;
             try {
                 $credentials = $request->only('user_name', 'password'); // use 'email', not 'user_name'
 
