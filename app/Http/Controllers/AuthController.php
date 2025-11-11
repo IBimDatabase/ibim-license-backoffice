@@ -62,7 +62,7 @@ class AuthController extends Controller
             //var_dump(bcrypt('admin123'));exit;
             try {
                 $credentials = $request->only('user_name', 'password'); // use 'email', not 'user_name'
-
+                var_dump(auth());exit;
                 if (auth()->attempt($credentials)) {
                     $user = auth()->user();
                     $token = $user->createToken('MyAppToken')->accessToken;
