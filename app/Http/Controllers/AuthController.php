@@ -14,7 +14,7 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function authenticate (Request $request) {
+    /*public function authenticate (Request $request) {
         //var_dump(bcrypt('admin123'));exit;
         $validator = AuthValidator::loginValidator($request->all());
 
@@ -55,13 +55,15 @@ class AuthController extends Controller
             $message = ['error' => 'Username or password is invalid'];
             return response()->json(["status" => false, "code" => 401, "message" => "Login Denied", "data" => $message], 401);
         }
-    }
+    }*/
 
-       /* public function authenticate(Request $request)
+        public function authenticate(Request $request)
         {
             //var_dump(bcrypt('admin123'));exit;
             try {
                 $credentials = $request->only('user_name', 'password'); // use 'email', not 'user_name'
+                var_dump($credentials);
+                var_dump(bcrypt('admin123'));exit;
                 if (auth()->attempt($credentials)) {
                     $user = auth()->user();
                     $token = $user->createToken('MyAppToken')->accessToken;
@@ -93,7 +95,7 @@ class AuthController extends Controller
                     ]
                 ]);
             }
-        }*/
+        }
 
 
 
