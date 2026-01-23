@@ -1,10 +1,36 @@
 <main class="main-content mt-1 border-radius-lg" ng-controller="authController">
-    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
+    <!--(border-radius-xl): Removed_by_Abdul_Rehman_For_UI_Changes-->
+    <style>
+        #navbarBlur{
+            background: #404E67;
+            margin-right:0px !important;
+        }
+       .shadow-none .text-dark, .shadow-none .text-capitalize, .breadcrumb-item+.breadcrumb-item::before{
+            color: white !important;
+        }
+        .bg-info{
+            background-color:#404E67 !important;
+        }
+        .bg-gradient-info, .bg-gradient-primary{
+            background: #edbd1c;
+        }
+        .bg-gradient-info:hover, .bg-gradient-primary:hover{
+            background: #edbd1c !important;
+        }
+
+        .table-responsive .table>thead{
+            background: #404e67 !important;
+        }
+        .table-responsive .table > thead > tr > th.text-info {
+            color:white !important;
+        }
+    </style>
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none " id="navbarBlur"
         navbar-scroll="true">
         <div class="container-fluid py-1 px-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                    <li class="breadcrumb-item text-md"><a class="opacity-5 text-dark" href="javascript:;">Pages</a>
+                    <li class="breadcrumb-item text-md"><a class="text-dark" href="javascript:;">Pages</a>
                     </li>
                     <li class="breadcrumb-item text-sm text-dark active text-capitalize" aria-current="page">
                         {{ str_replace('-', ' ', Route::currentRouteName()) }}</li>
@@ -14,20 +40,20 @@
             </nav>
             <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 d-flex justify-content-end" id="navbar">
    
-                <ul class="navbar-nav justify-content-end">
+                <ul class="navbar-nav justify-content-end text-dark">
                     <li class="nav-item dropdown d-flex align-items-center">
                         <div class="dropdown-toggle cursor-pointer" data-bs-toggle="dropdown">
-                            <i class="fas fa-user-circle text-info px-2"></i> <span class="font-weight-bold mt-1" ng-bind="(authenticatedUser.last_name) ? authenticatedUser.first_name + ' ' + authenticatedUser.last_name : authenticatedUser.first_name"></span>
+                            <i class="fas fa-user-circle text-info text-dark px-2"></i> <span class="font-weight-bold text-dark mt-1" ng-bind="(authenticatedUser.last_name) ? authenticatedUser.first_name + ' ' + authenticatedUser.last_name : authenticatedUser.first_name"></span>
                         </div>
                         <ul class="dropdown-menu dropdown-menu-end px-2 py-1 me-sm-n4">
                             <li class="ps-2">
-                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#changePasswordModal" ng-click="clearFormData('changePasswordForm');" class="nav-link font-weight-bold cursor-pointer text-dark px-0">
+                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#changePasswordModal" ng-click="clearFormData('changePasswordForm');" class="nav-link font-weight-bold cursor-pointer px-0">
                                     <i class="fas fa-key"></i> Change Password
                                 </a>
                             </li>
 
                             <li class="ps-2">
-                                <a href="javascript:void(0)" ng-click="logout()" class="nav-link font-weight-bold cursor-pointer text-dark px-0">
+                                <a href="javascript:void(0)" ng-click="logout()" class="nav-link font-weight-bold cursor-pointer px-0">
                                     <i class="fas fa-sign-out-alt"></i> Logout
                                 </a>
                             </li>

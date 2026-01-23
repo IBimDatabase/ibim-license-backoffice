@@ -12,7 +12,8 @@ use App\Models\OrderEmailLog;
 use App\Services\LicenseKeyService;
 use App\Mail\GeneratedLicenseEmail;
 use App\Jobs\GeneratedLicenseEmailJob;
-use Webpatser\Uuid\Uuid;
+//use Webpatser\Uuid\Uuid;
+//use GoldSpecDigital\LaravelUuid\Uuid; // Added_by_Abdul_Rehman_for_Upgrade Laravel
 use Illuminate\Support\Facades\DB;
 use App\Resources\Orders\OrderResource;
 use App\Services\WPOrderService;

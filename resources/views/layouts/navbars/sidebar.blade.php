@@ -1,21 +1,113 @@
-<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-left ms-1"
+<style>
+#sidenav-main{
+    overflow: hidden;
+    background: #404E67;
+}
+#sidenav-main .sidenav-header{
+    height: 130px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#sidenav-main .navbar-brand{
+    background-color: white;
+    border-right: 2px solid #edbd1c;
+}
+
+#sidenav-collapse-main .nav-item{
+    border-bottom: 1px solid #898784;
+    margin-top: 0px;
+}
+.navbar-vertical .navbar-nav .nav-link{    
+    color: white;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+.navbar-vertical .navbar-nav .nav-link .active{    
+    color: #030e3aff;
+}
+.navbar-vertical .navbar-nav>.nav-item .nav-link.active{
+    color: white !important;
+    background-color: #f4ba17;
+    border-radius: unset;
+    margin: 0px;
+}
+.navbar-nav .nav-item .nav-link:hover {
+    color: white;            /* text color */
+    background-color: #f4ba17; /* example background */
+}
+
+
+.holographic-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.holographic-card {
+ 
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  
+  transition: all 0.5s ease;
+}
+
+.holographic-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    0deg, 
+    transparent, 
+    transparent 30%, 
+    rgba(19, 8, 120, 0.3)
+  );
+  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.holographic-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #054561;
+}
+
+.holographic-card:hover::before {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(100%);
+}
+</style>
+<!--(border-radius-xl my-3): Removed_by_Abdul_Rehman_For_UI_Changes-->
+<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 fixed-left ms-1"
     id="sidenav-main">
     <div class="sidenav-header">
         <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute right-0 top-0 d-none d-xl-none"
             aria-hidden="true" id="iconSidenav"></i>
-        <a class="navbar-brand m-0" href="{{ route('dashboard') }}">
-            <img src="../assets/img/logos/logo.png" class="navbar-brand-img h-100" alt="...">
-            <span class="ms-1 font-weight-bold"></span>
-        </a>
+        <div class="holographic-container">
+            <div class="holographic-card"
+                <a class="navbar-brand m-0" href="{{ route('dashboard') }}">
+                    <img src="../assets/img/logos/ibim-logo.png" class="navbar-brand-img h-100" alt="...">
+                    <span class="ms-1 font-weight-bold"></span>
+                </a>
+            </div>
+        </div>
     </div>
-    <hr class="horizontal dark mt-4">
-    <div class="collapse navbar-collapse w-auto mt-2" id="sidenav-collapse-main">
+    <hr class="horizontal dark m-0">
+    <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
         <ul class="navbar-nav">
             
-            <li class="nav-item pb-2" ng-class="{show: ['SUPER_ADMIN', 'ADMIN', 'USER'].includes(authenticatedUser.user_type)}">
+            <li class="nav-item" ng-class="{show: ['SUPER_ADMIN', 'ADMIN', 'USER'].includes(authenticatedUser.user_type)}">
                 <a class="nav-link {{ Route::currentRouteName() == 'dashboard' ? 'active' : '' }}"
                     href="{{ route('dashboard') }}">
-                    <div
+                    <!-- <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1"
                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -36,7 +128,9 @@
                                 </g>
                             </g>
                         </svg>
-                    </div>
+                    </div> -->
+                    
+                    <i class="fa fa-dashboard" aria-hidden="true"></i>
                     <span class="nav-link-text ms-1">Dashboard</span>
                 </a>
             </li>
@@ -75,19 +169,20 @@
             </li>
              -->
 
-            <li class="nav-item pb-2" ng-class="{show: ['SUPER_ADMIN', 'ADMIN'].includes(authenticatedUser.user_type)}">
+            <li class="nav-item" ng-class="{show: ['SUPER_ADMIN', 'ADMIN'].includes(authenticatedUser.user_type)}">
                 <a class="nav-link {{ Route::currentRouteName() == 'orders' ? 'active' : '' }}"
                     href="{{ route('orders') }}">
-                    <div
+                    <!--<div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center
                         {{ in_array(request()->route()->getName(), ['orders']) ? 'text-white' : 'text-dark' }}"></i>
-                    </div>
+                    </div>-->
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     <span class="nav-link-text ms-1">Orders</span>
                 </a>
             </li>
            
-            {{-- <li class="nav-item pb-2" ng-class="{show: ['SUPER_ADMIN', 'ADMIN'].includes(authenticatedUser.user_type)}">
+            {{-- <li class="nav-item " ng-class="{show: ['SUPER_ADMIN', 'ADMIN'].includes(authenticatedUser.user_type)}">
                 <a class="nav-link {{ Route::currentRouteName() == 'license-list' ? 'active' : '' }}"
                     href="{{ route('license-list') }}">
                     <div
@@ -99,31 +194,33 @@
                 </a>
             </li> --}}
 
-            <li class="nav-item pb-2" ng-class="{show: ['SUPER_ADMIN', 'ADMIN'].includes(authenticatedUser.user_type)}">
+            <li class="nav-item" ng-class="{show: ['SUPER_ADMIN', 'ADMIN'].includes(authenticatedUser.user_type)}">
                 <a class="nav-link {{ Route::currentRouteName() == 'license-list-dev' ? 'active' : '' }}"
                     href="{{ route('license-list-dev') }}#!?type=PRODUCT">
-                    <div
+                    <!--<div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center
                         {{ in_array(request()->route()->getName(), ['license-list-dev']) ? 'text-white' : 'text-dark' }}"></i>
-                    </div>
+                    </div>-->
+                    <i class="fa fa-id-card" aria-hidden="true"></i>
                     <span class="nav-link-text ms-1">License List</span>
                 </a>
             </li>
 
-            <li class="nav-item pb-2" ng-class="{show: ['SUPER_ADMIN', 'ADMIN'].includes(authenticatedUser.user_type)}">
+            <li class="nav-item" ng-class="{show: ['SUPER_ADMIN', 'ADMIN'].includes(authenticatedUser.user_type)}">
                 <a class="nav-link {{ Route::currentRouteName() == 'purchase-report-list' ? 'active' : '' }}"
                     href="{{ route('purchase-report-list') }}#!?type=PRODUCT">
-                    <div
+                    <!--<div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center
                         {{ in_array(request()->route()->getName(), ['purchase-report-list']) ? 'text-white' : 'text-dark' }}"></i>
-                    </div>
+                    </div>-->
+                    <i class="fa fa-file" aria-hidden="true"></i>
                     <span class="nav-link-text ms-1">Reports</span>
                 </a>
             </li>
 
-            {{-- <li class="nav-item pb-2" ng-class="{show: ['SUPER_ADMIN', 'ADMIN'].includes(authenticatedUser.user_type)}">
+            {{-- <li class="nav-item" ng-class="{show: ['SUPER_ADMIN', 'ADMIN'].includes(authenticatedUser.user_type)}">
                 <a class="nav-link {{ Route::currentRouteName() == 'expire-report-list' ? 'active' : '' }}"
                     href="{{ route('expire-report-list') }}#!?type=PRODUCT">
                     <div
@@ -135,26 +232,28 @@
                 </a>
             </li> --}}
 
-            <li class="nav-item pb-2" ng-class="{show: ['SUPER_ADMIN', 'ADMIN'].includes(authenticatedUser.user_type)}">
+            <li class="nav-item" ng-class="{show: ['SUPER_ADMIN', 'ADMIN'].includes(authenticatedUser.user_type)}">
                 <a class="nav-link {{ Route::currentRouteName() == 'expired-license-list' ? 'active' : '' }}"
                     href="{{ route('expired-license-list') }}">
-                    <div
+                    <!--<div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center
                         {{ in_array(request()->route()->getName(), ['expired-license-list']) ? 'text-white' : 'text-dark' }}"></i>
-                    </div>
+                    </div>-->
+                    <i class="fa fa-id-card" aria-hidden="true"></i>
                     <span class="nav-link-text ms-1">Expired License List</span>
                 </a>
             </li>
 
-            <li class="nav-item pb-2" ng-class="{show: ['SUPER_ADMIN', 'ADMIN', 'USER'].includes(authenticatedUser.user_type)}">
+            <li class="nav-item" ng-class="{show: ['SUPER_ADMIN', 'ADMIN', 'USER'].includes(authenticatedUser.user_type)}">
                 <a class="nav-link {{ Route::currentRouteName() == 'license-type-list' ? 'active' : '' }}"
                     href="{{ route('license-type-list') }}">
-                    <div
+                    <!--<div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center
                         {{ in_array(request()->route()->getName(), ['license-type-list']) ? 'text-white' : 'text-dark' }}"></i>
-                    </div>
+                    </div>-->
+                    <i class="fa fa-bookmark" aria-hidden="true"></i>
                     <span class="nav-link-text ms-1">License Types</span>
                 </a>
             </li>
@@ -173,38 +272,41 @@
             </li>
             -->
             
-            <li class="nav-item pb-2" ng-class="{show: ['SUPER_ADMIN', 'ADMIN', 'USER'].includes(authenticatedUser.user_type)}">
+            <li class="nav-item" ng-class="{show: ['SUPER_ADMIN', 'ADMIN', 'USER'].includes(authenticatedUser.user_type)}">
                 <a class="nav-link {{ Route::currentRouteName() == 'product-list' ? 'active' : '' }}"
                     href="{{ route('product-list') }}">
-                    <div
+                    <!--<div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center
                         {{ in_array(request()->route()->getName(), ['product-list']) ? 'text-white' : 'text-dark' }}"></i>
-                    </div>
+                    </div>-->
+                    <i class="fa fa-th-list" aria-hidden="true"></i>
                     <span class="nav-link-text ms-1">Product List</span>
                 </a>
             </li>
 
-            <li class="nav-item pb-2" ng-class="{show: ['SUPER_ADMIN', 'ADMIN'].includes(authenticatedUser.user_type)}">
+            <li class="nav-item" ng-class="{show: ['SUPER_ADMIN', 'ADMIN'].includes(authenticatedUser.user_type)}">
                 <a class="nav-link {{ Route::currentRouteName() == 'package-list' ? 'active' : '' }}"
                     href="{{ route('package-list') }}">
-                    <div
+                    <!--<div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center
                         {{ in_array(request()->route()->getName(), ['package-list']) ? 'text-white' : 'text-dark' }}"></i>
-                    </div>
+                    </div>-->
+                    <i class="fa fa-list-alt" aria-hidden="true"></i>
                     <span class="nav-link-text ms-1">Package List</span>
                 </a>
             </li>
             
-            <li class="nav-item pb-2" ng-class="{show: ['SUPER_ADMIN', 'ADMIN'].includes(authenticatedUser.user_type)}">
+            <li class="nav-item" ng-class="{show: ['SUPER_ADMIN', 'ADMIN'].includes(authenticatedUser.user_type)}">
                 <a class="nav-link {{ Route::currentRouteName() == 'user-management' ? 'active' : '' }}"
                     href="{{ route('user-management') }}">
-                    <div
+                    <!--<div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center
                         {{ in_array(request()->route()->getName(),['user-management']) ? 'text-white' : 'text-dark' }}"></i>
-                    </div>
+                    </div>-->
+                    <i class="fa fa-users" aria-hidden="true"></i>
                     <span class="nav-link-text ms-1">User Management</span>
                 </a>
             </li>

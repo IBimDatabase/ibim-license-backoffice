@@ -12,7 +12,8 @@
                         <a href="javascript:void(0)" class="btn bg-gradient-primary mb-0" type="button" data-bs-toggle="modal" data-bs-target="#addModal" ng-click="clearFormData('addPackageForm'); getProducts()"><i class="fa fa-plus-circle me-1"></i> Add Package</a>
                     </div>
                 </div>
-                <div class="card-body px-0 pt-5 pb-2">
+                <!--pt-5 Removed By [AR-07-Dev2025]-->
+                <div class="card-body px-0 pb-2">
                     <!-- loader -->
                     <div class="loader-overlay" ng-show="loading">
                         <div class="loader-gif"></div>

@@ -11,7 +11,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-body px-0 pt-5 pb-2">
+                <!--pt-5 class removed - [AR-07-Dec-2025]-->
+                <div class="card-body px-0 pb-2">
                     <!-- loader -->
                     <div class="loader-overlay" ng-show="loading">
                         <div class="loader-gif"></div>

@@ -8,7 +8,8 @@ use App\Models\LicenseType;
 use App\Models\Customer;
 use App\Models\Order;
 use App\Helpers\LicenseKeyHelper;
-use Webpatser\Uuid\Uuid;
+//use Webpatser\Uuid\Uuid;
+//use GoldSpecDigital\LaravelUuid\Uuid; // Added_by_Abdul_Rehman_for_Upgrade Laravel
 use Illuminate\Support\Facades\DB;
 DB::enableQueryLog();
 

@@ -4,7 +4,8 @@ namespace App\Services;
 
 use App\Models\LicenseType;
 use App\Helpers\LicenseKeyHelper;
-use Webpatser\Uuid\Uuid;
+//use Webpatser\Uuid\Uuid;
+//use GoldSpecDigital\LaravelUuid\Uuid; // Added_by_Abdul_Rehman_for_Upgrade Laravel
 use App\Imports\LicenseTypesImport;
 use App\Services\WPProductAttributeService;
 use Excel;

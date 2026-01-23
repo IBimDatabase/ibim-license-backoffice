@@ -9,11 +9,12 @@
                         <div>
                             <h5 class="mb-0">All Orders</h5>
                         </div>
+                         <a href="javascript:void(0)" class="btn bg-gradient-info mb-0 hide-on-load" ng-class="{show: totalData}" ng-click="exportOrder()"><i class="fas fa-file-export me-1"></i> Export Excel</a>
                         <!-- <a href="#" class="btn bg-gradient-primary mb-0" type="button" data-bs-toggle="modal" data-bs-target="#generateLicenseModal" ng-click="getCodes(); clearFormData('generateLicenseForm'); getYesterdayDate();"><i class="fa fa-plus-circle me-1"></i> Generate License Key</a> -->
                     </div>
-                    <div class="px-0 pt-5">
+                   <!-- Commented and moved in above - AR[06-Dec-2025] <div class="px-0 pt-5">
                         <a href="javascript:void(0)" class="btn bg-gradient-info mb-0 hide-on-load" ng-class="{show: totalData}" ng-click="exportOrder()"><i class="fas fa-file-export me-1"></i> Export Excel</a>
-                    </div>
+                    </div>-->
                 </div>
                 <div class="card-body px-0 pt-3 pb-2">
                     <!-- loader -->

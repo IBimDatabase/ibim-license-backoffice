@@ -8,7 +8,8 @@ use App\Models\Order;
 use App\Models\Package;
 use App\Models\Product;
 use App\Models\Customer;
-use Webpatser\Uuid\Uuid;
+//use Webpatser\Uuid\Uuid;
+//use GoldSpecDigital\LaravelUuid\Uuid; // Added_by_Abdul_Rehman_for_Upgrade Laravel
 use App\Models\OrderItem;
 use App\Helpers\AppHelper;
 use App\Models\LicenseType;

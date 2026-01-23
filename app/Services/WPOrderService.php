@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\DB;
 use Automattic\WooCommerce\Client as WooClient;
 use Automattic\WooCommerce\HttpClient\HttpClientException;
 use Mail;
-use Webpatser\Uuid\Uuid;
+//use Webpatser\Uuid\Uuid;
+//use GoldSpecDigital\LaravelUuid\Uuid; // Added_by_Abdul_Rehman_for_Upgrade Laravel
 use App\Mail\GeneratedLicenseEmail;
 use App\Services\LicenseKeyService;
 use App\Models\Order;

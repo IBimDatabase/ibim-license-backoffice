@@ -9,11 +9,13 @@
                         <div>
                             <h5 class="mb-0">All License Types</h5>
                         </div>
-                        <a href="javascript:void(0)" class="btn bg-gradient-primary mb-0" type="button" data-bs-toggle="modal" data-bs-target="#addLicenseTypeModal" ng-click="clearFormData('addLicenseTypeForm'); getTodayDate()"><i class="fa fa-plus-circle"></i> Add License Type</a>
-                    </div>
-                    <div class="px-0 pt-5">
-                        <a href="javascript:void(0)" class="btn bg-gradient-info mb-0 d-none" type="button" data-bs-toggle="modal" data-bs-target="#importModal" ng-click="clearFormData('importLicenseTypeForm')"><i class="fa fa-plus-circle me-1"></i> Import Excel</a>
-                        <a href="javascript:void(0)" class="btn bg-gradient-info mb-0 hide-on-load" ng-class="{show: totalData}" ng-click="exportLicenseType()"><i class="fas fa-file-export me-1"></i> Export Excel</a>
+                        <div class="d-flex flex-row">
+                            <a href="javascript:void(0)" class="btn bg-gradient-primary mb-0 mx-2" type="button" data-bs-toggle="modal" data-bs-target="#addLicenseTypeModal" ng-click="clearFormData('addLicenseTypeForm'); getTodayDate()"><i class="fa fa-plus-circle"></i> Add License Type</a>
+                            <!-- </div>
+                            <div class="px-0 pt-5"> //Commented and moved in above - AR[06-Dec-2025]-->
+                        
+                            <a href="javascript:void(0)" class="btn bg-gradient-info mb-0 hide-on-load" ng-class="{show: totalData}" ng-click="exportLicenseType()"><i class="fas fa-file-export me-1"></i> Export Excel</a>
+                        </div>
                     </div>
                 </div>
                 <div class="card-body px-0 pt-3 pb-2">

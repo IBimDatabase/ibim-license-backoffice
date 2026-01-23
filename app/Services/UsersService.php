@@ -5,7 +5,8 @@ namespace App\Services;
 use App\Models\User;
 use App\Models\Role;
 use App\Models\UserRole;
-use Webpatser\Uuid\Uuid;
+//use Webpatser\Uuid\Uuid;
+//use GoldSpecDigital\LaravelUuid\Uuid; // Added_by_Abdul_Rehman_for_Upgrade Laravel
 use Illuminate\Support\Facades\DB;
 DB::enableQueryLog();
 

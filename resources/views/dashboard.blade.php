@@ -1,19 +1,43 @@
 @extends('layouts.main')
 @section('content')
+<style>
+  .card-labels{
+    color: white;
+    font-weight: 800 !important;
+  }
+  #card1{
+    background: linear-gradient(to right, #fe9365, #feb798);
+  }
+  #card2{
+    background: linear-gradient(to right, #0ac282, #0df3a3);
+  }
+  #card3{
+    background: linear-gradient(to right, #fe5d70, #fe909d);
+  }
+  #card4{
+    background: linear-gradient(to right, #a18cd1, #fbc2eb);
+  }
+  #card5{
+    background: linear-gradient(to right, #a6c1ee, #fbc2eb);
+  }
+  #card6{
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+  }
+</style>
     <div class="container-fluid py-4" ng-controller="dashboardController">
       <!-- loader -->
       <div class="loader-overlay" ng-show="loading">
           <div class="loader-gif"></div>
       </div>
       <div class="row">
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
+        <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+          <div class="card" id="card1">
             <div class="card-body p-3">
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Products</p>
-                    <h5 class="font-weight-bolder mb-0 mt-1" ng-bind="productCode">
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold card-labels">Products</p>
+                    <h5 class="font-weight-bolder mb-0 mt-1 card-labels" ng-bind="productCode">
                       <span class="text-danger text-sm font-weight-bolder"></span>
                     </h5>
                   </div>
@@ -28,14 +52,14 @@
           </div>
         </div>
 
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
+        <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+          <div class="card" id="card2">
             <div class="card-body p-3">
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Customers</p>
-                    <h5 class="font-weight-bolder mb-0 mt-1" ng-bind="customerCount">
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold  card-labels">Customers</p>
+                    <h5 class="font-weight-bolder mb-0 mt-1 card-labels" ng-bind="customerCount">
                       <span class="text-success text-sm font-weight-bolder"></span>
                     </h5>
                   </div>
@@ -50,14 +74,14 @@
           </div>
         </div>
 
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
+        <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+          <div class="card" id="card3">
             <div class="card-body p-3">
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Active Licenses</p>
-                    <h5 class="font-weight-bolder mb-0 mt-1" ng-bind="purchasedLicenseCount">
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold card-labels">Active Licenses</p>
+                    <h5 class="font-weight-bolder mb-0 mt-1 card-labels" ng-bind="purchasedLicenseCount">
                       <span class="text-danger text-sm font-weight-bolder"></span>
                     </h5>
                   </div>
@@ -70,16 +94,18 @@
               </div>
             </div>
           </div>
-        </div>
-        
-        <div class="col-xl-3 col-sm-6">
-          <div class="card">
+        </div> 
+      </div>
+
+      <div class="row mt-1">
+        <div class="col-xl-4 col-sm-6">
+          <div class="card" id="card4">
             <div class="card-body p-3">
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Active Licenses <span ng-bind="'(' + getCurrentMonthYear + ')'"></span></p>
-                    <h5 class="font-weight-bolder mb-0 mt-1" ng-bind="cmPurchasedLicenseCount">
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold card-labels">Active Licenses <span ng-bind="'(' + getCurrentMonthYear + ')'"></span></p>
+                    <h5 class="font-weight-bolder mb-0 mt-1 card-labels" ng-bind="cmPurchasedLicenseCount">
                       <span class="text-success text-sm font-weight-bolder"></span>
                     </h5>
                   </div>
@@ -92,18 +118,15 @@
               </div>
             </div>
           </div>
-        </div>     
-      </div>
-
-      <div class="row mt-1">
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
+        </div>    
+        <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+          <div class="card" id="card5">
             <div class="card-body p-3">
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Orders</p>
-                    <h5 class="font-weight-bolder mb-0 mt-1" ng-bind="ordersCount">
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold card-labels">Orders</p>
+                    <h5 class="font-weight-bolder mb-0 mt-1 card-labels" ng-bind="ordersCount">
                       <span class="text-danger text-sm font-weight-bolder"></span>
                     </h5>
                   </div>
@@ -118,14 +141,14 @@
           </div>
         </div>
 
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
+        <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+          <div class="card" id="card6">
             <div class="card-body p-3">
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Orders <span ng-bind="'(' + getCurrentMonthYear + ')'"></span></p>
-                    <h5 class="font-weight-bolder mb-0 mt-1" ng-bind="cmOrdersCount">
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold card-labels">Orders <span ng-bind="'(' + getCurrentMonthYear + ')'"></span></p>
+                    <h5 class="font-weight-bolder mb-0 mt-1 card-labels" ng-bind="cmOrdersCount">
                       <span class="text-danger text-sm font-weight-bolder"></span>
                     </h5>
                   </div>

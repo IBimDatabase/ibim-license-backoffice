@@ -25,8 +25,11 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-        Passport::routes();
+        //Passport::routes();
 
-        //
+        // No more Passport::routes() in Passport v11+
+        // Instead, enable routes manually if you still need them:
+        //Passport::loadKeysFrom(base_path('storage/oauth-private.key'));
+        Passport::loadKeysFrom(storage_path());
     }
 }
