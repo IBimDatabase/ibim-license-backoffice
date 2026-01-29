@@ -3,13 +3,27 @@ FROM ubuntu:20.04
 ENV DEBIAN_FRONTEND=noninteractive
 ENV COMPOSER_MEMORY_LIMIT=-1
 
-RUN apt-get update \
-    && apt-get install -y software-properties-common \
-    && add-apt-repository ppa:ondrej/php -y \
-    && apt-get update
+RUN apt-get update && apt-get install -y \
+    ca-certificates \
+    lsb-release \
+    apt-transport-https \
+    software-properties-common \
+    gnupg \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get install -y \
-    curl zip unzip git awscli supervisor cron nginx \
+RUN curl -fsSL https://packages.sury.org/php/apt.gpg | gpg --dearmor -o /usr/share/keyrings/php.gpg \
+    && echo "deb [signed-by=/usr/share/keyrings/php.gpg] https://packages.sury.org/php/ $(lsb_release -sc) main" \
+       > /etc/apt/sources.list.d/php.list
+
+RUN apt-get update && apt-get install -y \
+    nginx \
+    supervisor \
+    cron \
+    git \
+    zip \
+    unzip \
+    awscli \
     php8.2 \
     php8.2-fpm \
     php8.2-cli \
@@ -24,8 +38,8 @@ RUN apt-get install -y \
     php8.2-zip \
     php8.2-dev \
     php-pear \
-    wget \
     build-essential \
+    wget \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
