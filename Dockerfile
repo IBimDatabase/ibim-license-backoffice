@@ -1,20 +1,7 @@
-FROM ubuntu:20.04
+FROM php:8.2-fpm
 
-ENV DEBIAN_FRONTEND=noninteractive
 ENV COMPOSER_MEMORY_LIMIT=-1
-
-RUN apt-get update && apt-get install -y \
-    ca-certificates \
-    lsb-release \
-    apt-transport-https \
-    software-properties-common \
-    gnupg \
-    curl \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN curl -fsSL https://packages.sury.org/php/apt.gpg | gpg --dearmor -o /usr/share/keyrings/php.gpg \
-    && echo "deb [signed-by=/usr/share/keyrings/php.gpg] https://packages.sury.org/php/ $(lsb_release -sc) main" \
-       > /etc/apt/sources.list.d/php.list
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y \
     nginx \
@@ -24,37 +11,29 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip \
     awscli \
-    php8.2 \
-    php8.2-fpm \
-    php8.2-cli \
-    php8.2-curl \
-    php8.2-gmp \
-    php8.2-bcmath \
-    php8.2-mysql \
-    php8.2-mbstring \
-    php8.2-xml \
-    php8.2-gd \
-    php8.2-opcache \
-    php8.2-zip \
-    php8.2-dev \
-    php-pear \
-    build-essential \
-    wget \
+    libzip-dev \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    libcurl4-openssl-dev \
+    && docker-php-ext-install \
+        pdo_mysql \
+        bcmath \
+        gmp \
+        zip \
+        gd \
+        opcache \
+    && pecl install redis \
+    && docker-php-ext-enable redis \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-RUN pecl install redis \
-    && echo "extension=redis.so" > /etc/php/8.2/cli/conf.d/20-redis.ini \
-    && echo "extension=redis.so" > /etc/php/8.2/fpm/conf.d/20-redis.ini
+RUN echo "memory_limit=512M" > /usr/local/etc/php/conf.d/custom.ini \
+ && echo "upload_max_filesize=1024M" >> /usr/local/etc/php/conf.d/custom.ini \
+ && echo "post_max_size=512M" >> /usr/local/etc/php/conf.d/custom.ini \
+ && echo "max_execution_time=180" >> /usr/local/etc/php/conf.d/custom.ini
 
-RUN sed -i "s/max_execution_time = .*/max_execution_time = 180/" /etc/php/8.2/cli/php.ini \
- && sed -i "s/memory_limit = .*/memory_limit = 512M/" /etc/php/8.2/cli/php.ini \
- && sed -i "s/upload_max_filesize = .*/upload_max_filesize = 1024M/" /etc/php/8.2/cli/php.ini \
- && sed -i "s/post_max_size = .*/post_max_size = 512M/" /etc/php/8.2/cli/php.ini
-
-RUN php -r "readfile('https://getcomposer.org/installer');" | php -- \
-    --install-dir=/usr/bin \
-    --filename=composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
  && ln -sf /dev/stderr /var/log/nginx/error.log
@@ -67,9 +46,9 @@ RUN composer install --no-dev --optimize-autoloader
 
 RUN chmod -R 777 /usr/share/nginx/ibim-license-management/storage
 
-ADD docker-setup/nginx.conf /etc/nginx/sites-enabled/default
-ADD docker-setup/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-ADD docker-setup/initial.sh /usr/bin/initial
+COPY docker-setup/nginx.conf /etc/nginx/sites-enabled/default
+COPY docker-setup/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY docker-setup/initial.sh /usr/bin/initial
 RUN chmod +x /usr/bin/initial
 
 COPY docker-setup/cronschedule /etc/cron.d/cronschedule
@@ -77,7 +56,5 @@ RUN chmod 0644 /etc/cron.d/cronschedule && crontab /etc/cron.d/cronschedule
 
 COPY docker-setup/cron-startup.sh /cron-startup.sh
 RUN chmod +x /cron-startup.sh
-
-RUN rm -f /run/php/php7.4-fpm.sock
 
 ENTRYPOINT ["initial"]
