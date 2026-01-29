@@ -1,12 +1,15 @@
 FROM ubuntu:20.04
+
 ENV DEBIAN_FRONTEND=noninteractive
 ENV COMPOSER_MEMORY_LIMIT=-1
 
 RUN apt-get update \
-    && apt-get install -y software-properties-common curl zip unzip git awscli supervisor cron nginx \
-    && add-apt-repository ppa:ondrej/php -y
+    && apt-get install -y software-properties-common \
+    && add-apt-repository ppa:ondrej/php -y \
+    && apt-get update
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get install -y \
+    curl zip unzip git awscli supervisor cron nginx \
     php8.2 \
     php8.2-fpm \
     php8.2-cli \
@@ -20,10 +23,11 @@ RUN apt-get update && apt-get install -y \
     php8.2-opcache \
     php8.2-zip \
     php8.2-dev \
+    php-pear \
     wget \
     build-essential \
-    php-pear \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN pecl install redis \
     && echo "extension=redis.so" > /etc/php/8.2/cli/conf.d/20-redis.ini \
@@ -35,7 +39,7 @@ RUN sed -i "s/max_execution_time = .*/max_execution_time = 180/" /etc/php/8.2/cl
  && sed -i "s/post_max_size = .*/post_max_size = 512M/" /etc/php/8.2/cli/php.ini
 
 RUN php -r "readfile('https://getcomposer.org/installer');" | php -- \
-    --install-dir=/usr/bin/ \
+    --install-dir=/usr/bin \
     --filename=composer
 
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
