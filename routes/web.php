@@ -9,7 +9,7 @@ use App\Http\Controllers\ProductLicenseKeysController;
 use App\Http\Controllers\LicenseTypesController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\PackagesController;
-use App\Http\Controllers\WPAuthController;
+#use App\Http\Controllers\WPAuthController;
 use App\Http\Controllers\OrdersController;
 
 /*
@@ -44,4 +44,4 @@ Route::get('orders', [OrdersController::class, 'ordersList'])->name('orders');
 Route::get('purchase-report-list', [ProductLicenseKeysController::class, 'purchaseReport'])->name('purchase-report-list');
 Route::get('expire-report-list', [ProductLicenseKeysController::class, 'expireReport'])->name('expire-report-list');
 
-Route::get('wp/get/token', [WPAuthController::class, 'getToken']);
+#Route::get('wp/get/token', [WPAuthController::class, 'getToken']);
