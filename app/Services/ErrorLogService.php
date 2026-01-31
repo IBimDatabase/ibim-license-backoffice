@@ -14,10 +14,7 @@ class ErrorLogService
     public static function saveErrorLog($data)
     {
         $insertData = [
-            //'error_uuid' => Uuid::generate(4),
-            //'error_uuid' => Uuid::uuid4()->toString(),
             'error_uuid' => (string) Str::uuid(),
-            //'error_uuid' => Str::uuid()->toString(),
             'error_code' => @$data['error_code'],
             'error_type' => @$data['error_type'],
             'route' => @$data['route'],

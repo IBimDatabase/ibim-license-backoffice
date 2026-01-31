@@ -42,34 +42,34 @@
                         <table class="table align-items-center mb-0">
                             <thead>
                                 <tr>
-                                    <th class="text-uppercase text-info text-xs font-weight-bolder opacity-7">
+                                    <th class="text-uppercase text-info text-xs font-weight-bolder">
                                         Sno
                                     </th>
-                                    <th class="text-center text-uppercase text-info text-xs font-weight-bolder opacity-7" ng-click="sortByField('product.product_name')">
+                                    <th class="text-center text-uppercase text-info text-xs font-weight-bolder" ng-click="sortByField('product.product_name')">
                                         Product/Package Name <i class="fa fa-sort" aria-hidden="true"></i>
                                     </th>
-                                    <th class="text-center text-uppercase text-info text-xs font-weight-bolder opacity-7" ng-click="sortByField('license_type')">
+                                    <th class="text-center text-uppercase text-info text-xs font-weight-bolder" ng-click="sortByField('license_type')">
                                         License Type <i class="fa fa-sort" aria-hidden="true"></i>
                                     </th>
-                                    <th class="text-center text-uppercase text-info text-xs font-weight-bolder opacity-7" ng-click="sortByField('license_key')">
+                                    <th class="text-center text-uppercase text-info text-xs font-weight-bolder" ng-click="sortByField('license_key')">
                                         License Key <i class="fa fa-sort" aria-hidden="true"></i>
                                     </th>
-                                    <!-- <th class="text-center text-uppercase text-info text-xs font-weight-bolder opacity-7" ng-click="sortByField('mac_address')">
+                                    <!-- <th class="text-center text-uppercase text-info text-xs font-weight-bolder" ng-click="sortByField('mac_address')">
                                         Mac Address <i class="fa fa-sort" aria-hidden="true"></i>
                                     </th> -->
-                                    <th class="text-center text-uppercase text-info text-xs font-weight-bolder opacity-7" ng-click="sortByField('customer.email')">
+                                    <th class="text-center text-uppercase text-info text-xs font-weight-bolder" ng-click="sortByField('customer.email')">
                                         Customer Email <i class="fa fa-sort" aria-hidden="true"></i>
                                     </th>
-                                    <th class="text-center text-uppercase text-info text-xs font-weight-bolder opacity-7" ng-click="sortByField('status')">
+                                    <th class="text-center text-uppercase text-info text-xs font-weight-bolder" ng-click="sortByField('status')">
                                         Status <i class="fa fa-sort" aria-hidden="true"></i>
                                     </th>
-                                    <!-- <th class="text-center text-uppercase text-info text-xs font-weight-bolder opacity-7" ng-click="sortByField('purchased_date')">
+                                    <!-- <th class="text-center text-uppercase text-info text-xs font-weight-bolder" ng-click="sortByField('purchased_date')">
                                         Activation On <i class="fa fa-sort" aria-hidden="true"></i>
                                     </th>
-                                    <th class="text-center text-uppercase text-info text-xs font-weight-bolder opacity-7" ng-click="sortByField('expiry_date')">
+                                    <th class="text-center text-uppercase text-info text-xs font-weight-bolder" ng-click="sortByField('expiry_date')">
                                         Expired On <i class="fa fa-sort" aria-hidden="true"></i>
                                     </th> -->
-                                    <th class="text-center text-uppercase text-info text-xs font-weight-bolder opacity-7">
+                                    <th class="text-center text-uppercase text-info text-xs font-weight-bolder">
                                         Action
                                     </th>
                                 </tr>
@@ -164,8 +164,8 @@
                                             <a href="javascript:void(0);" class="me-1" data-bs-toggle="modal" data-bs-target="#LicenseHistoryModal" ng-click="getLicenseHistory(license.license_uuid)" title="License History">
                                                 <i class="fas fa-history text-info"></i>
                                             </a>
-                                        </div>
-                                        <div class="col">
+                                        <!--</div>
+                                        <div class="col">-->
                                             <a href="javascript:void(0);" class="me-1" data-bs-toggle="modal" data-bs-target="#renewModal" ng-click="getRenewData(license, license.product); getLicenseCodes(); clearFormData('renewForm');" title="Renew License">
                                                 <i class="fa fa-refresh text-primary"></i>
                                             </a>

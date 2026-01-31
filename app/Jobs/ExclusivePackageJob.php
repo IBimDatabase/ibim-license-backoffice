@@ -8,7 +8,8 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 //use Webpatser\Uuid\Uuid;
-//use GoldSpecDigital\LaravelUuid\Uuid; // Added_by_Abdul_Rehman_for_Upgrade Laravel
+//use GoldSpecDigital\LaravelUuid\Uuid;
+use Illuminate\Support\Str;// Added_by_Abdul_Rehman_for_Upgrade Laravel
 use App\Models\Product;
 use App\Models\ProductLicenseKeys;
 use App\Models\LicenseType;
@@ -77,7 +78,7 @@ class ExclusivePackageJob implements ShouldQueue
 
                         $productLicenseKeysData = [
                             'license_type_id' => (isset($licenseProducts)) ? $licenseProducts->id : NULL,
-                            'license_uuid' => Uuid::generate(4),
+                            'license_uuid' => (string) Str::uuid(),
                             'product_id' => $productModel->id,
                             'package_id' => $this->packageId,
                             'license_type' => $licenseKeyModel->license_type,

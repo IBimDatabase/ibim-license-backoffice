@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\Role;
 //use Webpatser\Uuid\Uuid;
 //use GoldSpecDigital\LaravelUuid\Uuid; // Added_by_Abdul_Rehman_for_Upgrade Laravel
+use Illuminate\Support\Str;// Added_by_Abdul_Rehman_for_Upgrade Laravel
 use Illuminate\Support\Facades\DB;
 DB::enableQueryLog();
 
@@ -40,7 +41,7 @@ class RolesService
     public static function addRoleData($data)
     {
         $roleData = [
-            'role_uuid' => Uuid::generate(4),
+            'role_uuid' => (string) Str::uuid(),
             'role_name' => key_exists('role_name', $data) ? $data['role_name'] : '',
             'role_code' => key_exists('role_code', $data) ? $data['role_code'] : '',
             'role_description' => key_exists('role_description', $data) ? $data['role_description'] : '',

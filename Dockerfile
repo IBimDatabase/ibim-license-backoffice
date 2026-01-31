@@ -57,4 +57,6 @@ RUN chmod 0644 /etc/cron.d/cronschedule && crontab /etc/cron.d/cronschedule
 COPY docker-setup/cron-startup.sh /cron-startup.sh
 RUN chmod +x /cron-startup.sh
 
+RUN sed -i 's|listen = 127.0.0.1:9000|listen = 0.0.0.0:9000|' \/usr/local/etc/php-fpm.d/www.conf
+
 ENTRYPOINT ["initial"]

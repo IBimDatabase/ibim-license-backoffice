@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Models\Package;
 use Carbon\Carbon;
+use Illuminate\Support\Str;// Added_by_Abdul_Rehman_for_Upgrade Laravel
 
 class PackagesTableSeeder extends Seeder
 {
@@ -15,7 +16,7 @@ class PackagesTableSeeder extends Seeder
     {
         $packages = [
             [
-                'package_uuid' => Uuid::generate(4),
+                'package_uuid' => (string) Str::uuid(),
                 'package_name' => 'Ultra',
                 'package_code' => 'ULTRA',
                 'product_codes' => '["ADD_FROM_FACE_SYMBOL_FOR_PANELS_IN_GA_DRAWING", "BOLT_HOLE_GENERATOR", "DRAIN_HOLE"]',

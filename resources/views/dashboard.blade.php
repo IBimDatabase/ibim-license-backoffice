@@ -176,11 +176,11 @@
                   <table class="table table-striped">
                     <thead>
                       <tr>
-                        <th class="text-uppercase text-info text-xs font-weight-bolder opacity-7">Sno</th>
-                        <th class="text-uppercase text-info text-xs font-weight-bolder opacity-7">Customer Name</th>
-                        <th class="text-uppercase text-info text-xs font-weight-bolder opacity-7">Product Name</th>
-                        <th class="text-uppercase text-info text-xs font-weight-bolder opacity-7">License Key</th>
-                        <th class="text-uppercase text-info text-xs font-weight-bolder opacity-7">Duration</th>
+                        <th class="text-uppercase text-info text-xs font-weight-bolder">Sno</th>
+                        <th class="text-uppercase text-info text-xs font-weight-bolder">Customer Name</th>
+                        <th class="text-uppercase text-info text-xs font-weight-bolder">Product Name</th>
+                        <th class="text-uppercase text-info text-xs font-weight-bolder">License Key</th>
+                        <th class="text-uppercase text-info text-xs font-weight-bolder">Duration</th>
                       </tr>
                     </thead>
                     <tbody>

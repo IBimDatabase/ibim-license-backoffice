@@ -43,28 +43,28 @@
                         <table class="table align-items-center mb-0">
                             <thead>
                                 <tr>
-                                    <th class="text-uppercase text-info text-xs font-weight-bolder opacity-7">
+                                    <th class="text-uppercase text-info text-xs font-weight-bolder">
                                         Sno
                                     </th>
-                                    <th class="text-center text-uppercase text-info text-xs font-weight-bolder opacity-7" ng-click="sortByField('order_id')">
+                                    <th class="text-center text-uppercase text-info text-xs font-weight-bolder" ng-click="sortByField('order_id')">
                                         Order ID <i class="fa fa-sort" aria-hidden="true"></i>
                                     </th>
-                                    <th class="text-center text-uppercase text-info text-xs font-weight-bolder opacity-7" ng-click="sortByField('product_name')">
+                                    <th class="text-center text-uppercase text-info text-xs font-weight-bolder" ng-click="sortByField('product_name')">
                                         Product/Package Name <i class="fa fa-sort" aria-hidden="true"></i>
                                     </th>
-                                    <th class="text-center text-uppercase text-info text-xs font-weight-bolder opacity-7" ng-click="sortByField('license_type')">
+                                    <th class="text-center text-uppercase text-info text-xs font-weight-bolder" ng-click="sortByField('license_type')">
                                         License Type <i class="fa fa-sort" aria-hidden="true"></i>
                                     </th>
-                                    <th class="text-center text-uppercase text-info text-xs font-weight-bolder opacity-7" ng-click="sortByField('customer_email')">
+                                    <th class="text-center text-uppercase text-info text-xs font-weight-bolder" ng-click="sortByField('customer_email')">
                                         Customer Email <i class="fa fa-sort" aria-hidden="true"></i>
                                     </th>
-                                    <th class="text-center text-uppercase text-info text-xs font-weight-bolder opacity-7" ng-click="sortByField('order_date')">
+                                    <th class="text-center text-uppercase text-info text-xs font-weight-bolder" ng-click="sortByField('order_date')">
                                         Order Date <i class="fa fa-sort" aria-hidden="true"></i>
                                     </th>
-                                    <th class="text-center text-uppercase text-info text-xs font-weight-bolder opacity-7" ng-click="sortByField('order_status')">
+                                    <th class="text-center text-uppercase text-info text-xs font-weight-bolder" ng-click="sortByField('order_status')">
                                         Order Status <i class="fa fa-sort" aria-hidden="true"></i>
                                     </th>
-                                    <th class="text-center text-uppercase text-info text-xs font-weight-bolder opacity-7">
+                                    <th class="text-center text-uppercase text-info text-xs font-weight-bolder">
                                         Action <i class="fa fa-sort" aria-hidden="true"></i>
                                     </th>
                                 </tr>

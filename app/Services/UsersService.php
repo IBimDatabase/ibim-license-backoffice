@@ -7,6 +7,7 @@ use App\Models\Role;
 use App\Models\UserRole;
 //use Webpatser\Uuid\Uuid;
 //use GoldSpecDigital\LaravelUuid\Uuid; // Added_by_Abdul_Rehman_for_Upgrade Laravel
+use Illuminate\Support\Str;// Added_by_Abdul_Rehman_for_Upgrade Laravel
 use Illuminate\Support\Facades\DB;
 DB::enableQueryLog();
 
@@ -51,7 +52,7 @@ class UsersService
     public static function addUserData($data)
     {
         $userData = [
-            'user_uuid' => Uuid::generate(4),
+            'user_uuid' => (string) Str::uuid(),
             'first_name' => key_exists('first_name', $data) ? $data['first_name'] : '',
             'last_name' => key_exists('last_name', $data) ? $data['last_name'] : '',
             'user_name' => key_exists('user_name', $data) ? $data['user_name'] : '',

@@ -11,6 +11,7 @@ use Automattic\WooCommerce\HttpClient\HttpClientException;
 use Mail;
 //use Webpatser\Uuid\Uuid;
 //use GoldSpecDigital\LaravelUuid\Uuid; // Added_by_Abdul_Rehman_for_Upgrade Laravel
+use Illuminate\Support\Str;// Added_by_Abdul_Rehman_for_Upgrade Laravel
 use App\Mail\GeneratedLicenseEmail;
 use App\Services\LicenseKeyService;
 use App\Models\Order;
@@ -156,7 +157,7 @@ class WPOrderService
                     $customer = LicenseKeyService::saveCustomerDetails(@$wpOrderArray['billing']);
                     $orderInsertData = [
                         "wp_order_id" => @$wp_order_id,
-                        "order_uuid" => Uuid::generate(4),
+                        "order_uuid" => (string) Str::uuid(),
                         "order_type" => 'PURCHASE',
                         "order_status" => strtoupper(@$wpOrderArray['status']),
                         "tax" => @$wpOrderArray['total_tax'],
@@ -235,7 +236,7 @@ class WPOrderService
                             
                             $orderItemInsertData = [
                                 "order_id" => @$orderData->id,
-                                "order_item_uuid" => Uuid::generate(4),
+                                "order_item_uuid" => (string) Str::uuid(),
                                 "entity_type" => 'PRODUCT',
                                 "entity_ref_id" => @$product->id,
                                 "license_type_id" => @$license_type_id,
@@ -251,7 +252,7 @@ class WPOrderService
                             if (isset($orderItemData->id))
                             {
                                 $orderDeductionInsertData = [
-                                    "deduction_uuid" => Uuid::generate(4),
+                                    "deduction_uuid" => (string) Str::uuid(),
                                     "order_id" => @$orderData->id,
                                     "order_item_id" => @$orderItemData->id,
                                     "deduction_type" => 'TAX',
@@ -266,7 +267,7 @@ class WPOrderService
                                 $orderDeductionData = OrderDeduction::insertRecord($orderDeductionInsertData);
 
                                 $orderPaymentInsertData = [
-                                    "payment_uuid" => Uuid::generate(4),
+                                    "payment_uuid" => (string) Str::uuid(),
                                     "order_id" => @$orderData->id,
                                     "payment_ref_no" => '',
                                     "payment_mode" => strtoupper(@$wpOrderArray['payment_method']),
@@ -318,7 +319,7 @@ class WPOrderService
                                 GeneratedLicenseEmailJob::dispatch($mailData); 
                                 
                                 $mailLogData = [
-                                    'email_uuid' => Uuid::generate(4),
+                                    'email_uuid' => (string) Str::uuid(),
                                     'customer_id' => (isset($customer)) ? $customer->id : NULL,
                                     'entity_type' => 'PRODUCT',
                                     'email_to' => @$wpBillingData['email'],

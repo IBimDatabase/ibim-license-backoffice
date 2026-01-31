@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Helpers\LicenseKeyHelper;
 //use Webpatser\Uuid\Uuid;
 //use GoldSpecDigital\LaravelUuid\Uuid; // Added_by_Abdul_Rehman_for_Upgrade Laravel
+use Illuminate\Support\Str;// Added_by_Abdul_Rehman_for_Upgrade Laravel
 
 class ProductLicenseKeys extends Model
 {
@@ -26,7 +27,7 @@ class ProductLicenseKeys extends Model
         $productLicenseKeys->product_id = (key_exists('product_id', $data)) ? $data['product_id']: NULL;
         $productLicenseKeys->package_id = (key_exists('package_id', $data)) ? $data['package_id']: NULL;
         $productLicenseKeys->renewal_license_id = (key_exists('renewal_license_id', $data)) ? $data['renewal_license_id']: NULL;
-        $productLicenseKeys->license_uuid = (key_exists('license_uuid', $data)) ? $data['license_uuid']: Uuid::generate(4)->string;
+        $productLicenseKeys->license_uuid = (key_exists('license_uuid', $data)) ? $data['license_uuid']: (string) Str::uuid();
         $productLicenseKeys->license_type = (key_exists('license_type', $data)) ? $data['license_type']: NULL;
         $productLicenseKeys->license_key = (key_exists('license_key', $data)) ? $data['license_key']: NULL;
         $productLicenseKeys->mac_address = (key_exists('mac_address', $data)) ? $data['mac_address']: NULL;

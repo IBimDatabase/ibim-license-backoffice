@@ -10,6 +10,7 @@ use App\Models\Product;
 use App\Models\Customer;
 //use Webpatser\Uuid\Uuid;
 //use GoldSpecDigital\LaravelUuid\Uuid; // Added_by_Abdul_Rehman_for_Upgrade Laravel
+use Illuminate\Support\Str;// Added_by_Abdul_Rehman_for_Upgrade Laravel
 use App\Models\OrderItem;
 use App\Helpers\AppHelper;
 use App\Models\LicenseType;
@@ -261,7 +262,7 @@ class LicenseKeyService
 
                 $productLicenseKeysData = [
                     'license_type_id' => $licenseProducts->id,
-                    'license_uuid' => Uuid::generate(4),
+                    'license_uuid' => (string) Str::uuid(),
                     'product_id' => $product->id,
                     'license_type' => $licenseType->code,
                     'license_key' => $newLicenseKey,
@@ -306,7 +307,7 @@ class LicenseKeyService
 
                         $productLicenseKeysData = [
                             'license_type_id' => $licenseProducts->id,
-                            'license_uuid' => Uuid::generate(4),
+                            'license_uuid' => (string) Str::uuid(),
                             'product_id' => $getProduct->id,
                             'package_id' => $package->id,
                             'license_type' => $licenseType->code,
@@ -506,7 +507,7 @@ class LicenseKeyService
                         $updated_license_info=ProductLicenseKeys::insertRecord($create_license_data);
                         $licenseAuditData = [
                             'license_id' => $updated_license_info->id,
-                            'license_audit_uuid' => Uuid::generate(4),
+                            'license_audit_uuid' => (string) Str::uuid(),
                             'entry_type' => 'LICENSE_ACTIVATION',
                             'license_key' => $updated_license_info->license_key,
                             'mac_address' => $updated_license_info->mac_address,
@@ -568,7 +569,7 @@ class LicenseKeyService
                             
                             $licenseAuditData = [
                                 'license_id' => $updated_license_info->id,
-                                'license_audit_uuid' => Uuid::generate(4),
+                                'license_audit_uuid' => (string) Str::uuid(),
                                 'entry_type' => 'LICENSE_ACTIVATION',
                                 'license_key' => $updated_license_info->license_key,
                                 'mac_address' => $updated_license_info->mac_address,
@@ -728,7 +729,7 @@ class LicenseKeyService
             ];
             $licenseAuditData = [
                 'license_id' => $productLicenseKeysModel->id,
-                'license_audit_uuid' => Uuid::generate(4),
+                'license_audit_uuid' => (string) Str::uuid(),
                 'entry_type' => 'MAC_ADDRESS_UPDATE',
                 'license_key' => $productLicenseKeysModel->license_key,
                 'mac_address' => $productLicenseKeysModel->mac_address,
@@ -1681,7 +1682,7 @@ class LicenseKeyService
         if (empty($existCustomer))
         {
             $customerData = [
-                'customer_uuid' => Uuid::generate(4),
+                'customer_uuid' => (string) Str::uuid(),
                 'user_name' => '',
                 'first_name' => (key_exists('first_name', $data)) ? $data['first_name'] : '',
                 'last_name' => (key_exists('last_name', $data))? $data['last_name'] : '',
@@ -1733,7 +1734,7 @@ class LicenseKeyService
                 {
                     $licenseAuditData = [
                         'license_id' => $productLicenseKey->id,
-                        'license_audit_uuid' => Uuid::generate(4),
+                        'license_audit_uuid' => (string) Str::uuid(),
                         'entry_type' => 'MAC_ADDRESS_RESET',
                         'license_key' => $productLicenseKey->license_key,
                         'mac_address' => $existProductLicenseKey->mac_address,
@@ -1800,7 +1801,7 @@ class LicenseKeyService
 
             $licenseAuditData = [
                 'license_id' => $licenseKey->id,
-                'license_audit_uuid' => Uuid::generate(4),
+                'license_audit_uuid' => (string) Str::uuid(),
                 'entry_type' => 'LICENSE_DELETE',
                 'license_key' => $licenseKey->license_key,
                 'mac_address' => $licenseKey->mac_address,
@@ -1826,7 +1827,7 @@ class LicenseKeyService
 
                 $licenseAuditData = [
                     'license_id' => $licenseKey->id,
-                    'license_audit_uuid' => Uuid::generate(4),
+                    'license_audit_uuid' => (string) Str::uuid(),
                     'entry_type' => 'LICENSE_DELETE',
                     'license_key' => $licenseKey->license_key,
                     'mac_address' => $licenseKey->mac_address,
@@ -1873,7 +1874,7 @@ class LicenseKeyService
 
             $licenseAuditData = [
                 'license_id' => $licenseKey->id,
-                'license_audit_uuid' => Uuid::generate(4),
+                'license_audit_uuid' => (string) Str::uuid(),
                 'entry_type' => 'LICENSE_DELETE',
                 'license_key' => $licenseKey->license_key,
                 'mac_address' => $licenseKey->mac_address,
@@ -1907,7 +1908,7 @@ class LicenseKeyService
 
                 $licenseAuditData = [
                     'license_id' => $licenseKey->id,
-                    'license_audit_uuid' => Uuid::generate(4),
+                    'license_audit_uuid' => (string) Str::uuid(),
                     'entry_type' => 'LICENSE_DELETE',
                     'license_key' => $licenseKey->license_key,
                     'mac_address' => $licenseKey->mac_address,
@@ -1961,7 +1962,7 @@ class LicenseKeyService
                         {
                             $licenseAuditData = [
                                 'license_id' => $productLicenseKey->id,
-                                'license_audit_uuid' => Uuid::generate(4),
+                                'license_audit_uuid' => (string) Str::uuid(),
                                 'entry_type' => 'MAC_ADDRESS_RESET',
                                 'license_key' => $productLicenseKey->license_key,
                                 'mac_address' => $value->mac_address,
@@ -1993,7 +1994,7 @@ class LicenseKeyService
 
             $licenseAuditData = [
                 'license_id' => $licenseKey->id,
-                'license_audit_uuid' => Uuid::generate(4),
+                'license_audit_uuid' => (string) Str::uuid(),
                 'entry_type' => 'LICENSE_DELETE',
                 'license_key' => $licenseKey->license_key,
                 'mac_address' => $licenseKey->mac_address,
@@ -2019,7 +2020,7 @@ class LicenseKeyService
 
                 $licenseAuditData = [
                     'license_id' => $licenseKey->id,
-                    'license_audit_uuid' => Uuid::generate(4),
+                    'license_audit_uuid' => (string) Str::uuid(),
                     'entry_type' => 'LICENSE_DELETE',
                     'license_key' => $licenseKey->license_key,
                     'mac_address' => $licenseKey->mac_address,
@@ -2142,7 +2143,7 @@ class LicenseKeyService
 
                 $insertData = [
                     'license_id' => $existProductLicenseKey->id,
-                    'license_audit_uuid' => Uuid::generate(4),
+                    'license_audit_uuid' => (string) Str::uuid(),
                     'entry_type' => 'LICENSE_RENEWAL',
                     'license_key' => $existProductLicenseKey->license_key,
                     'mac_address' => $renewedLicenseData->mac_address,
@@ -2210,7 +2211,7 @@ class LicenseKeyService
 
                     $insertData = [
                         'license_id' => $productLicenseKey->id,
-                        'license_audit_uuid' => Uuid::generate(4),
+                        'license_audit_uuid' => (string) Str::uuid(),
                         'entry_type' => 'LICENSE_RENEWAL',
                         'license_key' => $productLicenseKey->license_key,
                         'mac_address' => $renewedLicenseData->mac_address,
@@ -2320,7 +2321,7 @@ class LicenseKeyService
 
                 $productLicenseKeysData = [
                     'license_type_id' => $licenseProducts->id,
-                    'license_uuid' => Uuid::generate(4),
+                    'license_uuid' => (string) Str::uuid(),
                     'product_id' => $product->id,
                     'license_type' => $licenseType->code,
                     'license_key' => (@$data['license_key']) ? @$data['license_key']: $newLicenseKey,
@@ -2374,7 +2375,7 @@ class LicenseKeyService
 
                         $productLicenseKeysData = [
                             'license_type_id' => $licenseProducts->id,
-                            'license_uuid' => Uuid::generate(4),
+                            'license_uuid' => (string) Str::uuid(),
                             'product_id' => $getProduct->id,
                             'package_id' => $package->id,
                             'license_type' => $licenseType->code,
@@ -2526,7 +2527,7 @@ class LicenseKeyService
                 $renewedLicenseData = ProductLicenseKeys::updateRecord($updateData, $productLicense->license_uuid);
                 $insertData = [
                     'license_id' => $productLicense->license_keys_id,
-                    'license_audit_uuid' => Uuid::generate(4),
+                    'license_audit_uuid' => (string) Str::uuid(),
                     'entry_type' => 'LICENSE_RENEWAL',
                     'license_key' => $productLicense->license_key,
                     'mac_address' => $renewedLicenseData->mac_address,

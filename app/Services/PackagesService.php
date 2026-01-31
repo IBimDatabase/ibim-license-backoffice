@@ -4,7 +4,8 @@ namespace App\Services;
 
 use App\Models\Package;
 //use Webpatser\Uuid\Uuid;
-//use GoldSpecDigital\LaravelUuid\Uuid; // Added_by_Abdul_Rehman_for_Upgrade Laravel
+//use GoldSpecDigital\LaravelUuid\Uuid;
+use Illuminate\Support\Str;// Added_by_Abdul_Rehman_for_Upgrade Laravel
 use Illuminate\Support\Facades\DB;
 use App\Jobs\ExclusivePackageJob;
 DB::enableQueryLog();
@@ -51,7 +52,7 @@ class PackagesService
     public static function addPackageData($data)
     {
         $packageData = [
-            'package_uuid' => Uuid::generate(4),
+            'package_uuid' => (string) Str::uuid(),
             'package_name' => $data['package_name'],
             'package_code' => $data['package_code'],
             'product_codes' => json_encode($data['product_codes']),

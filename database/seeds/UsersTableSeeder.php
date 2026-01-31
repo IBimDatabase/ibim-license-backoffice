@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class UsersTableSeeder extends Seeder
 {
@@ -15,7 +16,7 @@ class UsersTableSeeder extends Seeder
     {
         $users = [ 
             [
-                'user_uuid' => Uuid::generate(4),
+                'user_uuid' => (string) Str::uuid(),
                 'user_type' => 'SUPER_ADMIN',
                 'user_name' => 'superadmin',
                 'first_name' => 'Super',
@@ -27,7 +28,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => Carbon::now()->toDateTimeString(),
             ],
             [
-                'user_uuid' => Uuid::generate(4),
+                'user_uuid' => (string) Str::uuid(),
                 'user_type' => 'ADMIN',
                 'user_name' => 'admin',
                 'first_name' => 'Admin',
@@ -39,7 +40,7 @@ class UsersTableSeeder extends Seeder
                 'created_at' => Carbon::now()->toDateTimeString(),
             ],
             [
-                'user_uuid' => Uuid::generate(4),
+                'user_uuid' => (string) Str::uuid(),
                 'user_type' => 'USER',
                 'user_name' => 'user',
                 'first_name' => 'User',

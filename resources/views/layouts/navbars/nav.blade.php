@@ -1,4 +1,4 @@
-<main class="main-content mt-1 border-radius-lg" ng-controller="authController">
+<main class="main-content border-radius-lg" ng-controller="authController">
     <!--(border-radius-xl): Removed_by_Abdul_Rehman_For_UI_Changes-->
     <style>
         #navbarBlur{

@@ -90,6 +90,42 @@
   opacity: 1;
   transform: rotate(-45deg) translateY(100%);
 }
+/*CSS For Table Pagination */
+.pagination  .page-item.active .page-link{
+    background-color: #404e67;
+    border-color: #404e67;
+}
+.pagination .page-link{
+    color: #404e67;
+}
+/*CSS for All common */
+.text-info{
+    color: #404e67 !important;
+}
+.border-info {
+    border-color: #404e67 !important;
+}
+.text-secondary{
+    color: #404e67 !important
+}
+.bg-gradient-warning{
+    background-image: unset;
+    background-color: #f4ba17;
+}
+.bg-gradient-success{
+    background-image: unset;
+    background-color: #51c806;
+}
+.bg-gradient-danger{
+    background-image: unset;
+    background-color: #c80606;
+}
+a:has(.fa-trash) {
+    float: right;
+}
+a:has(.fa-edit) {
+    float: left;
+}
 </style>
 <!--(border-radius-xl my-3): Removed_by_Abdul_Rehman_For_UI_Changes-->
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 fixed-left ms-1"

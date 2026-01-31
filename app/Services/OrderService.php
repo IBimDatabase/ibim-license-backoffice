@@ -317,7 +317,7 @@ class OrderService
                     GeneratedLicenseEmailJob::dispatch($mailData);
 
                     $mailLogData = [
-                        'email_uuid' => Uuid::generate(4),
+                        'email_uuid' => (string) Str::uuid(),
                         'customer_id' => (isset($customer_info)) ? $customer_info->id : NULL,
                         'entity_type' => $order_item_info->entity_type,
                         'email_to' => @$customer_info->email,

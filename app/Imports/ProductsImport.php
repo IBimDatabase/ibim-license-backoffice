@@ -14,7 +14,8 @@ use Maatwebsite\Excel\Concerns\SkipsEmptyRows;
 use Maatwebsite\Excel\Concerns\SkipsOnFailure;
 use Maatwebsite\Excel\Concerns\SkipsFailures;
 //use Webpatser\Uuid\Uuid;
-//use GoldSpecDigital\LaravelUuid\Uuid; // Added_by_Abdul_Rehman_for_Upgrade Laravel
+//use GoldSpecDigital\LaravelUuid\Uuid;
+use Illuminate\Support\Str;// Added_by_Abdul_Rehman_for_Upgrade Laravel
 
 class ProductsImport implements ToCollection, WithHeadingRow, WithValidation, SkipsEmptyRows, SkipsOnFailure, WithCalculatedFormulas
 {
@@ -63,7 +64,7 @@ class ProductsImport implements ToCollection, WithHeadingRow, WithValidation, Sk
                 }
                 
                 Product::insertRecord([
-                    'product_uuid' => Uuid::generate(4),
+                    'product_uuid' => (string) Str::uuid(),
                     'product_name' => @$row['product_name'],
                     'product_code' => @$row['product_code'],
                     'product_prefix' => @$row['product_prefix'],

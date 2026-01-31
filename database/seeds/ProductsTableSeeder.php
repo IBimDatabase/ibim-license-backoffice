@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Product;
 use App\Models\ProductDetail;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class ProductsTableSeeder extends Seeder
 {
@@ -29,7 +30,7 @@ class ProductsTableSeeder extends Seeder
                     $product_array = [
                         'product_name' => $content->product_name,
                         'product_code' => $content->product_code,
-                        'product_uuid' => Uuid::generate(4),
+                        'product_uuid' => (string) Str::uuid(),
                         'purpose' => json_encode($content->purpose),
                         'description' => json_encode($content->description),
                         'package_content' => json_encode($content->package_content),
