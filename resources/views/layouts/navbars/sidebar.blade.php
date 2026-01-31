@@ -5,14 +5,20 @@
 }
 #sidenav-main .sidenav-header{
     height: 130px;
-    background-color: #ffffff;
+    background-color: #404E67;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-#sidenav-main .navbar-brand{
+/*#sidenav-main .navbar-brand{
     background-color: white;
     border-right: 2px solid #edbd1c;
+}*/
+.sidenav .navbar-brand{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 #sidenav-collapse-main .nav-item{
@@ -92,12 +98,12 @@
         <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute right-0 top-0 d-none d-xl-none"
             aria-hidden="true" id="iconSidenav"></i>
         <div class="holographic-container">
-            <div class="holographic-card"
+            <!--<div class="holographic-card">-->
                 <a class="navbar-brand m-0" href="{{ route('dashboard') }}">
-                    <img src="../assets/img/logos/ibim-logo.png" class="navbar-brand-img h-100" alt="...">
+                    <img src="../assets/img/logos/white-logo-2.png" class="navbar-brand-img h-100" alt="...">
                     <span class="ms-1 font-weight-bold"></span>
                 </a>
-            </div>
+            <!--</div>-->
         </div>
     </div>
     <hr class="horizontal dark m-0">
