@@ -2,64 +2,50 @@
 
 IBIM_BACKOFFICE_PATH="/usr/share/nginx/ibim-license-management"
 
-##
-# Ensure /.composer exists and is writable
-#
-if [ ! -d /.composer ]; then
-    mkdir /.composer
-fi
-
-chmod -R ugo+rw /.composer
-
-
-# find /etc /opt/etc /usr/local/etc -type f -name newrelic.ini \
-#     -exec sed -i \
-#         -e "s/REPLACE_WITH_REAL_KEY/${NEW_RELIC_LICENSE_KEY}/" \
-#         -e "s/newrelic.appname[[:space:]]=[[:space:]].*/newrelic.appname = \"${NEW_RELIC_APP_NAME}\"/" \
-#         -e '$anewrelic.labels = "nr_deployed_by:newrelic-cli"' {} \;
-#         # -e '$anewrelic.daemon.address="newrelic-php-daemon:31339"' {} \;
-
-# cp /etc/php/8.1/fpm/conf.d/newrelic.ini /etc/php/8.1/mods-available/
+echo "Setting up Laravel..."
 
 mkdir -p $IBIM_BACKOFFICE_PATH/bootstrap/cache
 mkdir -p $IBIM_BACKOFFICE_PATH/storage/framework/cache/data
 mkdir -p $IBIM_BACKOFFICE_PATH/storage/framework/sessions
 mkdir -p $IBIM_BACKOFFICE_PATH/storage/framework/views
 
-chown -R www-data:www-data $IBIM_BACKOFFICE_PATH/storage
-chmod -R 777 $IBIM_BACKOFFICE_PATH/storage
-chmod -R 777 $IBIM_BACKOFFICE_PATH/bootstrap
+# Install deps
+composer install --no-interaction --prefer-dist --optimize-autoloader
 
-composer install
+# Migrate DB
+php artisan migrate --force
 
-php artisan migrate
-
+# Passport keys check
 PASSPORT_PRIVATE_KEY="$IBIM_BACKOFFICE_PATH/storage/oauth-private.key"
-if [ -f "$PASSPORT_PRIVATE_KEY" ]; then
-    echo "$PASSPORT_PRIVATE_KEY exists."
-elif [ -f "$IBIM_BACKOFFICE_PATH/docker-setup/oauth-private.key" ]; then
-    echo "$PASSPORT_PRIVATE_KEY exists."
-    cp "$IBIM_BACKOFFICE_PATH/docker-setup/oauth-private.key" "$IBIM_BACKOFFICE_PATH/storage/oauth-private.key"
-    cp "$IBIM_BACKOFFICE_PATH/docker-setup/oauth-public.key" "$IBIM_BACKOFFICE_PATH/storage/oauth-public.key"
-else 
-    echo "$PASSPORT_PRIVATE_KEY does not exist."
-    php artisan passport:install 
+
+if [ ! -f "$PASSPORT_PRIVATE_KEY" ]; then
+    echo "Generating Passport keys..."
+    php artisan passport:keys --force
 fi
 
-php artisan db:seed
-##
-# Run a command or start supervisord
-#
+# Seed DB (optional)
+php artisan db:seed --force
 
-if [ $# -gt 0 ];then
-    # If we passed a command, run it
+
+echo "Fixing permissions..."
+
+chown -R www-data:www-data $IBIM_BACKOFFICE_PATH/storage
+chown -R www-data:www-data $IBIM_BACKOFFICE_PATH/bootstrap/cache
+
+chmod -R 775 $IBIM_BACKOFFICE_PATH/storage
+chmod -R 775 $IBIM_BACKOFFICE_PATH/bootstrap/cache
+
+# Secure oauth keys
+chmod 600 $IBIM_BACKOFFICE_PATH/storage/oauth-*.key
+
+php artisan optimize:clear
+
+echo "Setup complete."
+
+################################################
+
+if [ $# -gt 0 ]; then
     exec "$@"
 else
-    # Otherwise start supervisord
     /usr/bin/supervisord
 fi
-
-# cp ../beta-files/oauth-private.key storage/
-# cp ../beta-files/oauth-public.key storage/
-
-exit 0
