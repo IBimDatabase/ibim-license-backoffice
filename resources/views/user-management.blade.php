@@ -24,7 +24,9 @@
                             <span class="text-brown">Showing</span> 
                             <span class="font-weight-bolder text-dark" ng-bind="dataFrom ? dataFrom : 0"></span>
                             <span class="text-brown">to</span> 
-                            <span class="font-weight-bolder text-dark" ng-bind="dataTo ? dataTo : 0"></span>
+                            <!--<span class="font-weight-bolder text-dark" ng-bind="dataTo ? dataTo : 0"></span>-->
+                            <input type="number" class="form-control" style="width:70px; display:inline-block" ng-model="perPage" ng-change="changePerPage()" min="1" placeholder="Rows">
+
                             <span class="text-brown">of</span> 
                             <span class="font-weight-bolder text-dark" ng-bind="totalData"></span>
                             <span class="text-brown">Results</span> 
@@ -396,6 +398,64 @@
                                     <span ng-show="updateUserForm.updateStatus.$error.required">* The status field is required.</span>
                                 </div>
                             </div> 
+                                
+                            <div class="col-lg-6 mb-3" style="display: [[ (authenticatedUser.user_type == 'SUPER_ADMIN') ? 'block' : 'none' ]]">
+                                 <label for="updateStatus"> Password </label>
+                                <button type="button" class="btn bg-info mb-0 filter-toggle-btn text-white ng-binding show" ng-click="showPasswordFields = !showPasswordFields">
+                                    [[ showPasswordFields ? 'Hide Password Fields' : 'Change Password' ]]
+                                </button>
+                                <input type="hidden" name="change_password" value="[[ showPasswordFields ? 1 : 0 ]]">
+                            </div>
+                            <div class="row" ng-show="showPasswordFields">
+
+                                <div class="col-lg-6 mb-3">
+                                    <label for="password"> Password <span class="text-warning">*</span> </label>
+                                    <div class="input-group">
+                                        <input id="password"
+                                            type="[[ (passwordToggle == true) ? 'password' : 'text' ]]"
+                                            name="password"
+                                            class="form-control"
+                                            placeholder="Password"
+                                            ng-model="password"
+                                            aria-describedby="input-addon"
+                                            ng-required="showPasswordFields">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-eye cursor-pointer" ng-click="togglePassword()"></i>
+                                        </span>
+
+                                        <div class="text-danger mt-1 text-xs"
+                                            ng-show="updateUserForm.password.$touched && updateUserForm.password.$invalid">
+                                            <span ng-show="updateUserForm.password.$error.required">
+                                                * The password field is required.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 mb-3">
+                                    <label for="confirmPassword"> Confirm Password <span class="text-warning">*</span> </label>
+                                    <div class="input-group">
+                                        <input id="confirmPassword"
+                                            type="[[ (cnfmPasswordToggle == true) ? 'password' : 'text' ]]"
+                                            name="confirmPassword"
+                                            class="form-control"
+                                            placeholder="Confirm Password"
+                                            ng-model="confirmPassword"
+                                            ng-required="showPasswordFields">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-eye cursor-pointer" ng-click="toggleCnfmPassword()"></i>
+                                        </span>
+
+                                        <div class="text-danger mt-1 text-xs"
+                                            ng-show="updateUserForm.confirm_password.$touched && updateUserForm.confirm_password.$invalid">
+                                            <span ng-show="updateUserForm.confirm_password.$error.required">
+                                                * The confirm password field is required.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
 
                             <div class="text-danger mt-4 mb-2" id="updateUser-error-res"></div>
 

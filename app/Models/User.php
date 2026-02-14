@@ -28,7 +28,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+       'password', 'remember_token',
     ];
 
     /**
@@ -73,6 +73,7 @@ class User extends Authenticatable
         $user->email = (key_exists('email', $data)) ? $data['email']: $user->email;
         $user->phone = (key_exists('phone', $data)) ? $data['phone']: $user->phone;           
         $user->status = (key_exists('status', $data)) ? $data['status']: $user->status;
+        $user->password = (key_exists('password', $data)) ? $data['password']: $user->status;
         $user->updated_by = (key_exists('updated_by', $data)) ? $data['updated_by']: $user->updated_by;
 
 

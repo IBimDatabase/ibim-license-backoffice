@@ -16,7 +16,7 @@ use Log;
 
 class ProductsService
 {
-    public static function getProductsData($data)
+    public static function getProductsData($data, $perPage)
     {
         $query = new Product;
 
@@ -43,9 +43,9 @@ class ProductsService
         }
        
         if (!key_exists('page', $data) || $data['page'] == 'all')
-            $products = $query->paginate(1000);
+            $products = $query->paginate($perPage);
         else
-            $products = $query->paginate(10);
+            $products = $query->paginate($perPage);
 
         $products->map( function($product) {
             return $product->makeHidden(['id']);

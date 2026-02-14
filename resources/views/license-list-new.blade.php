@@ -81,7 +81,8 @@
                                         <span class="text-brown">Showing</span>
                                         <span class="font-weight-bolder text-dark" ng-bind="dataFrom ? dataFrom : 0"></span>
                                         <span class="text-brown">to</span>
-                                        <span class="font-weight-bolder text-dark" ng-bind="dataTo ? dataTo : 0"></span>
+                                        <!--<span class="font-weight-bolder text-dark" ng-bind="dataTo ? dataTo : 0"></span>-->
+                                        <input type="number" class="form-control" style="width:70px; display:inline-block" ng-model="perPage" ng-change="changePerPage()" min="1" placeholder="Rows">
                                         <span class="text-brown">of</span>
                                         <span class="font-weight-bolder text-dark" ng-bind="totalData"></span>
                                         <span class="text-brown">Results</span>
@@ -365,7 +366,8 @@
                                         <span class="font-weight-bolder text-dark"
                                             ng-bind="dataFrom ? dataFrom : 0"></span>
                                         <span class="text-brown">to</span>
-                                        <span class="font-weight-bolder text-dark" ng-bind="dataTo ? dataTo : 0"></span>
+                                        <!--<span class="font-weight-bolder text-dark" ng-bind="dataTo ? dataTo : 0"></span>-->
+                                        <input type="number" class="form-control" style="width:70px; display:inline-block" ng-model="perPage" ng-change="changePerPage()" min="1" placeholder="Rows">
                                         <span class="text-brown">of</span>
                                         <span class="font-weight-bolder text-dark" ng-bind="totalData"></span>
                                         <span class="text-brown">Results</span>
@@ -766,7 +768,7 @@
 
                                 <div class="col-lg-6 mb-3">
                                     <label for="orderTime"> Order Time </label>
-                                    <datepicker date-format="dd-MM-yyyy" date-min-limit="[[ yesterdayDate ]]">
+                                    <datepicker date-format="dd-MM-yyyy"><!-- date-min-limit="[[ yesterdayDate ]]"-->
                                         <div class="input-group">
                                             <input type="text" class="form-control" name="orderTime"
                                                 ng-model="orderTime" placeholder="Order Time" autocomplete="off">

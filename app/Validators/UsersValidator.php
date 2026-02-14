@@ -55,8 +55,26 @@ class UsersValidator
             'user_type' => ['required', 'max:150', 'regex:/^[A-Z\_]+$/'],
             'email' => ['required', 'max:50', 'regex:/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/'],
             'phone' => ['required', 'regex:/^\+?[0-9]+$/'],
-            'status' => 'required|max:50',
+            'status' => 'required|max:50'
+            /*,'password' => [
+                'required', 'string', 'min:8', 'max:30','regex:/[a-z]/',
+                'regex:/[A-Z]/',
+                'regex:/[a-z]/',
+                'regex:/[0-9]/',
+                //'regex:/[@$!%*#?&]/'
+            ],
+            'confirm_password' => 'required|same:password',*/
         ];
+        //[AR-12-02-2026]
+        if (isset($data['change_password']) && $data['change_password'] == 1) {
+            $rules['password'] = [
+                'required', 'string', 'min:8', 'max:30','regex:/[a-z]/',
+                'regex:/[A-Z]/',
+                'regex:/[a-z]/',
+                'regex:/[0-9]/'
+            ];
+            $rules['confirm_password'] = 'required|same:password';
+        }
         $customErrorMsg = [
             'first_name.regex' => 'The first name must contain alphabets only.',
             'last_name.regex' => 'The last name must contain alphabets only.',

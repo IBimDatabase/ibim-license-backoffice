@@ -17,8 +17,9 @@ class PackagesController extends Controller
     public function getPackages(Request $request)
     {
         $data = $request->all();
-
-        $response = PackagesService::getPackagesData($data);
+        // Default per page = 10
+        $perPage = $request->get('per_page', 10);
+        $response = PackagesService::getPackagesData($data, $perPage);
         $response = json_decode($response);
 
         return response()->json(["status" => $response->status, "code" => $response->status_code, "message" => $response->message, "data" => $response->data], $response->status_code);

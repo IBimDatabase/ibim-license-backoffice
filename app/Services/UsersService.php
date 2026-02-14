@@ -13,7 +13,7 @@ DB::enableQueryLog();
 
 class UsersService
 {
-    public static function getUsersData($data)
+    public static function getUsersData($data, $perPage)
     {
         $query = new User;
 
@@ -38,12 +38,15 @@ class UsersService
         if (!empty($data['status']))
             $query = $query->where('status', 'like', $data['status']);
 
+        if (!empty($data['password']))
+            $query = $query->where('password', 'like', $data['password']);
+
             $query = $query->orderBy((@$data['sort_by']) ? @$data['sort_by'] : 'created_at', (@$data['sort_order']) ? @$data['sort_order'] : 'DESC');
        
         if (!key_exists('page', $data) || $data['page'] == 'all')
-            $users = $query->paginate(1000);
+            $users = $query->paginate($perPage);
         else
-            $users = $query->paginate(10);
+            $users = $query->paginate($perPage);
 
         //dd (DB::getQueryLog());
         return json_encode(["status" => true, "code" => 200, "message" => 'Users Retrieved Successfully', "data" => $users, "status_code" => 200]);
@@ -107,6 +110,7 @@ class UsersService
             'email' => key_exists('email', $data) ? $data['email'] : '',
             'phone' => key_exists('phone', $data) ? $data['phone'] : '',
             'status' => key_exists('status', $data) ? $data['status'] : '',
+            'password' => key_exists('password', $data) ? $data['password'] : '',
             'updated_by' => auth()->user()->id
         ];
         

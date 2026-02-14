@@ -13,7 +13,7 @@ use Exception;
 
 class LicenseTypeService
 {
-    public static function getType($data, $id=null)
+    public static function getType($data, $id=null, $perPage=10)
     {
         LicenseTypeService::checkAvailability();
         
@@ -37,9 +37,9 @@ class LicenseTypeService
             $query = $query->orderBy((@$data['sort_by']) ? @$data['sort_by'] : 'created_at', (@$data['sort_order']) ? @$data['sort_order'] : 'DESC');
 
         if (!key_exists('page', $data) || $data['page'] == 'all')
-            $licenseTypes = $query->paginate(1000);
+            $licenseTypes = $query->paginate($perPage);
         else
-            $licenseTypes = $query->paginate(10);
+            $licenseTypes = $query->paginate($perPage);
 
         return json_encode(["status" => true, "code" => 200, "message" => 'License Types Retrieved Successfully', "data" => $licenseTypes, "status_code" => 200]);
     }

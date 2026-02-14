@@ -12,7 +12,7 @@ DB::enableQueryLog();
 
 class PackagesService
 {
-    public static function getPackagesData($data)
+    public static function getPackagesData($data, $perPage)
     {
         $query = new Package;
 
@@ -40,9 +40,9 @@ class PackagesService
         $query = $query->orderBy((@$data['sort_by']) ? @$data['sort_by'] : 'created_at', (@$data['sort_order']) ? @$data['sort_order'] : 'DESC');
 
         if (!key_exists('page', $data) || $data['page'] == 'all')
-            $packages = $query->paginate(1000);
+            $packages = $query->paginate($perPage);
         else
-            $packages = $query->paginate(10);
+            $packages = $query->paginate($perPage);
 
         //dd (DB::getQueryLog());
         return json_encode(["status" => true, "code" => 200, "message" => 'Packages Retrieved Successfully', "data" => $packages, "status_code" => 200]);

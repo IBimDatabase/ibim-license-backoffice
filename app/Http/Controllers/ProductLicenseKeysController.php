@@ -220,8 +220,9 @@ class ProductLicenseKeysController extends Controller
     {
         $data = $request->all();
         $user = $request->user();
-
-        $response = LicenseKeyService::getLicensesData($data, $user);
+        // Default per page = 10
+        $perPage = $request->get('per_page', 10);
+        $response = LicenseKeyService::getLicensesData($data, $user, $perPage);
         $response = json_decode($response);
 
         if ($response->status)
@@ -234,7 +235,8 @@ class ProductLicenseKeysController extends Controller
         $data = $request->all();
         $data['type']="PRODUCT";
         $user = $request->user();
-        $response = LicenseKeyService::listLicensesData($data, $user);
+        $perPage = $request->get('per_page', 10);
+        $response = LicenseKeyService::listLicensesData($data, $user, $perPage);
         $response = json_decode($response);
         if ($response->status)
             return response()->json(["status" => $response->status, "code" => $response->code, "message" => $response->message, "data" => $response->data], $response->status_code);
@@ -246,7 +248,8 @@ class ProductLicenseKeysController extends Controller
         $data = $request->all();
         // $data['type']="PACKAGE";
         $user = $request->user();
-        $response = LicenseKeyService::get_license_list($data, $user);
+        $perPage = $request->get('per_page', 10);
+        $response = LicenseKeyService::get_license_list($data, $user, $perPage);
         if ($response)
             return response()->json(["status" => 'Sucess', "code" => 200, "message" => 'List package licesens', "data" => $response], 200);
         else

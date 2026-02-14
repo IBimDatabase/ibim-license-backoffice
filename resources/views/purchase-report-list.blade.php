@@ -70,7 +70,9 @@
                                         <span class="text-brown">Showing</span>
                                         <span class="font-weight-bolder text-dark" ng-bind="dataFrom ? dataFrom : 0"></span>
                                         <span class="text-brown">to</span>
-                                        <span class="font-weight-bolder text-dark" ng-bind="dataTo ? dataTo : 0"></span>
+                                        <!--<span class="font-weight-bolder text-dark" ng-bind="dataTo ? dataTo : 0"></span>-->
+                                        <input type="number" class="form-control" style="width:70px; display:inline-block" ng-model="perPage" ng-change="changePerPage()" min="1" placeholder="Rows">
+
                                         <span class="text-brown">of</span>
                                         <span class="font-weight-bolder text-dark" ng-bind="totalData"></span>
                                         <span class="text-brown">Results</span>
@@ -368,7 +370,8 @@
                                         <span class="font-weight-bolder text-dark"
                                             ng-bind="dataFrom ? dataFrom : 0"></span>
                                         <span class="text-brown">to</span>
-                                        <span class="font-weight-bolder text-dark" ng-bind="dataTo ? dataTo : 0"></span>
+                                        <!--<span class="font-weight-bolder text-dark" ng-bind="dataTo ? dataTo : 0"></span>-->
+                                        <input type="number" class="form-control" style="width:70px; display:inline-block" ng-model="perPage" ng-change="changePerPage()" min="1" placeholder="Rows">
                                         <span class="text-brown">of</span>
                                         <span class="font-weight-bolder text-dark" ng-bind="totalData"></span>
                                         <span class="text-brown">Results</span>

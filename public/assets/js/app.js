@@ -428,6 +428,11 @@ app.controller('productController', function($scope, $http, $document, $timeout,
         dataFilterTimeout = $timeout($scope.getPaginateData, 2000);
     };
 
+    $scope.perPage = 10;
+    $scope.changePerPage = function () {
+        $scope.getPaginateData(1);
+    };
+
     $scope.getPaginateData = function(pageNumber) {
         $scope.nameFilter = ($scope.nameFilter) ? $scope.nameFilter : '';
         $scope.codeFilter = ($scope.codeFilter) ? $scope.codeFilter : '';
@@ -443,7 +448,7 @@ app.controller('productController', function($scope, $http, $document, $timeout,
         var filters = 'product_name=' + $scope.nameFilter + '&product_code=' + $scope.codeFilter + '&product_id=' + $scope.productIdFilter + '&status=' + $scope.statusFilter;
 
         $http({
-            url: API_URL + 'get/products?' + filters + '&page=' + pageNumber,
+            url: API_URL + 'get/products?' + filters + '&page=' + pageNumber + '&per_page=' + $scope.perPage,
             method: 'GET',
         }).then( function success(response) {
             var responseData = response.data.data;
@@ -889,6 +894,12 @@ app.controller('packageController', function($scope, $http, $document, $timeout,
         dataFilterTimeout = $timeout($scope.getPaginateData, 2000);
     };
 
+    $scope.perPage = 10;
+
+    $scope.changePerPage = function () {
+        $scope.getPaginateData(1);
+    };
+
     $scope.getPaginateData = function(pageNumber) {
         $scope.nameFilter = ($scope.nameFilter) ? $scope.nameFilter : '';
         $scope.codeFilter = ($scope.codeFilter) ? $scope.codeFilter : '';
@@ -903,7 +914,7 @@ app.controller('packageController', function($scope, $http, $document, $timeout,
         var filters = 'package_name=' + $scope.nameFilter + '&package_code=' + $scope.codeFilter + '&product_codes=' + $scope.productCodesFilter + '&status=' + $scope.statusFilter;
 
         $http({
-            url: API_URL + 'get/packages?' + filters + '&page=' + pageNumber,
+            url: API_URL + 'get/packages?' + filters + '&page=' + pageNumber + '&per_page=' + $scope.perPage,
             method: 'GET',
         }).then( function success(response) {
             var responseData = response.data.data;
@@ -1248,6 +1259,10 @@ app.controller('licenseTypeController', function($scope, $http, $document, $time
         dataFilterTimeout = $timeout($scope.getPaginateData, 2000);
     };
 
+    $scope.perPage = 10;
+    $scope.changePerPage = function () {
+        $scope.getPaginateData(1);
+    };
 
     /****  Get licenseTypes ****/
     $scope.getPaginateData = function(pageNumber) {
@@ -1264,7 +1279,7 @@ app.controller('licenseTypeController', function($scope, $http, $document, $time
         var filters = 'name=' + $scope.nameFilter + '&code=' + $scope.codeFilter + '&expiry_duration=' + $scope.durationFilter + '&status=' + $scope.statusFilter;
 
         $http({
-            url: API_URL + 'get/licenseTypes?' + filters + '&page=' + pageNumber,
+            url: API_URL + 'get/licenseTypes?' + filters + '&page=' + pageNumber + '&per_page=' + $scope.perPage,
             method: 'GET'
         }).then( function success(response) {
             var responseData = response.data.data;
@@ -2484,6 +2499,10 @@ app.controller('licenseControllerV1', function($scope, $http, $document, $timeou
         }
     };
 
+    $scope.perPage = 10;
+    $scope.changePerPage = function () {
+        $scope.getPaginateData(1);
+    };
 
     // Tab switching logic
     $scope.activeTab = $location.search().type || 'PRODUCT';
@@ -2601,6 +2620,11 @@ app.controller('licenseControllerV1', function($scope, $http, $document, $timeou
         $scope.getPaginateData(1);
     }
 
+    $scope.perPage = 10;
+    $scope.changePerPage = function () {
+        $scope.getPaginateData(1);
+    };
+
     $scope.downloadExcel = function() {
         let payload = {
             'expiry_from_date': $scope.expiryFromDateFilter,
@@ -2668,7 +2692,7 @@ app.controller('licenseControllerV1', function($scope, $http, $document, $timeou
 
         $scope.totalData = 0;
         let currentPage = pageNumber;
-        let limit = 10;
+        let limit = $scope.perPage;//10;
 
         // var filters = 'search=' + $scope.licenseGlobalSearch + '&license_key=' + $scope.licenseFilter + '&license_type=' + $scope.licenseTypeFilter + '&product_name=' + $scope.productNameFilter + '&mac_address=' + $scope.macAddressFilter + '&order_reference_no=' + $scope.orderReferenceNoFilter + '&order_source=' + $scope.orderSourceFilter + '&email=' + $scope.emailFilter + '&status=' + $scope.statusFilter + '&purchased_date_from=' + $scope.purchaseFromDateFilter + '&purchased_date_to=' + $scope.purchaseToDateFilter + '&expiry_from_date=' + $scope.expiryFromDateFilter + '&expiry_to_date=' + $scope.expiryToDateFilter;
 
@@ -3484,6 +3508,11 @@ app.controller('expiredLicenseController', function($scope, $http, $document, $t
         dataFilterTimeout = $timeout($scope.getPaginateData, 2000);
     };
 
+    $scope.perPage = 10;
+    $scope.changePerPage = function () {
+        $scope.getPaginateData(1);
+    };
+
     //Get licenses
     $scope.getPaginateData = function(pageNumber) {
         $scope.licenseFilter = ($scope.licenseFilter) ? $scope.licenseFilter : '';
@@ -3507,7 +3536,7 @@ app.controller('expiredLicenseController', function($scope, $http, $document, $t
         var filters = 'license_key=' + $scope.licenseFilter + '&license_type=' + $scope.licenseTypeFilter + '&product_name=' + $scope.productNameFilter + '&mac_address=' + $scope.macAddressFilter + '&order_reference_no=' + $scope.orderReferenceNoFilter + '&order_source=' + $scope.orderSourceFilter + '&email=' + $scope.emailFilter + '&status=' + $scope.statusFilter + '&purchased_date_from=' + $scope.purchaseFromDateFilter + '&purchased_date_to=' + $scope.purchaseToDateFilter + '&expiry_from_date=' + $scope.expiryFromDateFilter + '&expiry_to_date=' + $scope.expiryToDateFilter + '&exclude_trial=' + $scope.excludeTrial;
 
         $http({
-            url: API_URL + 'get/licenses?' + filters + '&page=' + pageNumber,
+            url: API_URL + 'get/licenses?' + filters + '&page=' + pageNumber+ '&per_page=' + $scope.perPage,
             method: 'GET',
         }).then( function success(response) {
             var responseData =  response.data.data;
@@ -4045,6 +4074,22 @@ app.controller('userController', function($scope, $http, $document, $timeout, AP
         dataFilterTimeout = $timeout($scope.getPaginateData, 2000);
     };
 
+    $scope.perPage = 10;
+
+    $scope.changePerPage = function () {
+        $scope.getPaginateData(1);
+    };
+
+    $scope.showPasswordFields = false;
+    $scope.togglePassword = function () {
+        $scope.passwordToggle = !$scope.passwordToggle;
+    };
+
+    $scope.toggleCnfmPassword = function () {
+        $scope.cnfmPasswordToggle = !$scope.cnfmPasswordToggle;
+    };
+
+
 
     /****  Get licenseTypes ****/
     $scope.getPaginateData = function(pageNumber) {
@@ -4063,9 +4108,12 @@ app.controller('userController', function($scope, $http, $document, $timeout, AP
         var filters = 'name=' + $scope.nameFilter + '&user_name=' + $scope.userNameFilter + '&email=' + $scope.emailFilter + '&phone=' + $scope.phoneFilter + '&user_type=' + $scope.userTypeFilter + '&status=' + $scope.statusFilter;
 
         $http({
-            url: API_URL + 'get/users?' + filters + '&page=' + pageNumber,
+            url: API_URL + 'get/users?' + filters + '&page=' + pageNumber + '&per_page=' + $scope.perPage,
             method: 'GET'
         }).then( function success(response) {
+            console.log('API_URL', API_URL);
+            console.log('response', response);
+
             var responseData = response.data.data;
             $scope.users = responseData.data;
             $scope.dataFrom = responseData.from;
@@ -4260,6 +4308,7 @@ app.controller('userController', function($scope, $http, $document, $timeout, AP
     };
 
     $scope.getUser = function(user) {
+        console.log('user', user);
         var element = angular.element($document[0].getElementById('updateUser-error-res'));
         element.html('');
 
@@ -4270,10 +4319,11 @@ app.controller('userController', function($scope, $http, $document, $timeout, AP
         $scope.updateEmail = user.email;
         $scope.updatePhone = user.phone;
         $scope.updateStatus = user.status;
+
         $scope.userId = user.user_uuid;
     };
 
-    $scope.updateUser = function() {
+    /*$scope.updateUser = function() {
         var element = angular.element($document[0].getElementById('updateUser-error-res'));
         element.html('');
 
@@ -4288,11 +4338,12 @@ app.controller('userController', function($scope, $http, $document, $timeout, AP
                 user_type: $scope.updateUserType,
                 email: $scope.updateEmail,
                 phone: $scope.updatePhone,
-                status: $scope.updateStatus
+                status: $scope.updateStatus,
+                change_password: $scope.showPasswordFields ? 1 : 0
             },
         }).then(function success(response) {
             /**** Close Modal ****/
-            document.querySelector('#updateModal .btn-close').click();
+    /*        document.querySelector('#updateModal .btn-close').click();
             $scope.loading = false;
 
             // Show the notification
@@ -4313,7 +4364,7 @@ app.controller('userController', function($scope, $http, $document, $timeout, AP
             else if (response.status == '500')
             {
                 /**** Close Modal ****/
-                document.querySelector('#updateModal .btn-close').click();
+    /*            document.querySelector('#updateModal .btn-close').click();
 
                 // Show the notification
                 notificationAlert('Failure', 'Something went wrong!');
@@ -4328,7 +4379,60 @@ app.controller('userController', function($scope, $http, $document, $timeout, AP
                 element.html(errorData);
             }
         });
+    }*/
+
+    $scope.updateUser = function() {
+
+    var element = angular.element($document[0].getElementById('updateUser-error-res'));
+    element.html('');
+
+    let requestData = {
+        id: $scope.userId,
+        first_name: $scope.updateFirstName,
+        last_name: $scope.updateLastName,
+        user_name: $scope.updateUserName,
+        user_type: $scope.updateUserType,
+        email: $scope.updateEmail,
+        phone: $scope.updatePhone,
+        status: $scope.updateStatus,
+        change_password: $scope.showPasswordFields ? 1 : 0
+    };
+
+    // Only send password if changing
+    if ($scope.showPasswordFields) {
+        requestData.password = $scope.password;
+        requestData.confirm_password = $scope.confirmPassword;
     }
+
+    $http({
+        url: API_URL + 'update/user',
+        method: 'POST',
+        data: requestData
+    }).then(function success(response) {
+
+        document.querySelector('#updateModal .btn-close').click();
+        $scope.loading = false;
+
+        notificationAlert('Success', 'User has been <b>updated</b> successfully.');
+
+        let responseData = response.data.data;
+        let index = $scope.users.findIndex(x => x.user_uuid == responseData.user_uuid);
+
+        if (index > -1) {
+            $scope.users[index] = responseData;
+        }
+
+    }, function error(response) {
+
+        var errors = response.data.data.error, errorData = '';
+        angular.forEach(errors, function (value) {
+            errorData += '<div>* ' + value + '</div>';
+        });
+
+        element.html(errorData);
+    });
+};
+
 });
 
 
@@ -4351,6 +4455,10 @@ app.controller('orderController', function($scope, $http, $document, $timeout, A
         dataFilterTimeout = $timeout($scope.getPaginateData, 2000);
     };
 
+    $scope.perPage = 10;
+    $scope.changePerPage = function () {
+        $scope.getPaginateData(1);
+    };
 
     /****  Get Orders ****/
     $scope.getPaginateData = function(pageNumber) {
@@ -4369,7 +4477,7 @@ app.controller('orderController', function($scope, $http, $document, $timeout, A
         var filters = 'order_id=' + $scope.orderIdFilter + '&product_name=' + $scope.productNameFilter + '&license_type=' + $scope.licenseTypeFilter + '&customer_email=' + $scope.emailFilter + '&order_date=' + $scope.orderDateFilter + '&order_status=' + $scope.statusFilter;
 
         $http({
-            url: API_URL + 'get/orders?' + filters + '&page=' + pageNumber,
+            url: API_URL + 'get/orders?' + filters + '&page=' + pageNumber + '&per_page=' + $scope.perPage,
             method: 'GET'
         }).then( function success(response) {
             var responseData = response.data.data;
@@ -4525,6 +4633,10 @@ app.controller('ReportController', function($scope, $http, $document, $timeout, 
         }
     };
 
+    $scope.perPage = 10;
+    $scope.changePerPage = function () {
+        $scope.getPaginateData(1);
+    };
 
     const url = new URL($location.absUrl());
     const pathAfterDomain = url.pathname.slice(1).split('?')[0].split('#')[0];
@@ -4627,7 +4739,6 @@ app.controller('ReportController', function($scope, $http, $document, $timeout, 
         $timeout.cancel(dataFilterTimeout);
         dataFilterTimeout = $timeout($scope.getPaginateData, 2000);
     };
-
     $scope.clearDateFilter = function() {
         $scope.expiryFromDateFilter = null;
         $scope.expiryToDateFilter = null;
@@ -4795,7 +4906,7 @@ app.controller('ReportController', function($scope, $http, $document, $timeout, 
 
         $scope.totalData = 0;
         let currentPage = pageNumber;
-        let limit = 10;
+        let limit = $scope.perPage;//10;
 
         // var filters = 'search=' + $scope.licenseGlobalSearch + '&license_key=' + $scope.licenseFilter + '&license_type=' + $scope.licenseTypeFilter + '&product_name=' + $scope.productNameFilter + '&mac_address=' + $scope.macAddressFilter + '&order_reference_no=' + $scope.orderReferenceNoFilter + '&order_source=' + $scope.orderSourceFilter + '&email=' + $scope.emailFilter + '&status=' + $scope.statusFilter + '&purchased_date_from=' + $scope.purchaseFromDateFilter + '&purchased_date_to=' + $scope.purchaseToDateFilter + '&expiry_from_date=' + $scope.expiryFromDateFilter + '&expiry_to_date=' + $scope.expiryToDateFilter;
 
@@ -4885,6 +4996,11 @@ app.controller('ReportController', function($scope, $http, $document, $timeout, 
     $scope.sortByField = function(field) {
         $scope.sortBy = field;
         $scope.reverse = !$scope.reverse;
+    };
+
+    $scope.perPage = 10;
+    $scope.changePerPage = function () {
+        $scope.getPaginateData(1);
     };
 
 
@@ -5227,6 +5343,7 @@ app.controller('ReportController', function($scope, $http, $document, $timeout, 
         });
     };
 
+    console.log('kk', $scope.perPage);
     $scope.getLicenseProduct = function(licenseKey) {
         $scope.selectedLicenseKey = licenseKey;
         $scope.getProductByKey(1);
@@ -5235,7 +5352,7 @@ app.controller('ReportController', function($scope, $http, $document, $timeout, 
     $scope.getProductByKey = function(pageNumber) {
         $scope.loading = true;
         $http({
-            url: API_URL + 'get/licenses?license_key=' + $scope.selectedLicenseKey + '&page='+pageNumber,
+            url: API_URL + 'get/licenses?license_key=' + $scope.selectedLicenseKey + '&page='+pageNumber+ '&per_page=' + $scope.perPage,
             method: 'GET',
         }).then( function success(response) {
             // console.log(response);

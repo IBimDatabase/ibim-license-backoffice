@@ -23,7 +23,7 @@ DB::enableQueryLog();
 
 class OrderService
 {
-    public static function getOrdersData($data)
+    public static function getOrdersData($data, $perPage)
     {
         $result = [];
 
@@ -91,9 +91,9 @@ class OrderService
         $query = $query->orderBy((@$data['sort_by']) ? @$data['sort_by'] : 'order_placed_at', (@$data['sort_order']) ? @$data['sort_order'] : 'DESC');
 
         if (!key_exists('page', $data) || $data['page'] == 'all')
-            $orders = $query->paginate(1000);
+            $orders = $query->paginate($perPage);
         else
-            $orders = $query->paginate(10);
+            $orders = $query->paginate($perPage);
 
         $orders->map( function($order) {
             if (!empty($order->customer))

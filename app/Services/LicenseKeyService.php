@@ -807,7 +807,7 @@ class LicenseKeyService
         }
         return $result;
     }
-    public static function getLicensesData($data, $user=null)
+    public static function getLicensesData($data, $user=null, $perPage=10)
     {
         $query = new ProductLicenseKeys;
 
@@ -942,9 +942,9 @@ class LicenseKeyService
         $query = $query->orderBy((@$data['sort_by']) ? @$data['sort_by'] : 'created_at', (@$data['sort_order']) ? @$data['sort_order'] : 'DESC');
 
         if (!key_exists('page', $data) || $data['page'] == 'all')
-            $licenses = $query->paginate(1000);
+            $licenses = $query->paginate($perPage);
         else
-            $licenses = $query->paginate(10);
+            $licenses = $query->paginate($perPage);
 
         //dd(DB::getQueryLog());
         $hideColumns=['id'];
@@ -1234,7 +1234,7 @@ class LicenseKeyService
         $response['total_count']=$total_count;
         return $response;
     }
-    public static function listLicensesData($data, $user=null)
+    public static function listLicensesData($data, $user=null, $perPage)
     {
 
         $query = new ProductLicenseKeys;
@@ -1374,9 +1374,9 @@ class LicenseKeyService
         $query = $query->orderBy((@$data['sort_by']) ? @$data['sort_by'] : 'created_at', (@$data['sort_order']) ? @$data['sort_order'] : 'DESC');
 
         if (!key_exists('page', $data) || $data['page'] == 'all'){
-            $licenses = $query->paginate(1000);
+            $licenses = $query->paginate($perPage);
         } else {
-            $licenses = $query->paginate(10);
+            $licenses = $query->paginate($perPage);
         }
 
         // dd($data, $query->toSql());
