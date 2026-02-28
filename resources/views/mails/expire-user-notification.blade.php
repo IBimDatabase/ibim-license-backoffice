@@ -8,8 +8,12 @@
     </div>
 
     <div class="bg-white mail-content">
+        @php
+            $daysBeforeExpiry = (int) (@$data['days_before_expiry'] ?? 0);
+            $daysText = $daysBeforeExpiry > 0 ? $daysBeforeExpiry . ' day' . ($daysBeforeExpiry > 1 ? 's' : '') : 'a few days';
+        @endphp
         <p>
-            This is a friendly reminder that your license for the {{(!empty(@$data['purchased_product'])) ? @$data['purchased_product'] : @$data['purchased_package']}} is set to expire on {{@$data['expiry_date']}}, which is just 15 days away. To ensure continued access to all features and avoid any service interruptions, we encourage you to renew your license before the expiration date.
+            This is a friendly reminder that your license for the {{(!empty(@$data['purchased_product'])) ? @$data['purchased_product'] : @$data['purchased_package']}} is set to expire on {{@$data['expiry_date']}}, which is just {{ $daysText }} away. To ensure continued access to all features and avoid any service interruptions, we encourage you to renew your license before the expiration date.
         </p>
         <div class="margin-t-2">
             <h3 class="text-bold">License Details:</h3>

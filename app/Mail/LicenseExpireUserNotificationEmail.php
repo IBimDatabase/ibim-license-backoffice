@@ -33,7 +33,10 @@ class LicenseExpireUserNotificationEmail extends Mailable
      */
     public function build()
     {
-        $subject = 'Reminder: Your Subscription Will Expire Soon!';
+        $daysBeforeExpiry = (int) (@$this->data['days_before_expiry'] ?? 0);
+        $subject = $daysBeforeExpiry > 0
+            ? 'Reminder: Your Subscription Expires in ' . $daysBeforeExpiry . ' day' . ($daysBeforeExpiry > 1 ? 's' : '')
+            : 'Reminder: Your Subscription Will Expire Soon!';
         
         $email = $this->view('mails.expire-user-notification', ['data' => $this->data])
             ->subject($subject);

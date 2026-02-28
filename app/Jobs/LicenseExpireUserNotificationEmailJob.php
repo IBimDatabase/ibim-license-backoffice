@@ -50,6 +50,7 @@ class LicenseExpireUserNotificationEmailJob implements ShouldQueue
                 $temp = [];
                 if (!empty(@$list['customer']['email'])) {
                     $temp['license_key'] = @$list['license_key'];
+                    $temp['days_before_expiry'] = (int) (@$this->data['expiry']['days_before_expiry'] ?? 0);
                     $temp['user_name'] = @$list['customer']['first_name'] ? @$list['customer']['first_name'] : ((!empty(@$list['customer']['email']) && !empty(explode('@', @$list['customer']['email'])[0])) ? explode('@', @$list['customer']['email'])[0] : 'User');
                     $temp['email'] = @$list['customer']['email'];
                     $temp['phone'] = @$list['customer']['phone'];
@@ -68,6 +69,7 @@ class LicenseExpireUserNotificationEmailJob implements ShouldQueue
                 $temp = [];
                 if (!empty(@$list['customer']['email'])) {
                     $temp['license_key'] = @$list['license_key']; 
+                    $temp['days_before_expiry'] = (int) (@$this->data['expiry']['days_before_expiry'] ?? 0);
                     $temp['user_name'] = @$list['customer']['first_name'] ? @$list['customer']['first_name'] : ((!empty(@$list['customer']['email']) && !empty(explode('@', @$list['customer']['email'])[0])) ? explode('@', @$list['customer']['email'])[0] : 'User');
                     $temp['email'] = @$list['customer']['email'];
                     $temp['phone'] = @$list['customer']['phone'];
@@ -83,14 +85,15 @@ class LicenseExpireUserNotificationEmailJob implements ShouldQueue
         }
 
         if (!empty($email_send_array)) {
+            $daysBeforeExpiry = (int) (@$this->data['expiry']['days_before_expiry'] ?? 0);
             foreach ($email_send_array as $value) {
-                $redisKey = 'notified_license_' . @$value['license_key'];
+                $redisKey = 'notified_license_' . @$value['license_key'] . '_' . $daysBeforeExpiry . '_days';
                 if (!Redis::exists($redisKey)) {
                     Mail::to($value['email'])
                         // Mail::to('marimuthu@appyhub.com')
                         ->send(new LicenseExpireUserNotificationEmail($value));
                     Redis::set($redisKey, true);
-                    Redis::expire($redisKey, 15 * 24 * 60 * 60); // 15 days in seconds
+                    Redis::expire($redisKey, 45 * 24 * 60 * 60); // Keep reminder-specific key long enough to avoid duplicate sends
                 }
             }
         }
