@@ -386,7 +386,7 @@ class LicenseKeyService
         $errors=[];
         if (@$request_data['license_key'] == config('app.trial_license_key')){
             $license_products_query=DB::table('product_license_keys as plk')
-            ->join('products as p', 'plk.product_id', 'p.id')
+            ->leftJoin('products as p', 'plk.product_id', 'p.id')
             ->leftJoin('packages as pa', 'plk.package_id', 'pa.id')
             ->select('plk.*', 'p.product_code', 'pa.package_code')
             ->whereNull('plk.deleted_at');
@@ -415,12 +415,35 @@ class LicenseKeyService
                 
                 foreach ($license_product as $key => $value) {
                     if(!empty($value['status']) && in_array($value['status'], ['PURCHASED'])){
-                        if($value['mac_address']!=@$request_data['mac_address']){
-                            if(!in_array("License is already activated.", $errors)){
-                                $errors[]="License is already activated.";
+                        // if($value['mac_address']!=@$request_data['mac_address']){
+                        //     if(!in_array("License is already activated.", $errors)){
+                        //         $errors[]="License is already activated.";
+                        //     }
+                        // }
+                        // $activated=$activated+1;
+                        $productLicenseKeys = ProductLicenseKeys::where('license_uuid', $value['license_id'])->first();
+                        if(!empty($productLicenseKeys->mac_address) && (!empty($productLicenseKeys->number_of_mac_id) && $productLicenseKeys->number_of_mac_id == 1)){
+                            if(in_array($productLicenseKeys->license_type, ['ANNUAL']) && $productLicenseKeys->package_id != ''){
+                                $productLicenseKeys->second_mac_id = @$request_data['mac_address'];
+                                $productLicenseKeys->active_mac_id = @$request_data['mac_address'];
+                                $productLicenseKeys->number_of_mac_id = 2;
+                                $productLicenseKeys->save();
+                                // if ($productLicenseKeys->save())
+                                //     return $productLicenseKeys;
+                                // else   
+                                //     return false;
                             }
+                        }else if(!empty($productLicenseKeys->mac_address) && $productLicenseKeys->mac_address == @$request_data['mac_address']){
+                           $productLicenseKeys->active_mac_id = @$request_data['mac_address'];
+                           $productLicenseKeys->save();
+                        }else if (!empty($productLicenseKeys->second_mac_id) && $productLicenseKeys->second_mac_id == @$request_data['mac_address']){
+                            $productLicenseKeys->active_mac_id = @$request_data['mac_address'];
+                            $productLicenseKeys->save();
+                        }else {
+                            if(!in_array("Access limit reached. A maximum of two users are allowed per floating license.", $errors)){
+                                $errors[]="Access limit reached. A maximum of two users are allowed per floating license.";
+                            } 
                         }
-                        $activated=$activated+1;
                     }
                     if(!empty($value['status']) && in_array($value['status'], ['AVAILABLE'])){
                         $avaliable=$avaliable+1;
@@ -458,7 +481,7 @@ class LicenseKeyService
         $result['data']=[];
         if(!empty($request_data['license_key'])){
             $license_products_query=DB::table('product_license_keys as plk')
-            ->join('products as p', 'plk.product_id', 'p.id')
+            ->leftJoin('products as p', 'plk.product_id', 'p.id')
             ->leftJoin('packages as pa', 'plk.package_id', 'pa.id')
             ->select('plk.*', 'p.product_code', 'pa.package_code')
             ->whereNull('plk.deleted_at');
@@ -546,6 +569,11 @@ class LicenseKeyService
                         if(!empty($value->status) && in_array($value->status, ['AVAILABLE'])){
                             $license_info=[];
                             $license_info['mac_address']=(!empty($mac_address)) ? $mac_address : $value->mac_address;
+                            /**Floating License need to add once they update the Frontend UI */
+                            if(in_array($value->license_type, ['ANNUAL']) && $value->package_code != ''){
+                                $license_info['active_mac_id']=(!empty($mac_address)) ? $mac_address : '';
+                                $license_info['number_of_mac_id']=(empty($value->number_of_mac_id)) ? 1 : 0;
+                            }
                             if (!empty(@$is_license_product_already_activated)) {
                                 $expiry_date_exist = @$is_license_product_already_activated->expiry_date;
                                 // $purchase_date_exist = @$is_license_product_already_activated->purchased_date;
@@ -773,7 +801,7 @@ class LicenseKeyService
         $result=[];
         if (!empty($data['license_key'])){
             $query = ProductLicenseKeys::where('license_key', $data['license_key'])->get();
-            $query =DB::table('product_license_keys as plk')->join('products as p', 'plk.product_id', 'p.id')
+            $query =DB::table('product_license_keys as plk')->leftJoin('products as p', 'plk.product_id', 'p.id')
             ->leftJoin('packages as pa', 'plk.package_id', 'pa.id')->whereNull('plk.deleted_at');
             if(!empty($data['mac_address'])){
                 $query->where('plk.mac_address', $data['mac_address']);
@@ -801,6 +829,9 @@ class LicenseKeyService
                     $temp_row['product_code']=$value->product_code;
                     $temp_row['package_name']=$value->package_name;
                     $temp_row['package_code']=$value->package_code;
+                    $temp_row['second_mac_id']=$value->second_mac_id;
+                    $temp_row['active_mac_id']=$value->active_mac_id;
+                    $temp_row['number_of_mac_id']=$value->number_of_mac_id;
                     $result[]=$temp_row;
                 }
             }
