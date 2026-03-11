@@ -424,7 +424,7 @@ class LicenseKeyService
                         // }
                         // $activated=$activated+1;
                         $productLicenseKeys = ProductLicenseKeys::where('license_uuid', $value['license_id'])->first();
-                        if(!empty($productLicenseKeys->mac_address) && (!empty($productLicenseKeys->number_of_mac_id) && $productLicenseKeys->number_of_mac_id == 1)){
+                        if((!empty($productLicenseKeys->mac_address) && $productLicenseKeys->mac_address != @$request_data['mac_address']) && (!empty($productLicenseKeys->number_of_mac_id) && $productLicenseKeys->number_of_mac_id == 1)){
                             if(in_array($productLicenseKeys->license_type, ['ANNUAL']) && $productLicenseKeys->package_id != ''){
                                 $productLicenseKeys->second_mac_id = @$request_data['mac_address'];
                                 $productLicenseKeys->active_mac_id = @$request_data['mac_address'];
