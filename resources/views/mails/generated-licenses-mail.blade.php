@@ -10,8 +10,8 @@
             <p>This email confirms your order of the below license key(s).</p>
 
             <p>We recommend you save this email so you can easily access your subscription details in the future.</p>
-            <p>Kindly go to your account dashboard and click “Download button” to download the application.</p>
-            <p>Link : https://ibimconsulting.com.au/my-account</p>
+            <!-- <p>Kindly go to your account dashboard and click “Download button” to download the application.</p> -->
+            <!-- <p>Link : https://ibimconsulting.com.au/my-account</p> -->
 
             
             <p>In order to use some of the products in this order you will require the following license key(s). </p>
