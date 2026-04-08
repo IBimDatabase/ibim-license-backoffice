@@ -451,16 +451,6 @@ class LicenseKeyService
                                     $errors[]="License is already activated.";
                                 }
                             }
-                        }else if(!empty($productLicenseKeys->mac_address) && $productLicenseKeys->mac_address == @$request_data['mac_address']){
-                           $productLicenseKeys->active_mac_id = @$request_data['mac_address'];
-                           $productLicenseKeys->save();
-                        }else if (!empty($productLicenseKeys->second_mac_id) && $productLicenseKeys->second_mac_id == @$request_data['mac_address']){
-                            $productLicenseKeys->active_mac_id = @$request_data['mac_address'];
-                            $productLicenseKeys->save();
-                        }else {
-                            if(!in_array("Access limit reached. A maximum of two users are allowed per floating license.", $errors)){
-                                $errors[]="Access limit reached. A maximum of two users are allowed per floating license.";
-                            } 
                         }
                     }
                     if(!empty($value['status']) && in_array($value['status'], ['AVAILABLE'])){
@@ -588,7 +578,7 @@ class LicenseKeyService
                             $license_info=[];
                             $license_info['mac_address']=(!empty($mac_address)) ? $mac_address : $value->mac_address;
                             /**Floating License need to add once they update the Frontend UI */
-                            if(in_array($value->license_type, ['ANNUAL']) && $value->package_code != ''){
+                            if(in_array($value->license_type, ['FLOATING']) && $value->package_code != ''){
                                 $license_info['active_mac_id']=(!empty($mac_address)) ? $mac_address : '';
                                 $license_info['number_of_mac_id']=(empty($value->number_of_mac_id)) ? 1 : 0;
                             }
