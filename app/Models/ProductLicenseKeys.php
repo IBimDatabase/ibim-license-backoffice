@@ -67,7 +67,7 @@ class ProductLicenseKeys extends Model
         $productLicenseKeys->order_id = (key_exists('order_id', $data)) ? $data['order_id']: $productLicenseKeys->order_id;
         $productLicenseKeys->updated_by = (key_exists('updated_by', $data)) ? $data['updated_by']: $productLicenseKeys->updated_by;
         /**Floating License need to add once they update the Frontend UI */
-        if(in_array($productLicenseKeys->license_type, ['ANNUAL']) && $productLicenseKeys->package_id != ''){
+        if(in_array($productLicenseKeys->license_type, ['FLOATING']) && $productLicenseKeys->package_id != ''){
             $productLicenseKeys->active_mac_id = (key_exists('active_mac_id', $data)) ? $data['active_mac_id']: '';
             $productLicenseKeys->number_of_mac_id = (key_exists('number_of_mac_id', $data)) ? $data['number_of_mac_id']: 0;
         }
