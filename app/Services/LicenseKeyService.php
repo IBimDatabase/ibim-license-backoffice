@@ -407,6 +407,8 @@ class LicenseKeyService
             $license_data=[];
             $license_data['license_key']=@$request_data['license_key'];
             $license_product = LicenseKeyService::getLicenseProducts($license_data);
+            //  echo "<pre>";
+            //     var_dump($license_product); echo "</pre>";
             $activated=0;
             $avaliable=0;
             $product_exist=false;
@@ -422,7 +424,7 @@ class LicenseKeyService
                         // }
                         // $activated=$activated+1;
                         $productLicenseKeys = ProductLicenseKeys::where('license_uuid', $value['license_id'])->first();
-                        if(!empty($productLicenseKeys->mac_address) && (!empty($productLicenseKeys->number_of_mac_id) && $productLicenseKeys->number_of_mac_id == 1)){
+                        if((!empty($productLicenseKeys->mac_address) && $productLicenseKeys->mac_address != @$request_data['mac_address']) && (!empty($productLicenseKeys->number_of_mac_id) && $productLicenseKeys->number_of_mac_id == 1)){
                             if(in_array($productLicenseKeys->license_type, ['FLOATING']) && $productLicenseKeys->package_id != ''){
                                 $productLicenseKeys->second_mac_id = @$request_data['mac_address'];
                                 $productLicenseKeys->active_mac_id = @$request_data['mac_address'];
@@ -432,6 +434,22 @@ class LicenseKeyService
                                 //     return $productLicenseKeys;
                                 // else   
                                 //     return false;
+                            }
+                        }else if(!empty($productLicenseKeys->mac_address) && $productLicenseKeys->mac_address == @$request_data['mac_address']){
+                           $productLicenseKeys->active_mac_id = @$request_data['mac_address'];
+                           $productLicenseKeys->save();
+                        }else if (!empty($productLicenseKeys->second_mac_id) && $productLicenseKeys->second_mac_id == @$request_data['mac_address']){
+                            $productLicenseKeys->active_mac_id = @$request_data['mac_address'];
+                            $productLicenseKeys->save();
+                        }else if(!empty($productLicenseKeys->number_of_mac_id) && $productLicenseKeys->number_of_mac_id == 2) {
+                            if(!in_array("Access limit reached. A maximum of two users are allowed per floating license.", $errors)){
+                                $errors[]="Access limit reached. A maximum of two users are allowed per floating license.";
+                            } 
+                        }else{
+                            if($value['mac_address']!=@$request_data['mac_address']){
+                                if(!in_array("License is already activated.", $errors)){
+                                    $errors[]="License is already activated.";
+                                }
                             }
                         }else if(!empty($productLicenseKeys->mac_address) && $productLicenseKeys->mac_address == @$request_data['mac_address']){
                            $productLicenseKeys->active_mac_id = @$request_data['mac_address'];
