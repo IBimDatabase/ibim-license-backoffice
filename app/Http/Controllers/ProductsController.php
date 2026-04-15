@@ -20,7 +20,7 @@ class ProductsController extends Controller
     {
         $data = $request->all();
         // Default per page = 10
-        $perPage = $request->get('per_page', 10);
+        $perPage = $request->get('per_page', 500);
         $response = ProductsService::getProductsData($data, $perPage);
         $response = json_decode($response);
 
