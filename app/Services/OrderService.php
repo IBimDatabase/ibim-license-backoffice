@@ -240,6 +240,7 @@ class OrderService
             $order_item['quantity'] = @$item['quantity'];
             $order_item['unit_price'] = @$item['unit_price'];
             $order_item['total_price'] = @$item['total_price'];
+            $order_item['download_url'] = @$item['download_url'];
             $order_item['additional_info'] =@$item['additional_info'];
             $order_item['status'] = 'ACTIVE';
 
@@ -285,6 +286,9 @@ class OrderService
                 $generatedLicenses = json_decode($generatedLicensesData, true);
                 if ($generatedLicenses['status'] === true) {
                     if (isset($generatedLicenses['data'])) {
+                        foreach ($generatedLicenses['data'] as $key => $generatedLicense) {
+                            $generatedLicenses['data'][$key]['download_url'] = @$payload['download_url'];
+                        }
                         $generatedLicensesArray[] = @$generatedLicenses['data'];
                     }
                 }
