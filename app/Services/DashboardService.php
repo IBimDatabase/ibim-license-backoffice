@@ -37,18 +37,41 @@ class DashboardService
 
     public static function getTodayPurchasesData()
     {
-        $todayPurchasedLicenses = ProductLicenseKeys::where('status', 'PURCHASED')->where('purchased_date', 'LIKE', date('Y-m-d').'%')->get();
-        
-        $customers = $todayPurchasedLicenses->map( function($license) {
-            return $license->customer;
-        });
+        $todayPurchasedLicenses = ProductLicenseKeys::with(['customer', 'product', 'package', 'licenseProduct'])
+            ->where('status', 'PURCHASED')
+            ->where('purchased_date', 'LIKE', date('Y-m-d').'%')
+            ->orderBy('purchased_date', 'DESC')
+            ->get();
 
-        $products = $todayPurchasedLicenses->map( function($license) {
-            return $license->product;
-        });
-        
-        $licenseProducts = $todayPurchasedLicenses->map( function($license) {
-            return $license->licenseProduct;
+        $seenPackages = [];
+
+        $todayPurchasedLicenses = $todayPurchasedLicenses->filter(function($license) use (&$seenPackages) {
+            if (!empty($license->package_id)) {
+                $packageKey = implode(':', [
+                    $license->license_key,
+                    $license->package_id,
+                    $license->order_id,
+                    $license->wp_order_item_id,
+                ]);
+
+                if (isset($seenPackages[$packageKey])) {
+                    return false;
+                }
+
+                $seenPackages[$packageKey] = true;
+            }
+
+            return true;
+        })->values()->map(function($license) {
+            if (!empty($license->package_id) && !empty($license->package)) {
+                $license->setAttribute('purchase_type', 'PACKAGE');
+                $license->setAttribute('purchase_name', $license->package->package_name);
+            } else {
+                $license->setAttribute('purchase_type', 'PRODUCT');
+                $license->setAttribute('purchase_name', @$license->product->product_name);
+            }
+
+            return $license;
         });
         
         return json_encode(["status" => true, "code" => 200, "message" => 'Data Retrieved Successfully', "data" => $todayPurchasedLicenses, "status_code" => 200]);

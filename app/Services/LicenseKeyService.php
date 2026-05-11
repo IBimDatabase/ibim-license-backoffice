@@ -2369,6 +2369,7 @@ class LicenseKeyService
                     'wp_order_item_id' => @$data['wp_order_item_id'],
                     'expiry_date' => $expiryDate,
                     'status' => 'AVAILABLE',
+                    'purchased_date' => date('Y-m-d H:i:s'),
                     //'created_by' => auth()->user()->id,
                 ];
                 $productLicenseKeysModel = ProductLicenseKeys::insertRecord($productLicenseKeysData);
@@ -2424,6 +2425,7 @@ class LicenseKeyService
                             'wp_order_item_id' => @$data['wp_order_item_id'],
                             'expiry_date' => $expiryDate,
                             'status' => 'AVAILABLE',
+                            'purchased_date' => date('Y-m-d H:i:s'),
                         ];
                         $productLicenseKeysModel = ProductLicenseKeys::insertRecord($productLicenseKeysData);
                         $productLicenseKeysModel = ProductLicenseKeys::find($productLicenseKeysModel->id);

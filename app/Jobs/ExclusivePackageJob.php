@@ -86,6 +86,7 @@ class ExclusivePackageJob implements ShouldQueue
                             'order_id' => $licenseKeyModel->order_id,
                             'customer_id' => $licenseKeyModel->customer_id,
                             'status' => 'AVAILABLE',
+                            'purchased_date' => date('Y-m-d H:i:s'),
                             // 'status' => (!empty(@$licenseKeyActivated->expiry_date)) ? 'PURCHASED' : 'AVAILABLE',
                             // 'purchased_date'=> (!empty(@$licenseKeyActivated->expiry_date)) ? date('Y-m-d H:i:s') : null,
                             'expiry_date'=> @$licenseKeyActivated->expiry_date

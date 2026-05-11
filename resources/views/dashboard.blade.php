@@ -178,7 +178,7 @@
                       <tr>
                         <th class="text-uppercase text-info text-xs font-weight-bolder">Sno</th>
                         <th class="text-uppercase text-info text-xs font-weight-bolder">Customer Name</th>
-                        <th class="text-uppercase text-info text-xs font-weight-bolder">Product Name</th>
+                        <th class="text-uppercase text-info text-xs font-weight-bolder">Product / Package Name</th>
                         <th class="text-uppercase text-info text-xs font-weight-bolder">License Key</th>
                         <th class="text-uppercase text-info text-xs font-weight-bolder">Duration</th>
                       </tr>
@@ -187,7 +187,7 @@
                         <tr ng-repeat="license in todayPurchasedLicenses">
                           <td class="ps-4" ng-bind="($index + 1)"></td>
                           <td class="ps-4" ng-bind="license.customer.first_name"></td>
-                          <td class="ps-4" ng-bind="license.product.product_name"></td>
+                          <td class="ps-4" ng-bind="license.purchase_name"></td>
                           <td class="ps-4" ng-bind="license.hashed_license_key"></td>
                           <td class="ps-4" ng-bind="license.license_product.expiry_duration"></td>
                         </tr>
