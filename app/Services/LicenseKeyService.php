@@ -269,6 +269,7 @@ class LicenseKeyService
                     'order_id' => (isset($order)) ? $order->id : NULL,
                     'customer_id' => (!empty($customer)) ? $customer->id : NULL,
                     'status' => 'AVAILABLE',
+                    'purchased_date' => date('Y-m-d H:i:s'),
                     'expiry_date' =>  $expiryDate
                     //'created_by' => auth()->user()->id,
                 ];
@@ -315,6 +316,7 @@ class LicenseKeyService
                             'order_id' => (isset($order)) ? $order->id : NULL,
                             'customer_id' => (!empty($customer)) ? $customer->id : NULL,
                             'status' => 'AVAILABLE',
+                            'purchased_date' => date('Y-m-d H:i:s'),
                             'expiry_date' => $expiryDate
                             //'created_by' => auth()->user()->id,
                         ];
@@ -352,12 +354,24 @@ class LicenseKeyService
 
         $productLicenseKey = ProductLicenseKeys::where([
                 'license_key' =>  $data['license_key'],
-                'mac_address' =>  $data['mac_address'],
                 'product_id' =>  $product->id,
-            ])->whereNotIn('status', ['DEACTIVATED'])->first();
+            ])->where(function ($query) use ($data) {
+                $query->where('mac_address', $data['mac_address'])
+                    ->orWhere('second_mac_id', $data['mac_address']);
+            })->whereNotIn('status', ['DEACTIVATED'])->first();
 
         if (!empty($productLicenseKey))
         {
+            if (!empty($productLicenseKey->active_mac_id) && $productLicenseKey->active_mac_id != $data['mac_address'])
+            {
+                return json_encode(["status" => true, "code" => 200, "message" => "This license key is already in use on another system. If you would like to activate it on this system, please release the license from the currently activated system first, and then proceed with the activation.", "data" => ["license_key" => ["status_code" => "ALREADY_ACTIVE", "status_name" => "Already Active"]], "status_code" => 200]);
+            }
+
+            if (empty($productLicenseKey->active_mac_id))
+            {
+                $productLicenseKey->active_mac_id = $data['mac_address'];
+                $productLicenseKey->save();
+            }
             if (strtotime($productLicenseKey->expiry_date) > 0 && date('Y-m-d H:i:s', strtotime($productLicenseKey->expiry_date)) < date('Y-m-d H:i:s') && $productLicenseKey->status != 'DEACTIVATED')
             {
                 $productLicenseKeysData = [
@@ -2602,5 +2616,41 @@ class LicenseKeyService
             $newExpiryDate = date('Y-m-d H:i:s', strtotime($expiryDuration, strtotime($expiryDate)));
         }
         return $newExpiryDate;
+    }
+
+    public static function releaseLicenseKey($data)
+    {
+        $productLicenseKeys = ProductLicenseKeys::where([
+                'license_key' =>  $data['license_key'],
+                // 'product_id' =>  $product->id,
+            ])->where(function ($query) use ($data) {
+                $query->where('mac_address', $data['mac_address'])
+                    ->orWhere('second_mac_id', $data['mac_address']);
+            })->whereNotIn('status', ['DEACTIVATED'])->get();
+
+        if ($productLicenseKeys->isEmpty())
+        {
+            return json_encode(["status" => false, "code" => 422, "message" => "Data Not Found", "data" => ["error" => ["The given license key is not found"]], "status_code" => 422]);
+        }
+
+        $releasedLicenseKeys = [];
+
+        foreach ($productLicenseKeys as $productLicenseKey)
+        {
+            if ($productLicenseKey->active_mac_id == $data['mac_address'])
+            {
+                $productLicenseKey->active_mac_id = '';
+                $productLicenseKey->save();
+
+                $releasedLicenseKeys[] = $productLicenseKey;
+            }
+        }
+
+        if (!empty($releasedLicenseKeys))
+        {
+            return json_encode(["status" => true, "code" => 200, "message" => "The license key has been successfully released and is now available to be activated on another system.", "data" => ["license_key" => ["status_code" => "RELEASED", "status_name" => "Released"]], "status_code" => 200]);
+        }
+
+        return json_encode(["status" => false, "code" => 422, "message" => "Not Available", "data" => ["license_key" => ["status_code" => "ACTIVE_MAC_ID_DIFFERENT", "status_name" => "Active MAC ID Different"]], "status_code" => 422]);
     }
 }

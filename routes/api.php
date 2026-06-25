@@ -135,6 +135,7 @@ Route::post('license/purchase', [ProductLicenseKeysController::class, 'licenseKe
 Route::post('v2/license/activation', [ProductLicenseKeysController::class, 'licenseActivationV2']);
 Route::post('license/products', [ProductLicenseKeysController::class, 'getLicenseProducts']);
 Route::post('license/customer-update', [ProductLicenseKeysController::class, 'licenseKeyDetailsUpdate']);
+Route::post('license/release', [ProductLicenseKeysController::class, 'licenseKeyRelease']);
 
 Route::post('wp/send/product-info', [WPProductController::class, 'sendProductInfo']);
 Route::post('wp/send/order-info', [WPOrderController::class, 'sendOrderInfo']);

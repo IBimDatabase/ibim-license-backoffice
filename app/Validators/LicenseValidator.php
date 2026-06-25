@@ -330,4 +330,22 @@ class LicenseValidator
             return true;
         }
     }
+
+    public static function validateLicenseKeyAndMacOnly($data)
+    {
+        $validator = Validator::make($data, [
+            'license_key' => ['required', 'max:20', 'regex:/[A-Z0-9]{4}\-[A-Z0-9]{4}\-[A-Z0-9]{4}\-[A-Z0-9]{4}/'],
+            // 'mac_address' => ['required', 'max:17', 'regex:/[a-zA-Z0-9]{2}\-[a-zA-Z0-9]{2}\-[a-zA-Z0-9]{2}\-[a-zA-Z0-9]{2}\-[a-zA-Z0-9]{2}\-[a-zA-Z0-9]{2}|[a-zA-Z0-9]{2}\:[a-zA-Z0-9]{2}\:[a-zA-Z0-9]{2}\:[a-zA-Z0-9]{2}\:[a-zA-Z0-9]{2}\:[a-zA-Z0-9]{2}/i'],
+            'mac_address' => ['required', 'max:200'],
+        ]);
+
+        if ($validator->fails())
+        {
+            return $validator;
+        }
+        else
+        {
+            return true;
+        }
+    }
 }

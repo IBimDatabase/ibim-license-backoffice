@@ -484,4 +484,23 @@ class ProductLicenseKeysController extends Controller
             return response()->json(["status" => false, "code" => 422, "message" => "Incorrect Request Data", "data" => $error], 422);
         }
     }
+
+    public function licenseKeyRelease(Request $request)
+    {
+        $data = $request->all();
+        $validation = LicenseValidator::validateLicenseKeyAndMacOnly($data);
+        if ($validation === true)
+        {
+            $response = LicenseKeyService::releaseLicenseKey($data);
+            $response = json_decode($response);
+
+            return response()->json(["status" => $response->status, "code" => $response->status_code, "message" => $response->message, "data" => $response->data], $response->status_code);
+        }
+        else
+        {
+            //Return the error message
+            $error = ["error" => $validation->errors()->all()];
+            return response()->json(["status" => false, "code" => 422,"message" => "Incorrect Request Data", "data" => $error], 422);
+        }
+    }
 }
