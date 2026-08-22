@@ -269,7 +269,7 @@ class LicenseKeyService
                     'order_id' => (isset($order)) ? $order->id : NULL,
                     'customer_id' => (!empty($customer)) ? $customer->id : NULL,
                     'status' => 'AVAILABLE',
-                    'purchased_date' => date('Y-m-d H:i:s'),
+                    // 'purchased_date' => date('Y-m-d H:i:s'),
                     'expiry_date' =>  $expiryDate
                     //'created_by' => auth()->user()->id,
                 ];
@@ -316,7 +316,7 @@ class LicenseKeyService
                             'order_id' => (isset($order)) ? $order->id : NULL,
                             'customer_id' => (!empty($customer)) ? $customer->id : NULL,
                             'status' => 'AVAILABLE',
-                            'purchased_date' => date('Y-m-d H:i:s'),
+                            // 'purchased_date' => date('Y-m-d H:i:s'),
                             'expiry_date' => $expiryDate
                             //'created_by' => auth()->user()->id,
                         ];
