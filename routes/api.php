@@ -127,6 +127,7 @@ Route::middleware(['auth:api', 'isAdminUsers'])->group(function () {
     Route::get('export/order', [OrdersController::class, 'exportOrder']);
     Route::post('wp/order/sync', [OrdersController::class, 'syncWooCommerceOrder']);
 });
+
 /* License API */
 Route::post('license/generate', [ProductLicenseKeysController::class, 'generateLicenseKey']);
 Route::post('license/availability', [ProductLicenseKeysController::class, 'availabilityOfLicenseKey']);

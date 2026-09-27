@@ -159,7 +159,6 @@ class LicenseKeyService
         return $result;
     }
 
-
     public static function generate($data)
     {
         $productLicenseKeys = [];
@@ -343,16 +342,74 @@ class LicenseKeyService
 
     }
 
-
     public static function validateLicenseKey($data) {
+        // var_dump($data); die;   
         $product = Product::where('product_code', $data['product_code'])->first();
-
         if (empty($product))
         {
             return json_encode(["status" => true, "code" => 200, "message" => "Not Available", "data" => ["license_key" => ["status_code" => "NOT_AVAILABLE", "status_name" => "Not Available"]], "status_code" => 200]);
         }
-
-        $productLicenseKey = ProductLicenseKeys::where([
+        //Logic mới: Nếu data có trimble_email thì check theo trimble_email, nếu không có thì check theo mac_address
+        $hasTrimbleEmail = isset($data['trimble_email']) && trim($data['trimble_email']) !== '';
+        log::info('Validate License Key: ' . json_encode($data));
+        if($hasTrimbleEmail){
+            //Kiểm tra productLicenseKey theo trimble_email
+            $productLicenseKey = ProductLicenseKeys::where([
+                'product_id' =>  $product->id,
+                'trimble_email' =>  $data['trimble_email']
+            ])->first();
+            log::info('Validate License Key by trimble_email: ' . json_encode($productLicenseKey));
+            if(!empty($productLicenseKey))
+            {
+                if (strtotime($productLicenseKey->expiry_date) > 0 && date('Y-m-d H:i:s', strtotime($productLicenseKey->expiry_date)) < date('Y-m-d H:i:s') && $productLicenseKey->status != 'DEACTIVATED')
+                {
+                    $productLicenseKeysData = [
+                        'status' => 'EXPIRED'
+                    ];
+                    ProductLicenseKeys::updateRecord($productLicenseKeysData, $productLicenseKey->id);
+                    return json_encode(["status" => true, "code" => 200, "message" => "Expired License Key", "data" => ["license_key" => ["status_code" => "EXPIRED", "status_name" => "Expired"]], "status_code" => 200]);
+                }
+                return json_encode(["status" => true, "code" => 200, "message" => "Active License Key", "data" => ["license_key" => ["status_code" => "ACTIVE", "status_name" => "Active"]], "status_code" => 200]);
+            }
+            else
+            {
+                //Xét theo license key trước
+                if(!isset($data['license_key']) || trim($data['license_key']) === ''){
+                    return json_encode(["status" => true, "code" => 200, "message" => "License Key is required when Trimble Email is provided", "data" => ["license_key" => ["status_code" => "LICENSE_KEY_REQUIRED", "status_name" => "License Key Required"]], "status_code" => 200]);
+                }
+                //Kiểm tra theo license_key và product_id nếu không tìm thấy theo trimble_email
+                $productLicenseKey = ProductLicenseKeys::where([
+                    'product_id' =>  $product->id,
+                    'license_key' =>  $data['license_key']
+                ])->first();
+                if(!empty($productLicenseKey))
+                {
+                    if (strtotime($productLicenseKey->expiry_date) > 0 && date('Y-m-d H:i:s', strtotime($productLicenseKey->expiry_date)) < date('Y-m-d H:i:s') && $productLicenseKey->status != 'DEACTIVATED')
+                    {
+                        $productLicenseKeysData = ['status' => 'EXPIRED'];
+                        ProductLicenseKeys::updateRecord($productLicenseKeysData, $productLicenseKey->id);
+                        return json_encode(["status" => true, "code" => 200, "message" => "Expired License Key", "data" => ["license_key" => ["status_code" => "EXPIRED", "status_name" => "Expired"]], "status_code" => 200]);
+                    }
+                    if(empty($productLicenseKey->trimble_email) || $productLicenseKey->trimble_email =='')
+                    {
+                        $productLicenseKey->trimble_email = $data['trimble_email'];
+                        $productLicenseKey->save();
+                        return json_encode(["status" => true, "code" => 200, "message" => "Active License Key", "data" => ["license_key" => ["status_code" => "ACTIVE", "status_name" => "Active"]], "status_code" => 200]);
+                    }
+                    if(!empty($productLicenseKey->trimble_email) && $productLicenseKey->trimble_email != $data['trimble_email'])
+                    {
+                        return json_encode(["status" => true, "code" => 200, "message" => "Wrong Trimble Email", "data" => ["license_key" => ["status_code" => "ALREADY_ACTIVE", "status_name" => "Already Active"]], "status_code" => 200]);
+                    }
+                }
+                else
+                {
+                    return json_encode(["status" => true, "code" => 200, "message" => "Not Available", "data" => ["license_key" => ["status_code" => "NOT_AVAILABLE", "status_name" => "Not Available"]], "status_code" => 200]);
+                }
+            }
+        }
+        else
+        {
+            $productLicenseKey = ProductLicenseKeys::where([
                 'license_key' =>  $data['license_key'],
                 'product_id' =>  $product->id,
             ])->where(function ($query) use ($data) {
@@ -360,41 +417,43 @@ class LicenseKeyService
                     ->orWhere('second_mac_id', $data['mac_address']);
             })->whereNotIn('status', ['DEACTIVATED'])->first();
 
-        if (!empty($productLicenseKey))
-        {
-            if (!empty($productLicenseKey->active_mac_id) && $productLicenseKey->active_mac_id != $data['mac_address'])
+            if (!empty($productLicenseKey))
             {
-                return json_encode(["status" => true, "code" => 200, "message" => "This license key is already in use on another system. If you would like to activate it on this system, please release the license from the currently activated system first, and then proceed with the activation.", "data" => ["license_key" => ["status_code" => "ALREADY_ACTIVE", "status_name" => "Already Active"]], "status_code" => 200]);
-            }
+                if (!empty($productLicenseKey->active_mac_id) && $productLicenseKey->active_mac_id != $data['mac_address'])
+                {
+                    return json_encode(["status" => true, "code" => 200, "message" => "This license key is already in use on another system. If you would like to activate it on this system, please release the license from the currently activated system first, and then proceed with the activation.", "data" => ["license_key" => ["status_code" => "ALREADY_ACTIVE", "status_name" => "Already Active"]], "status_code" => 200]);
+                }
 
-            if (empty($productLicenseKey->active_mac_id))
-            {
-                $productLicenseKey->active_mac_id = $data['mac_address'];
-                $productLicenseKey->save();
-            }
-            if (strtotime($productLicenseKey->expiry_date) > 0 && date('Y-m-d H:i:s', strtotime($productLicenseKey->expiry_date)) < date('Y-m-d H:i:s') && $productLicenseKey->status != 'DEACTIVATED')
-            {
-                $productLicenseKeysData = [
-                    'status' => 'EXPIRED'
-                ];
+                if (empty($productLicenseKey->active_mac_id))
+                {
+                    $productLicenseKey->active_mac_id = $data['mac_address'];
+                    $productLicenseKey->save();
+                }
+                if (strtotime($productLicenseKey->expiry_date) > 0 && date('Y-m-d H:i:s', strtotime($productLicenseKey->expiry_date)) < date('Y-m-d H:i:s') && $productLicenseKey->status != 'DEACTIVATED')
+                {
+                    $productLicenseKeysData = [
+                        'status' => 'EXPIRED'
+                    ];
 
-                ProductLicenseKeys::updateRecord($productLicenseKeysData, $productLicenseKey->id);
-                return json_encode(["status" => true, "code" => 200, "message" => "Expired License Key", "data" => ["license_key" => ["status_code" => "EXPIRED", "status_name" => "Expired"]], "status_code" => 200]);
-            }
-            else if ($productLicenseKey->status == 'DEACTIVATED')
-            {
-                return json_encode(["status" => true, "code" => 200, "message" => "Deactivated License Key", "data" => ["license_key" => ["status_code" => "DEACTIVATED", "status_name" => "Deactivated"]], "status_code" => 200]);
+                    ProductLicenseKeys::updateRecord($productLicenseKeysData, $productLicenseKey->id);
+                    return json_encode(["status" => true, "code" => 200, "message" => "Expired License Key", "data" => ["license_key" => ["status_code" => "EXPIRED", "status_name" => "Expired"]], "status_code" => 200]);
+                }
+                else if ($productLicenseKey->status == 'DEACTIVATED')
+                {
+                    return json_encode(["status" => true, "code" => 200, "message" => "Deactivated License Key", "data" => ["license_key" => ["status_code" => "DEACTIVATED", "status_name" => "Deactivated"]], "status_code" => 200]);
+                }
+                else
+                {
+                    return json_encode(["status" => true, "code" => 200, "message" => "Active License Key", "data" => ["license_key" => ["status_code" => "ACTIVE", "status_name" => "Active"]], "status_code" => 200]);
+                }
             }
             else
             {
-                return json_encode(["status" => true, "code" => 200, "message" => "Active License Key", "data" => ["license_key" => ["status_code" => "ACTIVE", "status_name" => "Active"]], "status_code" => 200]);
+                return json_encode(["status" => true, "code" => 200, "message" => "Not Available", "data" => ["license_key" => ["status_code" => "NOT_AVAILABLE", "status_name" => "Not Available"]], "status_code" => 200]);
             }
         }
-        else
-        {
-            return json_encode(["status" => true, "code" => 200, "message" => "Not Available", "data" => ["license_key" => ["status_code" => "NOT_AVAILABLE", "status_name" => "Not Available"]], "status_code" => 200]);
-        }
     }
+
     public static function licenseActivationCheck($request_data)
     {
         $errors=[];
@@ -404,6 +463,7 @@ class LicenseKeyService
             ->leftJoin('packages as pa', 'plk.package_id', 'pa.id')
             ->select('plk.*', 'p.product_code', 'pa.package_code')
             ->whereNull('plk.deleted_at');
+            
             if(!empty($request_data['type']) && strtoupper($request_data['type'])=='PRODUCT'){
                 $license_products_query->where('p.product_code', @$request_data['product_code']);
             }
@@ -412,7 +472,6 @@ class LicenseKeyService
             }
             $license_products_query->where('plk.mac_address', @$request_data['mac_address']);
             $license_products_query->where('plk.license_key', @$request_data['license_key']);
-            // dd($license_products_query->toSql());
             $trial_licence_data_exist=$license_products_query->first();
             if(!empty($trial_licence_data_exist)){
                 $errors[]="Trial License is already activated.";
@@ -421,48 +480,59 @@ class LicenseKeyService
             $license_data=[];
             $license_data['license_key']=@$request_data['license_key'];
             $license_product = LicenseKeyService::getLicenseProducts($license_data);
-            //  echo "<pre>";
-            //     var_dump($license_product); echo "</pre>";
             $activated=0;
             $avaliable=0;
             $product_exist=false;
             $package_exist=false;
             if(!empty($license_product)){
-                
                 foreach ($license_product as $key => $value) {
                     if(!empty($value['status']) && in_array($value['status'], ['PURCHASED'])){
-                        // if($value['mac_address']!=@$request_data['mac_address']){
-                        //     if(!in_array("License is already activated.", $errors)){
-                        //         $errors[]="License is already activated.";
-                        //     }
-                        // }
-                        // $activated=$activated+1;
                         $productLicenseKeys = ProductLicenseKeys::where('license_uuid', $value['license_id'])->first();
-                        if((!empty($productLicenseKeys->mac_address) && $productLicenseKeys->mac_address != @$request_data['mac_address']) && (!empty($productLicenseKeys->number_of_mac_id) && $productLicenseKeys->number_of_mac_id == 1)){
-                            if(in_array($productLicenseKeys->license_type, ['FLOATING']) && $productLicenseKeys->package_id != ''){
+                        if((!empty($productLicenseKeys->mac_address) && $productLicenseKeys->mac_address != @$request_data['mac_address']) && (!empty($productLicenseKeys->number_of_mac_id) && $productLicenseKeys->number_of_mac_id == 1))
+                        {
+                            if(in_array($productLicenseKeys->license_type, ['FLOATING']) && $productLicenseKeys->package_id != '')
+                            {
                                 $productLicenseKeys->second_mac_id = @$request_data['mac_address'];
                                 $productLicenseKeys->active_mac_id = @$request_data['mac_address'];
                                 $productLicenseKeys->number_of_mac_id = 2;
                                 $productLicenseKeys->save();
-                                // if ($productLicenseKeys->save())
-                                //     return $productLicenseKeys;
-                                // else   
-                                //     return false;
                             }
-                        }else if(!empty($productLicenseKeys->mac_address) && $productLicenseKeys->mac_address == @$request_data['mac_address']){
-                           $productLicenseKeys->active_mac_id = @$request_data['mac_address'];
-                           $productLicenseKeys->save();
-                        }else if (!empty($productLicenseKeys->second_mac_id) && $productLicenseKeys->second_mac_id == @$request_data['mac_address']){
-                            $productLicenseKeys->active_mac_id = @$request_data['mac_address'];
-                            $productLicenseKeys->save();
-                        }else if(!empty($productLicenseKeys->number_of_mac_id) && $productLicenseKeys->number_of_mac_id == 2) {
-                            if(!in_array("Access limit reached. A maximum of two users are allowed per floating license.", $errors)){
-                                $errors[]="Access limit reached. A maximum of two users are allowed per floating license.";
-                            } 
-                        }else{
-                            if($value['mac_address']!=@$request_data['mac_address']){
-                                if(!in_array("License is already activated.", $errors)){
+                        }
+                        else if(!empty($request_data['trimble_email']) && $request_data['trimble_email'] != '')
+                        {
+                            if(!empty($productLicenseKeys->trimble_email) && $productLicenseKeys->trimble_email != @$request_data['trimble_email'])
+                            {
+                                if(!in_array("License is already activated.", $errors))
+                                {
                                     $errors[]="License is already activated.";
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if(!empty($productLicenseKeys->mac_address) && $productLicenseKeys->mac_address == @$request_data['mac_address'])
+                            {
+                                $productLicenseKeys->active_mac_id = @$request_data['mac_address'];
+                                $productLicenseKeys->save();
+                            }
+                            else if (!empty($productLicenseKeys->second_mac_id) && $productLicenseKeys->second_mac_id == @$request_data['mac_address'])
+                            {
+                                $productLicenseKeys->active_mac_id = @$request_data['mac_address'];
+                                $productLicenseKeys->save();
+                            }
+                            else if(!empty($productLicenseKeys->number_of_mac_id) && $productLicenseKeys->number_of_mac_id == 2) 
+                            {
+                                if(!in_array("Access limit reached. A maximum of two users are allowed per floating license.", $errors)){
+                                    $errors[]="Access limit reached. A maximum of two users are allowed per floating license.";
+                                } 
+                            }
+                            else
+                            {
+                                if($value['mac_address']!=@$request_data['mac_address'] && $value['mac_address'] !=''){
+                                    if(!in_array("License is already activated.", $errors))
+                                    {
+                                        $errors[]="License is already activated.";
+                                    }
                                 }
                             }
                         }
@@ -492,7 +562,8 @@ class LicenseKeyService
         
         return $errors;
     }
-    public static function licenseActivationV2($request_data)
+
+    public static function licenseActivationV2Backup($request_data)
     {
         $system_info = [
             "BROWSER" => UserSystemInfoHelper::get_browsers(),
@@ -629,6 +700,160 @@ class LicenseKeyService
                         }
                     }
                 
+                }
+                $license_data=[];
+                $license_data['license_key']=@$request_data['license_key'];
+                $result['data'] = LicenseKeyService::getLicenseProducts($license_data);
+            }
+        }
+        return $result;
+
+    }
+    public static function licenseActivationV2($request_data)
+    {
+        $system_info = [
+            "BROWSER" => UserSystemInfoHelper::get_browsers(),
+            "OS" => UserSystemInfoHelper::get_os(),
+            "IP_ADDRESS" => UserSystemInfoHelper::get_ip(),
+        ];
+        $result=[];
+        $result['data']=[];
+        if(!empty($request_data['license_key'])){
+            $license_products_query=DB::table('product_license_keys as plk')
+            ->leftJoin('products as p', 'plk.product_id', 'p.id')
+            ->leftJoin('packages as pa', 'plk.package_id', 'pa.id')
+            ->select('plk.*', 'p.product_code', 'pa.package_code')
+            ->whereNull('plk.deleted_at');
+            
+            $is_license_product_already_activated_query = (clone $license_products_query);
+            //Từ license key lấy được product license
+            $product_license = ProductLicenseKeys::where('license_key', @$request_data['license_key'])->first();
+            log::info('Product license: ' . json_encode($product_license));
+            if(isset($product_license->package_id) && !empty($product_license->package_id)){
+                $package_id = $product_license->package_id;
+                log::info('Package ID: ' . json_encode($package_id));
+                $package_code = Package::where('id', $package_id)->first()?->package_code;
+                log::info('Package Code: ' . json_encode($package_code));
+                $request_data['package_code'] = $package_code;
+                $request_data['type'] = 'PACKAGE';
+            }else{
+                $request_data['type'] = 'PRODUCT';
+            }
+            if(!empty($request_data['type']) && strtoupper($request_data['type'])=='PACKAGE'){
+                log::info('Package Code in request data: ' . json_encode(@$request_data['package_code']));
+                $license_products_query->where('pa.package_code', @$request_data['package_code']);
+            }
+            if(!empty($request_data['type']) && strtoupper($request_data['type'])=='PRODUCT'){
+                $license_products_query->where('p.product_code', @$request_data['product_code']);
+            }
+            
+            $mac_address=@$request_data['mac_address'];
+            if (@$request_data['license_key'] == config('app.trial_license_key')){
+                $license_products_query->where('plk.mac_address', @$request_data['mac_address']);
+                $trial_licence_data_exist=$license_products_query->where('plk.license_key', @$request_data['license_key'])->first();
+                $license_type_query = DB::table('license_types as lt')
+                    ->leftJoin('license_products as lp', 'lp.type_id', 'lt.id')->whereNull('lt.deleted_at')->where('lt.status', 'AVAILABLE')
+                    ->leftJoin('products as p', 'p.id', 'lp.product_id')
+                    ->leftJoin('packages as pa', 'pa.id', 'lp.package_id')
+                    ->where('lt.code', 'TRIAL')
+                    ->select('lt.*', 'lp.id as product_license_type_id', 'lp.package_id', 'lp.product_id', 'lp.expiry_duration', 'lp.duration_type');
+                
+                if(!empty($request_data['type']) && strtoupper($request_data['type'])=='PRODUCT'){
+                    $license_type_query->where('p.product_code', @$request_data['product_code']);
+                } else if(!empty($request_data['type']) && strtoupper($request_data['type'])=='PACKAGE'){
+                    $license_type_query->where('pa.package_code', @$request_data['package_code']);
+                } else {
+                    $license_type_query->whereNull('p.product_code')->whereNull('pa.package_code');
+                }
+                $license_type_exist = $license_type_query->get();
+                if(!empty($license_type_exist) && count($license_type_exist)>0){
+                    foreach ($license_type_exist as $key => $value) {
+                        $create_license_data = [
+                            'license_type_id' => @$value->product_license_type_id,
+                            'license_type' => 'TRIAL',
+                            'entity_type' => 'PRODUCT',
+                            'product_id' => @$value->product_id,
+                            'package_id' => @$value->package_id,
+                            'license_key' => config('app.trial_license_key'),
+                            'mac_address' => $mac_address,
+                            'expiry_date' => self::generateExpiryDate(@$value->expiry_duration),
+                            'purchased_date' => date('Y-m-d H:i:s'),
+                            'status' => 'PURCHASED',
+                        ];
+                        $updated_license_info=ProductLicenseKeys::insertRecord($create_license_data);
+                        $licenseAuditData = [
+                            'license_id' => $updated_license_info->id,
+                            'license_audit_uuid' => (string) Str::uuid(),
+                            'entry_type' => 'LICENSE_ACTIVATION',
+                            'license_key' => $updated_license_info->license_key,
+                            'mac_address' => $updated_license_info->mac_address,
+                            'system_info' => json_encode($system_info),
+                        ];
+                        LicenseAudit::insertRecord($licenseAuditData);
+                    }
+                    $license_data=[];
+                    $license_data['license_key']=@$request_data['license_key'];
+                    $license_data['mac_address']=$mac_address;
+                    $result['data'] = LicenseKeyService::getLicenseProducts($license_data);
+                } else {
+                    $result=[];
+                    $result['error']=[
+                        "Trial License is not avaliable."
+                    ];
+                }
+            } else {
+                $todayDate = date('Y-m-d H:i:s');
+                $license_products_query->leftJoin('license_types as lt', 'lt.code', 'plk.license_type');
+                $license_products_query->select('plk.*', 'p.product_code', 'pa.package_code', 'lt.duration_type', 'lt.expiry_duration');                
+                
+                $license_data_exist=$license_products_query->where('plk.license_key', @$request_data['license_key'])->get();
+
+                $is_license_product_already_activated_query->leftJoin('license_types as lt', 'lt.code', 'plk.license_type');
+                $is_license_product_already_activated_query->select('plk.*', 'p.product_code', 'pa.package_code', 'lt.duration_type', 'lt.expiry_duration')->whereNotNull('plk.expiry_date')->where('plk.license_key', @$request_data['license_key'])->orderBy('plk.expiry_date','asc');
+
+                $expiry_date_exist = null;
+                $purchase_date_exist = null;  
+                if(!empty($license_data_exist)){
+                    foreach ($license_data_exist as $key => $value) {
+                        $is_license_product_already_activated = $is_license_product_already_activated_query->where('plk.order_id', $value->order_id)->first();
+                        log::info('License Product Exist: ' . $value->status);
+                        if(!empty($value->status) && in_array($value->status, ['AVAILABLE', 'PURCHASED']))
+                        {
+                            $license_info=[];
+                            $license_info['mac_address']=(!empty($mac_address)) ? $mac_address : $value->mac_address;
+                            $license_info['trimble_email']=(!empty($request_data['trimble_email'])) ? $request_data['trimble_email'] : $value->trimble_email;
+                            /**Floating License need to add once they update the Frontend UI */
+                            if(in_array($value->license_type, ['FLOATING']) && $value->package_code != ''){
+                                $license_info['active_mac_id']=(!empty($mac_address)) ? $mac_address : '';
+                                $license_info['number_of_mac_id']=(empty($value->number_of_mac_id)) ? 1 : 0;
+                            }
+                            if (!empty(@$is_license_product_already_activated)) {
+                                $expiry_date_exist = @$is_license_product_already_activated->expiry_date;
+                            }
+                            if(empty($value->expiry_date)){
+                                $license_info['expiry_date']=(!empty($expiry_date_exist)) ? $expiry_date_exist : self::generateExpiryDate(@$value->expiry_duration, $value->created_at);
+                            } 
+                            if(!empty($value->purchased_date)){
+                                $license_info['purchased_date']=$value->purchased_date;
+                            } else {
+                                $license_info['purchased_date']= (!empty(@$purchase_date_exist)) ? @$purchase_date_exist : $todayDate;
+                            }
+                            $license_info['status']='PURCHASED';
+                            log::info('License Info to Update: ' . json_encode($license_info));
+                            $updated_license_info=ProductLicenseKeys::updateRecord($license_info, $value->license_uuid);
+                            log::info('Updated License Info: ' . json_encode($updated_license_info));
+                            
+                            $licenseAuditData = [
+                                'license_id' => $updated_license_info->id,
+                                'license_audit_uuid' => (string) Str::uuid(),
+                                'entry_type' => 'LICENSE_ACTIVATION',
+                                'license_key' => $updated_license_info->license_key,
+                                'mac_address' => $updated_license_info->mac_address,
+                                'system_info' => json_encode($system_info),
+                            ];
+                            LicenseAudit::insertRecord($licenseAuditData);
+                        }
+                    }
                 }
                 $license_data=[];
                 $license_data['license_key']=@$request_data['license_key'];
@@ -817,7 +1042,6 @@ class LicenseKeyService
             return json_encode(["status" => false, "code" => 500, "message" => "Something Went Wrong", "data" => "", "status_code" => 500]);
         }
     }
-
     public static function getLicenseProducts($data)
     {
         $result=[];
