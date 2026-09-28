@@ -24,9 +24,12 @@ if [ ! -f "$PASSPORT_PRIVATE_KEY" ]; then
 fi
 
 # Seed DB (optional)
-php artisan db:seed --force
-
-
+if [ "${RUN_DB_SEED:-false}" = "true" ]; then
+    echo "Running database seeders..."
+    php artisan db:seed --force
+else
+    echo "Skipping database seeders."
+fi
 echo "Fixing permissions..."
 
 chown -R www-data:www-data $IBIM_BACKOFFICE_PATH/storage
