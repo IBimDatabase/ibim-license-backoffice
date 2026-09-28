@@ -136,6 +136,7 @@ class ProductLicenseKeysController extends Controller
     public function licenseKeyValidation(Request $request)
     {
         $data = $request->all();
+        //Validate the request data with rules of format and required fields
         $validation = LicenseValidator::validateLicenseKeyAndMac($data);
         if ($validation === true)
         {
@@ -209,7 +210,6 @@ class ProductLicenseKeysController extends Controller
 
     }
 
-
     public function getLicenseProducts(Request $request)
     {
         $data = $request->all();
@@ -255,8 +255,6 @@ class ProductLicenseKeysController extends Controller
         else
             return response()->json(["status" => false, "code" => 422, "message" => 'License Keys Not Found', "data" => ''], 422);
     }
-
-
     public function getLicenseDetails(Request $request)
     {
         $data = $request->all();

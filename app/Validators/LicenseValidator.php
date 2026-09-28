@@ -24,6 +24,7 @@ class LicenseValidator
             return true;
         }
     }
+
     public static function renew_existing_orders($data)
     {
         $validator = Validator::make($data, [
@@ -75,8 +76,6 @@ class LicenseValidator
             return true;
         }
     }
-
-
     public static function validateLicenseKey($data)
     {
         $validator = Validator::make($data, [
@@ -103,11 +102,14 @@ class LicenseValidator
             'product_code.exists'=>'Product code is invalid.',
             'package_code.required_if'=>'Package code is required, when type id Package.',
             'package_code.exists'=>'Package code is invalid.',
+            'trimble_email.email' =>'Trimble email must be a valid email address.',
+            'trimble_email.max' =>'Trimble email may not be greater than 150 characters.',
         ];
         $data['type']=strtoupper(@$data['type']);
         $validator = Validator::make($data, [
             'type' => ['required', 'in:PRODUCT,PACKAGE'],
             'license_key' => ['required', 'max:20', 'regex:/[A-Z0-9]{4}\-[A-Z0-9]{4}\-[A-Z0-9]{4}\-[A-Z0-9]{4}/'],
+            'trimble_email' => ['nullable', 'email', 'max:150'],
             'product_code' => ['required_if:type,=,PRODUCT', Rule::exists('products', 'product_code')->whereNull('deleted_at')],
             'package_code' => ['required_if:type,=,PACKAGE', Rule::exists('packages', 'package_code')->whereNull('deleted_at')],
         ], $messages);
@@ -125,28 +127,44 @@ class LicenseValidator
 
     public static function validateLicenseKeyAndMac($data)
     {
-        $validator = Validator::make($data, [
+        $hasTrimbleEmail = isset($data['trimble_email']) && trim($data['trimble_email']) !== '';
+        if (!empty($data['trimble_email'])) 
+        {
+            $data['trimble_email'] = strtolower(trim($data['trimble_email']));
+        }
+        $rules=[
             'license_key' => ['required', 'max:20', 'regex:/[A-Z0-9]{4}\-[A-Z0-9]{4}\-[A-Z0-9]{4}\-[A-Z0-9]{4}/'],
-            // 'mac_address' => ['required', 'max:17', 'regex:/[a-zA-Z0-9]{2}\-[a-zA-Z0-9]{2}\-[a-zA-Z0-9]{2}\-[a-zA-Z0-9]{2}\-[a-zA-Z0-9]{2}\-[a-zA-Z0-9]{2}|[a-zA-Z0-9]{2}\:[a-zA-Z0-9]{2}\:[a-zA-Z0-9]{2}\:[a-zA-Z0-9]{2}\:[a-zA-Z0-9]{2}\:[a-zA-Z0-9]{2}/i'],
             'mac_address' => ['required', 'max:200'],
+            'trimble_email' => ['nullable', 'email', 'max:150'],
             'product_code' => 'required|max:150',
-        ]);
+        ];
+        if( $hasTrimbleEmail)
+        {
+            $rules=[
+            'license_key' => ['nullable', 'max:20'],
+            'mac_address' => ['nullable', 'max:200'],
+            'trimble_email' => ['required', 'email', 'max:150'],
+            'product_code' => 'required|max:150',
+            ];
+        }
+        $messages=[
+            'license_key.required'=>'License key is required.',
+            'license_key.regex'=>'License key format is invalid.',
+            'trimble_email.email' =>'Trimble email must be a valid email address.',
+            'trimble_email.max' =>'Trimble email may not be greater than 150 characters.',
+            'mac_address.required'=>'MAC ID is required when Trimble email is not provided.',
+            'product_code.required'=>'Product code is required.',
+        ];
 
-        if ($validator->fails())
-        {
-            return $validator;
-        }
-        else
-        {
-            return true;
-        }
+        $validator = Validator::make($data,$rules,$messages);
+
+        return $validator->fails()? $validator: true;
     }
 
 
     public static function licenseKeyDetailsValidator($data)
     {
         $rules = [
-            // 'mac_address' => ['required', 'max:17', 'regex:/[a-zA-Z0-9]{2}\-[a-zA-Z0-9]{2}\-[a-zA-Z0-9]{2}\-[a-zA-Z0-9]{2}\-[a-zA-Z0-9]{2}\-[a-zA-Z0-9]{2}|[a-zA-Z0-9]{2}\:[a-zA-Z0-9]{2}\:[a-zA-Z0-9]{2}\:[a-zA-Z0-9]{2}\:[a-zA-Z0-9]{2}\:[a-zA-Z0-9]{2}/i'],
             'mac_address' => ['required', 'max:200'],
             'license_key' => 'required',
             'product_code' => 'required|max:150',
@@ -335,7 +353,6 @@ class LicenseValidator
     {
         $validator = Validator::make($data, [
             'license_key' => ['required', 'max:20', 'regex:/[A-Z0-9]{4}\-[A-Z0-9]{4}\-[A-Z0-9]{4}\-[A-Z0-9]{4}/'],
-            // 'mac_address' => ['required', 'max:17', 'regex:/[a-zA-Z0-9]{2}\-[a-zA-Z0-9]{2}\-[a-zA-Z0-9]{2}\-[a-zA-Z0-9]{2}\-[a-zA-Z0-9]{2}\-[a-zA-Z0-9]{2}|[a-zA-Z0-9]{2}\:[a-zA-Z0-9]{2}\:[a-zA-Z0-9]{2}\:[a-zA-Z0-9]{2}\:[a-zA-Z0-9]{2}\:[a-zA-Z0-9]{2}/i'],
             'mac_address' => ['required', 'max:200'],
         ]);
 

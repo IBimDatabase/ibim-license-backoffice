@@ -15,7 +15,7 @@ class ProductLicenseKeys extends Model
 
     protected $table = 'product_license_keys';
     protected $fillable = [
-        'license_type_id', 'product_id', 'renewal_license_id', 'license_uuid', 'license_type', 'license_key', 'mac_address', 'license_info', 'expiry_date', 'purchased_date', 'status', 'wp_order_item_id', 'customer_id', 'created_by', 'updated_by'
+        'license_type_id', 'product_id', 'renewal_license_id', 'license_uuid', 'license_type', 'license_key', 'mac_address','trimble_email', 'license_info', 'expiry_date', 'purchased_date', 'status', 'wp_order_item_id', 'customer_id', 'created_by', 'updated_by'
     ];
     protected $appends = ['hashed_license_key'];
 
@@ -31,6 +31,7 @@ class ProductLicenseKeys extends Model
         $productLicenseKeys->license_type = (key_exists('license_type', $data)) ? $data['license_type']: NULL;
         $productLicenseKeys->license_key = (key_exists('license_key', $data)) ? $data['license_key']: NULL;
         $productLicenseKeys->mac_address = (key_exists('mac_address', $data)) ? $data['mac_address']: NULL;
+        $productLicenseKeys->trimble_email = !empty($data['trimble_email']) ? strtolower(trim($data['trimble_email'])): null;
         $productLicenseKeys->license_info = (key_exists('license_info', $data)) ? $data['license_info']: NULL;
         $productLicenseKeys->expiry_date = (key_exists('expiry_date', $data)) ? $data['expiry_date']: NULL;
         $productLicenseKeys->purchased_date = (key_exists('purchased_date', $data)) ? $data['purchased_date']: NULL;
@@ -58,6 +59,10 @@ class ProductLicenseKeys extends Model
         $productLicenseKeys->license_type = (key_exists('license_type', $data)) ? $data['license_type']: $productLicenseKeys->license_type;
         $productLicenseKeys->license_key = (key_exists('license_key', $data)) ? $data['license_key']: $productLicenseKeys->license_key;
         $productLicenseKeys->mac_address = (key_exists('mac_address', $data)) ? $data['mac_address']: $productLicenseKeys->mac_address;
+        if (array_key_exists('trimble_email', $data) && ($productLicenseKeys->trimble_email === null || $productLicenseKeys->trimble_email === '') && !empty($data['trimble_email'])) 
+        {
+            $productLicenseKeys->trimble_email = strtolower(trim($data['trimble_email']));
+        }
         $productLicenseKeys->license_info = (key_exists('license_info', $data)) ? $data['license_info']: $productLicenseKeys->license_info;
         $productLicenseKeys->expiry_date = (key_exists('expiry_date', $data)) ? $data['expiry_date']: $productLicenseKeys->expiry_date;
         $productLicenseKeys->purchased_date = (key_exists('purchased_date', $data)) ? $data['purchased_date']: $productLicenseKeys->purchased_date;
@@ -89,6 +94,10 @@ class ProductLicenseKeys extends Model
         $productLicenseKeys->license_type = (key_exists('license_type', $data)) ? $data['license_type']: $productLicenseKeys->license_type;
         $productLicenseKeys->license_key = (key_exists('license_key', $data)) ? $data['license_key']: $productLicenseKeys->license_key;
         $productLicenseKeys->mac_address = (key_exists('mac_address', $data)) ? $data['mac_address']: $productLicenseKeys->mac_address;
+        if (array_key_exists('trimble_email', $data) && $productLicenseKeys->trimble_email === null && !empty($data['trimble_email'])) 
+        {
+            $productLicenseKeys->trimble_email = strtolower(trim($data['trimble_email']));
+        }
         $productLicenseKeys->license_info = (key_exists('license_info', $data)) ? $data['license_info']: $productLicenseKeys->license_info;
         $productLicenseKeys->expiry_date = (key_exists('expiry_date', $data)) ? $data['expiry_date']: $productLicenseKeys->expiry_date;
         $productLicenseKeys->purchased_date = (key_exists('purchased_date', $data)) ? $data['purchased_date']: $productLicenseKeys->purchased_date;
